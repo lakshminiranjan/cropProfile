@@ -1,36 +1,23 @@
 // App.js
 import React from "react";
-import NavBar from "./components/NavBar";
-import ProfileHeader from "./components/ProfileHeader";
-import ProfileContent from "./components/ProfileContent";
+import ProfilePage from "./components/ProfilePage.js";
+import Agri_Info from "./components/Agri_info.js";
+import Crop_Info from "./components/Crop_Info.js";
+import { Routes , Route , Navigate } from 'react-router-dom';
 
 const App = () => {
-  const profileInfo = {
-    name: "John Doe",
-    age: 30,
-    role: "Software Developer",
-    address: "123 Main St, City, State, Country",
-    education: "Bachelor's in Computer Science",
-    bio: "Passionate developer with a love for creating intuitive user experiences.",
-    socialLinks: [
-      { platform: "LinkedIn", url: "https://www.linkedin.com/in/johndoe" },
-      { platform: "GitHub", url: "https://github.com/johndoe" },
-      // Add more social links as needed
-    ],
-  };
-
   return (
     <div>
-      <NavBar />
-      <ProfileHeader name={profileInfo.name} title={profileInfo.title} />
-      <ProfileContent
-        name={profileInfo.name}
-        role={profileInfo.role}
-        age={profileInfo.age}
-        address={profileInfo.address}
-        education={profileInfo.education}
-        bio={profileInfo.bio}
-      />
+      <Routes>
+        {/* Set the default route to ProfilePage */}
+        <Route path="/" element={<Navigate to="/personal-info" />} />
+        {/* Correct the path without hash */}
+        <Route path="/personal-info" element={<ProfilePage />} />
+        {/* Correct the path without hash */}
+        <Route path="/agri" element={<Agri_Info />} />
+        {/* Correct the path without hash */}
+        <Route path="/crop" element={<Crop_Info />} />
+      </Routes>
     </div>
   );
 };
