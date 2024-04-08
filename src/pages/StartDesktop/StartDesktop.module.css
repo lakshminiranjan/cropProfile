@@ -1,0 +1,1582 @@
+.farmerProfile {
+    margin: 0;
+}
+
+.followTheSteps {
+    margin: 0;
+    font-size: var(--body-text-medium-medium-size);
+}
+
+.farmerProfileFollowTheContainer {
+    position: absolute;
+    top: 166px;
+    left: 111px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #101010;
+    font-size: 32px;
+}
+
+.instanceChild {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-gainsboro);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    display: flex;
+    
+}
+
+.loremIpsum,
+.personalInformation,
+.step1 {
+    position: absolute;
+    top: 62px;
+    left: 35px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    display: flex;
+}
+
+.personalInformation,
+.step1 {
+    top: 17px;
+    left: 25px;
+    font-size: var(--font-size-3xs);
+    color: var(--color-black);
+}
+
+.personalInformation {
+    top: 41px;
+    left: 34px;
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-dimgray);
+}
+
+.groupChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-black);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 129px;
+    height: 46px;
+}
+
+.start {
+    position: absolute;
+    top: 11px;
+    left: 32px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.rectangleGroup {
+    position: absolute;
+    top: 93px;
+    left: 34px;
+    width: 129px;
+    height: 46px;
+    cursor: pointer;
+}
+
+.rectangleParent {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.groupDiv,
+.property1default {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 320px;
+    height: 159px;
+}
+
+.groupDiv {
+    top: 93px;
+    left: 34px;
+    width: 129px;
+    height: 46px;
+}
+
+.property1variant2 {
+    position: absolute;
+    top: 20px;
+    left: 397px;
+    width: 320px;
+    height: 159px;
+}
+
+.property1defaultParent {
+    position: absolute;
+    top: 260px;
+    left: 98px;
+    border-radius: 5px;
+    border: 1px dashed #9747ff;
+    box-sizing: border-box;
+    width: 762px;
+    height: 199px;
+    overflow: hidden;
+    font-size: var(--font-size-xs);
+    color: var(--color-white);
+    display: flex;
+}
+
+.startDesktopChild {
+    position: absolute;
+    top: 66.5px;
+    left: -0.5px;
+    border-top: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 100%;
+    height: 1px;
+}
+
+.agricultureInformation,
+.logo,
+.personalInformation2 {
+    position: absolute;
+    top: 22px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.logo {
+    left: 28px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.agricultureInformation,
+.personalInformation2 {
+    left: 119px;
+}
+
+.agricultureInformation {
+    left: 342px;
+}
+
+.instanceInner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--br-5xl);
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.vectorParent {
+    position: fixed;
+   
+    bottom: 20px;
+    
+    right: 20px;
+    
+    width: 144px;
+    height: 48px;
+    cursor: pointer;
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-white);
+    font-family: var(--body-text-medium-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #02044a;
+    border: 1px solid var(--color-black);
+    border-radius: var(--br-5xl);
+    z-index: 9999;
+    margin-right: 200px;
+    text-align: center;
+    
+}
+
+.nextStep {
+    margin-left: 8px;
+    
+    letter-spacing: -0.02em;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+body {
+    overflow: hidden;
+    
+}
+
+.rightArrowIcon {
+    position: absolute;
+    top: 29px;
+    left: 319px;
+    width: 12px;
+    height: 12px;
+    object-fit: cover;
+}
+
+.startDesktop {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    height: 832px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+}
+
+@media (max-width: 600px) {
+
+    .agricultureInformation,
+    .personalInformation2,
+    .nextStep ,
+    .rightArrowIcon,
+    .startDesktopChild,
+    .vectorParent
+    {
+        display: none;
+        /* Hide these components on mobile view */
+    }
+}
+
+
+
+
+
+@media (max-width: 600px) {
+    .logo{
+        left: 28px;
+            font-size: var(--font-size-5xl);
+            color: var(--color-black);
+            text-align: center;
+    }
+    .farmerProfile {
+        margin: 0;
+    }
+
+    .followTheSteps {
+        margin: 0;
+        font-size: var(--body-text-medium-medium-size);
+    }
+
+    .farmerProfileFollowTheContainer {
+        position: absolute;
+        top: 84px;
+        left: 36px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .instanceChild {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-gainsboro);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+    }
+
+    .loremIpsum,
+    .personalInformation,
+    .step1 {
+        position: absolute;
+        top: 62px;
+        left: 35px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .personalInformation,
+    .step1 {
+        top: 17px;
+        left: 25px;
+        font-size: var(--font-size-3xs);
+        color: var(--color-black);
+    }
+
+    .personalInformation {
+        top: 41px;
+        left: 34px;
+        font-size: var(--body-text-medium-medium-size);
+        color: var(--color-dimgray);
+    }
+
+    .groupChild {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: var(--br-5xs);
+        background-color: var(--color-black);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 129px;
+        height: 46px;
+    }
+
+    .start {
+        position: absolute;
+        top: 11px;
+        left: 32px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .rectangleGroup {
+        position: absolute;
+        top: 93px;
+        left: 34px;
+        width: 129px;
+        height: 46px;
+        cursor: pointer;
+    }
+
+    .rectangleParent {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .groupDiv,
+    .property1default {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 320px;
+        height: 159px;
+    }
+
+    .groupDiv {
+        top: 93px;
+        left: 34px;
+        width: 129px;
+        height: 46px;
+    }
+
+    .property1variant2 {
+        position: absolute;
+        top: 199px;
+        left: 20px;
+        width: 320px;
+        height: 159px;
+    }
+
+    .property1defaultParent {
+        position: absolute;
+        top: 206px;
+        left: 14px;
+        border-radius: var(--br-8xs);
+        border: 1px dashed var(--color-blueviolet);
+        box-sizing: border-box;
+        width: 360px;
+        height: 378px;
+        overflow: hidden;
+        font-size: var(--font-size-xs);
+        color: var(--color-white);
+        border: 1px dashed #9747ff;
+    }
+
+  
+
+    .startmobile {
+        width: 100%;
+        position: relative;
+        background-color: var(--color-white);
+        height: 844px;
+        overflow: hidden;
+        text-align: left;
+        font-size: var(--font-size-13xl);
+        color: var(--color-gray);
+        font-family: var(--font-poppins);
+    }
+}
+
+@media (max-width: 865px) and (min-width: 600px) {
+    .farmerProfile {
+            margin: 0;
+            font-size: 2rem;
+        }
+    
+        .followTheSteps {
+            margin: 0;
+            font-size: var(--body-text-medium-medium-size);
+        }
+    
+        .farmerProfileFollowTheContainer {
+            position: absolute;
+            top: 226px;
+            left: 202px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-weight: 600;
+            color: var(--color-gray);
+            font-size: var(--font-size-13xl);
+        }
+    
+        .instanceChild {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-gainsboro);
+            border: 1px solid var(--color-black);
+            box-sizing: border-box;
+        }
+    
+        .loremIpsum,
+        .personalInformation,
+        .step1 {
+            position: absolute;
+            top: 62px;
+            left: 35px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+    
+        .personalInformation,
+        .step1 {
+            top: 17px;
+            left: 25px;
+            font-size: var(--font-size-3xs);
+            color: var(--color-black);
+        }
+    
+        .personalInformation {
+            top: 41px;
+            left: 34px;
+            font-size: var(--body-text-medium-medium-size);
+            color: var(--color-dimgray);
+        }
+    
+        .groupChild {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: var(--br-5xs);
+            background-color: var(--color-black);
+            border: 1px solid var(--color-black);
+            box-sizing: border-box;
+            width: 129px;
+            height: 46px;
+        }
+    
+        .start {
+            position: absolute;
+            top: 11px;
+            left: 32px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+    
+        .rectangleGroup {
+            position: absolute;
+            top: 93px;
+            left: 34px;
+            width: 129px;
+            height: 46px;
+            cursor: pointer;
+        }
+    
+        .rectangleParent {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    
+        .groupDiv,
+        .property1default {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            height: 159px;
+        }
+    
+        .groupDiv {
+            top: 93px;
+            left: 34px;
+            width: 129px;
+            height: 46px;
+        }
+    
+        .property1variant2 {
+            position: absolute;
+            top: 199px;
+            left: 20px;
+            width: 320px;
+            height: 159px;
+        }
+    
+        .property1defaultParent {
+            position: absolute;
+            top: 320px;
+            left: 189px;
+            border-radius: var(--br-8xs);
+            border: 1px dashed var(--color-blueviolet);
+            box-sizing: border-box;
+            width: 360px;
+            height: 378px;
+            overflow: hidden;
+            font-size: var(--font-size-xs);
+            border: 1px dashed #9747ff;
+        }
+    
+        .startTabletChild {
+            position: absolute;
+            top: 68.5px;
+            left: -0.5px;
+            border-top: 1px solid var(--color-black);
+            box-sizing: border-box;
+            width: 745px;
+            height: 1px;
+        }
+    
+        .logo {
+            left: 28px;
+            font-size: var(--font-size-5xl);
+            color: var(--color-black);
+            text-align: center;
+        }
+    
+        .agricultureInformation,
+        .logo,
+        .personalInformation2 {
+            position: absolute;
+            top: 24px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+    
+        .personalInformation2 {
+            left: 146px;
+            color: #477bff;
+        }
+    
+        .agricultureInformation {
+            left: 369px;
+            color: var(--color-black);
+        }
+    
+        .rightArrowIcon {
+            position: absolute;
+            top: 31px;
+            left: 347px;
+            width: 12px;
+            height: 12px;
+            object-fit: cover;
+        }
+    
+     
+
+.vectorParent {
+    position: flex;
+    bottom: 120px;
+    margin-right: 100px;
+    width: 400px;
+    height: 60px;
+    cursor: pointer;
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-white);
+    font-family: var(--body-text-medium-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #02044a;
+    border-radius: 5px;
+    text-align: center;
+    left: calc(50% - 200px);
+}
+.nextStep {
+    margin-left: 8px;
+    letter-spacing: -0.02em;
+    line-height: 20px;
+    font-weight: 500;
+}
+    
+        .startTablet {
+            width: 100%;
+            position: relative;
+            background-color: var(--color-white);
+            height: 1133px;
+            overflow: hidden;
+            text-align: left;
+            font-size: var(--font-size-base);
+            color: var(--color-white);
+            font-family: var(--font-poppins);
+        }
+}
+
+
+
+.containerProfilePhotoChild {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    background-color: #7b7b7b;
+    width: 320px;
+    height: 400px;
+}
+
+.groupChild1 {
+    position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: var(--br-5xs);
+        
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 129px;
+        height: 46px;
+        background-color: #CCCCCC;
+}
+
+.adduploadAPic,
+.profilePhoto {
+    position: absolute;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.adduploadAPic {
+    top: 139.3px;
+    left: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 189px;
+    height: 84.9px;
+    cursor: pointer;
+}
+
+.profilePhoto {
+    top: 0;
+    left: 9px;
+}
+
+.rectangleParent12 {
+    position: absolute;
+    top: 35px;
+    left: 34px;
+    width: 252px;
+    height: 302px;
+}
+
+.containerProfilePhoto
+ {
+    position: absolute;
+    top: 262px;
+    left: 100px;
+    width: 320px;
+    height: 400px;
+    text-align: center;
+}
+
+.of2 {
+    position: relative;
+    margin-left: 150px;
+   top:161px;
+    left: 1136px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 59px;
+    height: 16px;
+}
+
+.profilePhoto1 {
+    position: absolute;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    top:35px;
+    left:40px;
+}
+
+.instanceChild1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--br-5xl);
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+
+
+.prev,
+.vectorParent1 {
+    position: absolute;
+    font-family: var(--paragraph-body);
+    cursor: pointer;
+}
+
+.vectorParent1 {
+    top: 721px;
+    left: 1021px;
+    width: 144px;
+    height: 48px;
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-white);
+}
+
+.prev {
+    top: 650px;
+    left: 1080px;
+    letter-spacing: -0.02em;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.inputLabel {
+    align-self: stretch;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    font-family: var(--font-noto-sans);
+}
+
+.enterInput,
+.inputLabel {
+    position: relative;
+}
+
+.enterInput {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    
+}
+.enterInputWrapper {
+    align-self: stretch;
+        border-radius: var(--br-5xs);
+        border: 1px solid var(--color-lightgray);
+        box-sizing: border-box;
+        height: 45px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: var(--padding-3xs);
+        text-align: center;
+        color: var(--color-lightgray);
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: 'Inter', sans-serif;
+        border: 2px solid #CCCCCC;
+        
+}
+
+
+
+.textInputTypephone,
+.textInputTypephone1,
+.textInputTypephone2 {
+    position: absolute;
+    top: 324px;
+    left: 547px;
+    width: 345px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-7xs);
+    color: var(--color-dimgray-100);
+    font-family: var(--paragraph-body);
+}
+
+.textInputTypephone1,
+.textInputTypephone2 {
+    top: 423px;
+}
+
+.textInputTypephone2 {
+    top: 522px;
+}
+
+.nameInformation {
+    position: absolute;
+    top: 271px;
+    left: 547px;
+    font-weight: 600;
+    font-family: var(--font-noto-sans);
+}
+
+.rightArrowIcon {
+    position: absolute;
+    top: 29px;
+    left: 319px;
+    width: 12px;
+    height: 12px;
+    object-fit: cover;
+}
+
+.nameInfoDesktop {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    height: 832px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--paragraph-body-size);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+}
+
+
+.uploadingAPicDesktopItem {
+    position: absolute;
+    top: 265px;
+    left: 170px;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gainsboro);
+    width: 892px;
+    height: 366px;
+}
+
+.or {
+    position: absolute;
+    top: 436px;
+    left: 610px;
+    font-size: var(--font-size-5xl);
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5rem;;
+}
+
+.clouduploadIcon {
+    position: absolute;
+    top: 319px;
+    left: 604px;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.dragAndDrop {
+    position: absolute;
+    top: 392px;
+    left: 512px;
+    font-size: var(--font-size-5xl);
+    font-size:1.5rem;
+    margin-left: 10px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+.avatarIcon {
+    position: absolute;
+    margin-top: 115px;
+    right: 95px;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+
+.selectFile {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--br-5xs);
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    background-color: #02044a;
+    color: white;
+    cursor:pointer;
+}
+
+.vectorGroup {
+    position: absolute;
+    top: 485px;
+    left: 554px;
+    width: 144px;
+    height: 48px;
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-white);
+    font-family: var(--paragraph-body);
+}
+
+.uploadingAPicDesktop {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    height: 832px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--paragraph-body-size);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+}
+
+
+
+
+
+
+.label {
+    top: 74.51%;
+    left: 3.91%;
+    line-height: 26px;
+    font-weight: 600;
+    display: none;
+}
+
+.label {
+    height: 25.49%;
+    width: 49.13%;
+    top: 0;
+    left: 0.87%;
+    color: var(--color-darkgray);
+    text-align: left;
+    display: inline-block;
+}
+
+.inputFieldtype1Child {
+    position: absolute;
+    height: 49.02%;
+    width: 100%;
+    top: 25.49%;
+    right: 0;
+    bottom: 25.49%;
+    left: 0;
+    border-radius: var(--br-5xs);
+    background-color: var(--w-background);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+}
+
+.mailOutlineIcon {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.rakigmailcom {
+    position: relative;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+}
+
+.mailOutlineParent {
+    position: absolute;
+    top: calc(50% - 14px);
+    left: 20px;
+    width: 166px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-gray-100);
+    font-family: var(--paragraph-body);
+}
+
+.addIcon {
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 13px;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    display: none;
+}
+
+.inputFieldtype1Item {
+    position: absolute;
+    height: calc(100% - 51px);
+    top: 25.5px;
+    right: 45.5px;
+    bottom: 25.5px;
+    border-right: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 1px;
+    display: none;
+}
+
+.inputFieldtype1,
+.inputFieldtype11,
+.inputFieldtype12 {
+    position: absolute;
+    top: 282px;
+    left: 100px;
+    width: 345px;
+    height: 102px;
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--color-red);
+}
+
+.inputFieldtype11,
+.inputFieldtype12 {
+    left: 505px;
+}
+
+.inputFieldtype12 {
+    top: 377px;
+    left: 100px;
+}
+
+.contactInformation,
+.locationInformation {
+    position: absolute;
+    top: 246px;
+    left: 100px;
+    font-weight: 600;
+    font-family: var(--font-noto-sans);
+}
+
+.locationInformation {
+    top: 485px;
+}
+
+.dropdownTitle {
+    align-self: stretch;
+    position: relative;
+    line-height: 18px;
+    font-weight: 600;
+}
+
+.dropdownOption {
+    flex: 1;
+    position: relative;
+    line-height: 24px;
+}
+
+.inputField,
+.text {
+    align-self: stretch;
+    display: flex;
+}
+
+.text {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+}
+
+.inputField {
+    border-radius: var(--br-5xs);
+    background-color: var(--w-background);
+    border: 1px solid var(--color-lightgray-100);
+    box-sizing: border-box;
+    height: 46px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-base);
+    font-size: var(--paragraph-body-size);
+}
+
+.dropdownmedium,
+.dropdownmedium1,
+.dropdownmedium2 {
+    position: absolute;
+    top: 530px;
+    left: 100px;
+    width: 345px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-5xs);
+    font-size: var(--font-size-xs);
+    color: var(--color-dimgray-100);
+    font-family: var(--font-noto-sans);
+}
+
+.dropdownmedium1,
+.dropdownmedium2 {
+    left: 505px;
+}
+
+.dropdownmedium2 {
+    top: 622px;
+    left: 100px;
+}
+
+.pincode {
+    position: relative;
+    letter-spacing: -0.02em;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.inputField3,
+.inputsDropdowns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inputField3 {
+    width: 90px;
+    border-radius: var(--br-5xs);
+    background-color: var(--primary-gray-50);
+    border: 1px solid var(--primary-gray-300);
+    box-sizing: border-box;
+    height: 50px;
+    overflow: hidden;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 0 var(--padding-xs);
+    font-size: var(--paragraph-body-size);
+}
+
+.inputsDropdowns {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: flex-start;
+    gap: var(--gap-3xs);
+}
+
+.inputsDropdownsWrapper {
+    position: absolute;
+    top: 615px;
+    left: 505px;
+    width: 90px;
+    height: 80px;
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--primary-gray-500);
+    font-family: var(--paragraph-body);
+}
+.groupChild12 {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: var(--color-gainsboro);
+    width: 252px;
+    height: 242px;
+}
+
+.start1 {
+    position: absolute;
+    top: 11px;
+    left: 32px;
+    letter-spacing: 1px;
+    line-height: 24px;
+    font-weight: 600;
+    color:black;
+}
+
+.instanceItem {
+    position: absolute;
+    top: 17px;
+    left: 251px;
+    border-radius: 50%;
+    background-color: var(--color-gainsboro);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+}
+
+.vectorIcon {
+    position: absolute;
+    height: 15.09%;
+    width: 7.5%;
+    top: 18.24%;
+    right: 10.31%;
+    bottom: 66.67%;
+    left: 82.19%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.landInformation {
+    position: absolute;
+    top: 246px;
+    left: 102px;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.farmInfoAndExperincedesktoItem {
+    position: absolute;
+    top: calc(50% - 122px);
+    right: 1089px;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gainsboro);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 345px;
+    height: 50px;
+}
+
+.farmInfoAndExperincedesktoInner {
+    position: absolute;
+    height: calc(100% - 803px);
+    width: calc(100% - 1047px);
+    top: 305px;
+    margin-right: 9px;
+    bottom: 498px;
+    left: 26px;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.iconMinus,
+.iconPlus {
+    position: absolute;
+    top: calc(50% - 109px);
+    width: 24px;
+    height: 24px;
+}
+
+.iconPlus {
+    left: 398px;
+}
+
+.iconMinus {
+    left: 126px;
+}
+
+.div,
+.farmingExperience {
+    position: absolute;
+    font-weight: 600;
+}
+
+.div {
+    top: calc(50% - 108px);
+    left: calc(50% - 548px);
+    font-size: var(--font-size-5xl);
+    letter-spacing: 1px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 23px;
+}
+
+.farmingExperience {
+    top: 392px;
+    left: 102px;
+    text-align: left;
+}
+
+.rectangleDiv {
+    position: absolute;
+    top: 430px;
+    left: 102px;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gainsboro);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 280px;
+    height: 48px;
+}
+
+.experienceInFarming {
+    position: absolute;
+    top: 442px;
+    left: 151px;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.textValuesChild {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gainsboro);
+}
+
+.div1 {
+    position: absolute;
+    width: calc(100% - 134px);
+    top: calc(50% - 12px);
+    left: 48px;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+
+.checkCircleIcon,
+.textValues {
+    position: absolute;
+    top: 511px;
+    left: 102px;
+    width: 342px;
+    height: 48px;
+}
+
+.checkCircleIcon {
+    top: 12px;
+    left: 245px;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+}
+
+.textValues1 {
+    position: absolute;
+    top: 509px;
+    left: 505px;
+    border-radius: var(--br-5xs);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+    width: 346px;
+    height: 52px;
+}
+
+.textValues2,
+.textValues3 {
+    position: absolute;
+    top: 571px;
+    left: 507px;
+    width: 342px;
+    height: 48px;
+}
+
+.textValues3 {
+    left: 102px;
+}
+
+.farmInfoAndExperincedeskto {
+    width: 100%;
+    position: relative;
+    background-color: var(--w-background);
+    height: 832px;
+    overflow: hidden;
+    text-align: center;
+    font-size: var(--paragraph-body-size);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+}
+
+
+
+
+
+
+
+
+
+
+.divn {
+    position: absolute;
+    width: calc(100% - 134px);
+    top: calc(50% - 12px);
+    left: 48px;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+
+.locationAndSoilTypeDesktoItem {
+    position: absolute;
+    top: 28px;
+    left: 319px;
+    width: 12px;
+    height: 12px;
+    object-fit: cover;
+}
+
+.locationAndSoilTypeDesktoItem {
+    top: 221px;
+    left: 505px;
+    width: 274px;
+    height: 196px;
+}
+
+.locationAndSoilTypeDesktoInner {
+    position: absolute;
+    top: 450px;
+    left: 100px;
+    border-radius: var(--br-5xs);
+    background-color: var(--color-gainsboro);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 285px;
+    height: 48px;
+}
+
+.soilType,
+.typeOfSoil {
+    position: absolute;
+    top: 462px;
+    left: 183px;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.soilType {
+    top: 0;
+    left: 0;
+    letter-spacing: 1px;
+    text-wrap: nowrap;
+}
+
+.soilTypeWrapper {
+    position: absolute;
+    top: 417px;
+    left: 105px;
+    width: 78px;
+    height: 24px;
+}
+
+.inputFieldtype1Child {
+    position: absolute;
+    height: 49.02%;
+    width: 100%;
+    top: 25.49%;
+    right: 0;
+    bottom: 25.49%;
+    left: 0;
+    border-radius: var(--br-5xs);
+    background-color: var(--w-background);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+}
+
+.locationOnIcon {
+    width: 24px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: none;
+}
+
+.raki {
+    position: relative;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+}
+
+.locationOnParent {
+    position: absolute;
+    top: calc(50% - 14px);
+    left: 20px;
+    width: 166px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    font-size: var(--body-text-medium-medium-size);
+    color: var(--color-gray-100);
+    font-family: var(--paragraph-body);
+}
+
+.locationOnIcon1 {
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 13px;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.locationOfA {
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    letter-spacing: -0.02em;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+
+
