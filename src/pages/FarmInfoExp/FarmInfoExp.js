@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react"; // Added import for useState and useEffect
 import styles from "../StartDesktop/StartDesktop.module.css";
 import FarmerProfileFollow from "../FarmerProfileFollow"; // Import the new component
 import AdditionalInformation from "../AdditionalInformation";
@@ -7,13 +7,21 @@ import { useNavigate } from "react-router-dom";
 import Prev from "../Prev";
 
 const FarmInfoExp = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-
-   const onPrevTextClick = useCallback(() => {
+  const onPrevTextClick = useCallback(() => {
     navigate("/mid");
   }, [navigate]);
-  
+
+  const handleResize = useCallback(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
   const onRectangleContainer1Click = useCallback(() => {
     // Please sync "Name info (Desktop)" to the project
@@ -21,8 +29,11 @@ const FarmInfoExp = () => {
 
   return (
     <div className={styles.startDesktop}>
-      <FarmerProfileFollow /> 
+      {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow />}
       <div className={styles.landInformation}>Land information</div>
+      {windowWidth >= 600 && windowWidth <= 865 && (
+  <div className={styles.farmInformation}>Farm information</div>
+)}
       <div className={styles.farmInfoAndExperincedesktoItem} />
       <img
         className={styles.farmInfoAndExperincedesktoInner}
@@ -59,10 +70,9 @@ const FarmInfoExp = () => {
 
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
       <NextStepButton nextRoute="/locsoiltyp" />
-      <Prev onPrevClick={onPrevTextClick}/>
+      <Prev onPrevClick={onPrevTextClick} />
     </div>
   );
 };
-
 
 export default FarmInfoExp;

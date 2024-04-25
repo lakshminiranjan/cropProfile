@@ -1,5 +1,7 @@
+
 .farmerProfile {
     margin: 0;
+    cursor: none;
 }
 
 .followTheSteps {
@@ -606,12 +608,16 @@ body {
             height: 12px;
             object-fit: cover;
         }
+
+
+
+        
     
      
 
 .vectorParent {
     position: flex;
-    bottom: 120px;
+    bottom: 70px;
     margin-right: 100px;
     width: 400px;
     height: 60px;
@@ -727,6 +733,7 @@ body {
     justify-content: center;
     width: 59px;
     height: 16px;
+    cursor: none;
 }
 
 .profilePhoto1 {
@@ -834,9 +841,19 @@ body {
     color: var(--color-dimgray-100);
     font-family: var(--paragraph-body);
 }
+.instanceInner{
+    position: absolute;
+        
+        left: calc(50% - 173px);
+        border-radius: var(--br-5xs);
+        background-color: var(--color-midnightblue);
+        width: 345px;
+        height: 49px;
+        cursor: pointer;
+        
+}
 
-.textInputTypephone1,
-.textInputTypephone2 {
+.textInputTypephone1 {
     top: 423px;
 }
 
@@ -1013,9 +1030,17 @@ body {
 }
 
 .rakigmailcom {
-    position: relative;
-    letter-spacing: -0.02em;
-    line-height: 26px;
+    position: absolute;
+        height: 49.02%;
+        width: 100%;
+        top: 25.49%;
+        right: 0;
+        bottom: 25.49%;
+        left: 0;
+        border-radius: var(--br-5xs);
+        background-color: var(--w-background);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
 }
 
 .mailOutlineParent {
@@ -1340,7 +1365,7 @@ body {
 .rectangleDiv {
     position: absolute;
     top: 430px;
-    left: 102px;
+    left: 112px;
     border-radius: var(--br-5xs);
     background-color: var(--color-gainsboro);
     border: 1px solid var(--color-black);
@@ -1514,7 +1539,7 @@ body {
     height: 24px;
 }
 
-.inputFieldtype1Child {
+.inputFieldtype1Childl {
     position: absolute;
     height: 49.02%;
     width: 100%;
@@ -1579,4 +1604,333 @@ body {
 }
 
 
+.uploadedImage {
+    position: absolute;
+    top: 133px;
+    left: 83px;
+    border-radius: var(--dimensions-corner-radius-pill);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;;
+}
 
+
+@media (max-width: 865px) and (min-width: 600px){
+.containerProfilePhotoChild {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 160px);
+        border-radius: var(--br-base);
+        background-color: var(--color-gray-200);
+        width: 320px;
+        height: 400px;
+        background-color: #7b7b7b;
+        color: white;
+    }
+    
+        .groupChild12 {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: var(--color-gainsboro);
+            width: 252px;
+            height: 242px;
+        }
+    
+        .adduploadAPic,
+        .profilePhoto {
+            position: absolute;
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+    
+        .adduploadAPic {
+            top: 139.3px;
+            left: 31px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 189px;
+            height: 84.9px;
+        }
+    
+        .profilePhoto {
+            top: 0;
+            left: 9px;
+        }
+    
+        .rectangleParent12 {
+            position: absolute;
+            top: 35px;
+            left: 34px;
+            width: 252px;
+            height: 302px;
+        }
+    
+        .containerProfilePhoto {
+            position: absolute;
+            top: 127px;
+            left: calc(50% - 160px);
+            width: 320px;
+            height: 400px;
+            text-align: center;
+        }
+    
+        .inputLabel {
+            align-self: stretch;
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            font-family: var(--font-noto-sans);
+            justify-content: flex-start;
+           
+        }
+                .buttonContainer {
+                    position: absolute;
+                    bottom: 10%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+    
+    
+        .inputLabel {
+            position: sticky;
+        }
+                .enterInput {
+                    /* Keep other existing styles */
+                    position: absolute;
+                    /* Add or keep this line */
+                   
+                }
+    
+        .enterInputWrapper {
+            align-self: stretch;
+            border-radius: var(--br-5xs);
+            border: 1px solid var(--color-lightgray-100);
+            box-sizing: border-box;
+            height: 45px;
+            display: flex;
+            flex-direction: row;
+            
+            justify-content: flex-start;
+            padding: var(--padding-3xs);
+            text-align: center;
+            color: var(--color-lightgray-100);
+             border: 2px solid #CCCCCC;
+        }
+    
+        .textInputTypephone,
+        .textInputTypephone1,
+        .textInputTypephone2 {
+           
+            top: 604px;
+            left: 199px;
+            width: 345px;
+            height: 75px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: var(--gap-7xs);
+            color: var(--color-dimgray-100);
+            font-family: var(--body-text-large-regular);
+        }
+    
+                .startDesktop {
+                    
+                    min-height: 100vh;
+                    
+                    overflow-y: auto;
+                    
+                }
+        .textInputTypephone1,
+        .textInputTypephone2 {
+            top: 703px;
+        }
+    
+        .textInputTypephone2 {
+            top: 802px;
+        }
+    
+        .addingAProfilePicTabletItem {
+            position: absolute;
+            top: 909px;
+            left: calc(50% - 173px);
+            border-radius: var(--br-5xs);
+            background-color: var(--color-midnightblue);
+            width: 345px;
+            height: 49px;
+            cursor: pointer;
+        }
+    
+        
+    
+        
+        .of2,
+        .prev {
+            position: absolute;
+            
+            
+        }
+    
+       
+        .instanceInner{
+            top: 924px;
+                left: 340px;
+                font-size: var(--body-text-medium-medium-size);
+                letter-spacing: -0.02em;
+                line-height: 20px;
+                font-weight: 500;
+                font-family: var(--body-text-large-regular);
+                color: var(--w-background);
+                margin-top: 100px;
+                
+        }
+        .vectorParent{
+            bottom: 2px;
+            align-items: center;
+           justify-content: center;
+           margin-bottom: 20px;
+          
+        }
+
+                .pre {
+                    position: fixed;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 20px;
+                    /* Adjust as needed */
+                    cursor: pointer;
+                    font-size: var(--body-text-medium-medium-size);
+                    color: var(--w-background);
+                    font-family: var(--body-text-large-regular);
+                }
+    
+        .of2 {
+            top: 95px;
+            left: 640px;
+            letter-spacing: 1px;
+            line-height: 24px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 16px;
+            cursor: none;
+        }
+                .nameInformation {
+                    position: absolute;
+                    top: 562px;
+                    left: 199px;
+                    font-weight: 600;
+                    font-family: var(--font-noto-sans);
+                }
+
+
+
+
+
+
+                /* new one */
+
+                                .uploadingAPicDesktopItem {
+                                    position: absolute;
+                                    top: 118px;
+                                    left: 147px;
+                                    border-radius: var(--br-5xs);
+                                    background-color: var(--color-gainsboro);
+                                    width: 438px;
+                                    height: 707px;
+                                }
+                
+                                .clouduploadIcon {
+                                    position: absolute;
+                                    top: 345px;
+                                    left: 335px;
+                                    width: 67px;
+                                    height: 67px;
+                                    overflow: hidden;
+                                }
+                
+                                .dragAndDrop,
+                                .or {
+                                    position: absolute;
+                                    letter-spacing: 1px;
+                                    line-height: 24px;
+                                    font-weight: 600;
+                                    text-align: center;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+                
+                                .dragAndDrop {
+                                    top: 434px;
+                                    left: 215px;
+                                    font-size: 20px;
+                                    white-space: pre-wrap;
+                                    width: 308px;
+                                    height: 33px;
+                                }
+                
+                                .or {
+                                    top: 475px;
+                                    left: 357px;
+                                    font-size: var(--body-text-medium-medium-size);
+                                    width: 23px;
+                                    height: 34px;
+                                }
+                                                                .selectFile {
+                                                                position: absolute;
+                                                                    top: 14px;
+                                                                    left: 41px;
+                                                                    letter-spacing: -0.02em;
+                                                                    line-height: 20px;
+                                                                    font-weight: 500;
+                                                                }
+
+                                                                .vectorGroup{
+                                                                    position: absolute;
+                                                                        top: 551px;
+                                                                        left: 257px;
+                                                                        width: 144px;
+                                                                        height: 48px;
+                                                                        cursor: pointer;
+                                                                        font-size: var(--body-text-medium-medium-size);
+                                                                        color: var(--w-background);
+                                                                        font-family: var(--body-text-large-regular);
+                                                                }
+
+                                                                .rightArrowIcon {
+  position: absolute;
+  top: 31px;
+  left: 347px;
+  width: 12px;
+  height: 12px;
+  object-fit: cover;
+}
+
+
+
+
+
+
+                                                                
+}
+
+.pre {
+    position: fixed;
+    bottom: 35px;
+   
+    right: 450px;
+    
+    z-index: 1000;
+    cursor: pointer;
+    
+}

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback,useState,useEffect } from "react";
 import styles from "../StartDesktop/StartDesktop.module.css";
 import FarmerProfileFollow from "../FarmerProfileFollow"; 
 import AdditionalInformation from "../AdditionalInformation";
@@ -8,7 +8,16 @@ import Prev from "../Prev";
 
 const LocationSoilType = () => {
     const navigate = useNavigate();
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+    const handleResize = useCallback(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+      useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
 
    const onPrevTextClick = useCallback(() => {
     navigate("/farminfo");
@@ -21,17 +30,20 @@ const LocationSoilType = () => {
 
   return (
     <div className={styles.startDesktop}>
-      <FarmerProfileFollow /> {/* Use the new component */}
+       {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
       <img
         className={styles.locationAndSoilTypeDesktoItem}
         alt=""
         src="/rectangle-55@2x.png"
         data-scroll-to="rectangleImage"
       />
+      {windowWidth >= 600 && windowWidth <= 865 && (
+  <div className={styles.farmInformation}>Land information</div>
+)}
       <div className={styles.locationOfA}>Location of a farm</div>
       <div className={styles.inputFieldtype1}>
         
-        <div className={styles.inputFieldtype1Child} />
+        <div className={styles.inputFieldtype1Childl} />
         <div className={styles.locationOnParent}>
           <img
             className={styles.locationOnIcon}
