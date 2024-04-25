@@ -4585,7 +4585,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "986px",
-          left: "calc(50% - 17px)",
+          left: "178px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
@@ -4720,7 +4720,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "705px",
-          left: "calc(50% - 17px)",
+          left: "178px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
@@ -5005,7 +5005,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "705px",
-          left: "calc(50% - 17px)",
+          left: "178px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
@@ -5586,7 +5586,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "705px",
-          left: "calc(50% - 17px)",
+          left: "178px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
@@ -6084,7 +6084,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "705px",
-          left: "calc(50% - 17px)",
+          left: "178px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
