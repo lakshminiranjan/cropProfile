@@ -4766,7 +4766,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "347px",
-          left: "calc(50% - 75px)",
+          left: "125px",
           borderRadius: "9999px",
           backgroundColor: "#477bff",
           width: "150px",
