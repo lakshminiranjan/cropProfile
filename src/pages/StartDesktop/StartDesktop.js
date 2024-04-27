@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import styles from "./StartDesktop.module.css";
+import { useNavigate } from "react-router-dom";
 import FarmerProfileFollow from "../FarmerProfileFollow";
 import AdditionalInformation from "../AdditionalInformation";
 import NextStepButton from "../NextStepButton";
@@ -9,7 +10,43 @@ import DatePicker from 'react-datepicker';
 
 import "../../global.css";
 
+
+
 const StartDesktop = () => {
+
+   const navigate = useNavigate();
+  const [selectedSoilType, setSelectedSoilType] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedYearlyInvestment, setSelectedYearlyInvestment] = useState(null);
+  const [selectedStorageCapacity, setSelectedStorageCapacity] = useState(null);
+
+
+const handleYearlyInvestmentSelect = (option) => {
+    setSelectedYearlyInvestment(option);
+  };
+
+  const handleStorageCapacitySelect = (option) => {
+    setSelectedStorageCapacity(option);
+  };
+
+  const onLocationOnIconClick = () => {
+    const anchor = document.querySelector("[data-scroll-to='rectangleImage']");
+    if (anchor) {
+      anchor.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  };
+
+  const handleSoilTypeSelect = (soilType) => {
+    setSelectedSoilType(soilType);
+  };
+
+  const handleSelectOption = (option) => {
+    setSelectedOption(option);
+  };
+
+  
+
+  
   const handleMonthChange = (date) => {
     
     const monthName = date.toLocaleString('default', { month: 'long' });
@@ -75,12 +112,12 @@ const StartDesktop = () => {
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
   const [acres, setAcres] = useState(0);
-  const [pincode, setPincode] = useState("516XXX");
-  const [email, setEmail] = useState("raki@gmail.com");
-  const [phone, setPhone] = useState("9949XXXXXX");
-  const [location, setLocation] = useState("26/328 Moscow");
-  const [mobile, setMobile] = useState("9949XXXXXX");
-  const [address, setAddress] = useState("26/328 Moscow");
+  const [pincode, setPincode] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [address, setAddress] = useState("");
   const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [imageUploaded, setImageUploaded] = useState(false);
@@ -779,6 +816,22 @@ const onPrevStepClick = useCallback(() => {
     fileInputRef.current.click();
   }, []);
 
+  
+
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleSelectFile1 = useCallback(() => {
+    fileInputRef.current.click();
+  }, []);
+
+  const handleFileInputChanges = useCallback((event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+  }, []);
+
+  
+
+
   const handleFileUpload = useCallback((files) => {
     const file = files[0];
     if (file) {
@@ -826,6 +879,7 @@ const onPrevStepClick = useCallback(() => {
         <>
           <FarmerProfileFollow />
           <AdditionalInformation />
+           {console.log(firstName)}
           <div className={styles.property1defaultParent}>
             <div className={styles.property1default}>
               <div className={styles.rectangleParent}>
@@ -854,11 +908,13 @@ const onPrevStepClick = useCallback(() => {
                 </div>
                 <div className={styles.groupDiv}>
                   <div className={styles.groupChild} />
-                  <div className={styles.start}>Start</div>
+                  <div className={styles.start} onClick={onNextSstepClickFIE}>Start</div>
                 </div>
               </div>
             </div>
             <NextStepButton onClick={onNextStepClick} />
+            
+
             {/* { windowWidth <= 600 ? <NextStepButton
         onClick={onNextStepNFMob1}
        
@@ -907,7 +963,9 @@ const onPrevStepClick = useCallback(() => {
                 placeholder="Enter Input"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                
               />
+             
             </div>
           </div>
           <div className={styles.textInputTypephone1}>
@@ -935,17 +993,68 @@ const onPrevStepClick = useCallback(() => {
             </div>
           </div>
           <div className={styles.nameInformation}>Name information</div>
-          {/* <NextStepButton onClick={onNextSstepClickCL} /> */}
-          {windowWidth >= 600 && windowWidth <= 865 ? <NextStepButton
-        onClick={onNextStepCLTab}
-       
-      /> : <NextStepButton
-        onClick={onNextSstepClickCL}
-       
-      />}
+          <div
+  className={styles.pre}
+  onClick={onPrevStepClick}
+  style={{
+    display: windowWidth >= 600 && windowWidth <= 865 ? 'none' : 'block'
+  }}
+>
+  Prev
+</div>
+
+         
+          {windowWidth >= 600 && windowWidth <= 865 ? (
+  null 
+) : (
+  <NextStepButton onClick={onNextSstepClickCL} />
+  
+)}
+
           
           
-          <div onClick={onPrevStepClick} className={styles.pre} >Prev</div>
+        <div
+        style={{
+          position: "absolute",
+          top: "909px",
+          left: "198px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "345px",
+          height: "49px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "924px",
+          left: "320px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+        }}
+         onClick={onNextStepCLTab}
+      >
+        Next step
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "986px",
+          
+          left: "340px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+        }}
+        onClick={onPrevStepClick}
+      >
+        Prev
+      </div>
 
         </form>
       )}
@@ -981,11 +1090,17 @@ const onPrevStepClick = useCallback(() => {
 
 
       {showContactLocation && (
-        <div className={styles.startDesktop}>
+        <div
+      className={styles.startDesktop}
+      style={{
+       
+        overflowY: "auto"
+      }}
+    >
           {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
           <div className="input-fieldtype1">
             <div className="error">*error</div>
-            <div className="label">Email</div>
+            <div className="label" placeholder="Enter Email">Email</div>
             <div className="input-fieldtype1-child" />
             <div className="mail-outline-parent">
               <img
@@ -996,6 +1111,7 @@ const onPrevStepClick = useCallback(() => {
               <input
                 className="rakigmailcom"
                 type="text"
+                placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -1005,13 +1121,14 @@ const onPrevStepClick = useCallback(() => {
           </div>
           <div className="input-fieldtype11">
             <div className="error">*error</div>
-            <div className="label">Phone</div>
+            <div className="label" >Phone</div>
             <div className="input-fieldtype1-child" />
             <div className="mail-outline-parent">
               <img className="mail-outline-icon" alt="" src="/phone.svg" />
               <input
                 className="rakigmailcom"
                 type="text"
+                placeholder="Enter Number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
@@ -1021,7 +1138,7 @@ const onPrevStepClick = useCallback(() => {
           </div>
           <div className="input-fieldtype12">
             <div className="error">*error</div>
-            <div className="label">Location</div>
+            <div className="label" >Location</div>
             <div className="input-fieldtype1-child" />
             <div className="mail-outline-parent">
               <img
@@ -1032,6 +1149,7 @@ const onPrevStepClick = useCallback(() => {
               <input
                 className="rakigmailcom"
                 type="text"
+                placeholder="Enter Location"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -1045,8 +1163,15 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">State</div>
             <div className="input-field">
               <div className="text">
-                <div className="dropdown-option">Dropdown option</div>
-                <img className="mail-outline-icon" alt="" src="/icon.svg" />
+                <select className="dropdown-option">
+  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
+
+
+
               </div>
             </div>
           </div>
@@ -1054,8 +1179,12 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">Mandal</div>
             <div className="input-field">
               <div className="text">
-                <div className="dropdown-option">Dropdown option</div>
-                <img className="mail-outline-icon" alt="" src="/icon.svg" />
+                <select className="dropdown-option">
+  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
               </div>
             </div>
           </div>
@@ -1063,8 +1192,12 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">District</div>
             <div className="input-field">
               <div className="text">
-                <div className="dropdown-option">Dropdown option</div>
-                <img className="mail-outline-icon" alt="" src="/icon.svg" />
+                <select className="dropdown-option">
+  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
               </div>
             </div>
           </div>
@@ -1072,7 +1205,14 @@ const onPrevStepClick = useCallback(() => {
             <div className="inputs-dropdowns">
               <div className="pincode">Pincode</div>
               <div className="input-field3">
-                <div className="rakigmailcom">516XXX</div>
+                {/* <input type="text" className="rakigmailcom" defaultValue="516XXX" /> */}
+                <input
+        type="text"
+        placeholder="Pincode"
+        className="pin"
+        value={pincode}
+        onChange={(e) => setPincode(e.target.value)}/>
+
               </div>
             </div>
           </div>
@@ -1106,7 +1246,7 @@ const onPrevStepClick = useCallback(() => {
             </div>
              <div className={styles.instanceItem} />
             <img className={styles.vectorIcon} alt="" src="/vector.svg" />
-
+ {console.log(firstName,middleName,lastName)}
           </div>
         </div>
         <div className={styles.property1variant2}>
@@ -1136,7 +1276,7 @@ const onPrevStepClick = useCallback(() => {
         {/* onClick={windowWidth <= 600 ? onNextStepFIMob1 : onNextSstepClickFIE} */}
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
       
-      {windowWidth >= 600 && windowWidth <= 865 ? <NextStepButton
+      {/* {windowWidth >= 600 && windowWidth <= 865 ? <NextStepButton
         onClick={onNextshowFIETab}
        
       /> : <NextStepButton
@@ -1144,7 +1284,7 @@ const onPrevStepClick = useCallback(() => {
        
       />}
     
-     <div onClick={onNextSstepClickCL} className={styles.pre} >Prev</div>
+     <div onClick={onNextSstepClickCL} className={styles.pre} >Prev</div> */}
    
   </div>
 )}
@@ -1158,37 +1298,130 @@ const onPrevStepClick = useCallback(() => {
   <div className={styles.farmInformation}>Farm information</div>
 )}
       <div className={styles.farmInfoAndExperincedesktoItem} />
-      <img
+      {/* <img
         className={styles.farmInfoAndExperincedesktoInner}
         alt=""
         src="/vector-5.svg"
       />
       <img className={styles.iconPlus} alt="" src="/icon--plus.svg" />
       <img className={styles.iconMinus} alt="" src="/icon--minus.svg" />
-      <div className={styles.div}>100</div>
+      <div className={styles.div}>100</div> */}
+      <img
+        style={{
+          position: "absolute",
+          top: "308px",
+          left: "187px",
+          width: "173px",
+          height: "29px",
+        }}
+        alt=""
+        src="/vector-5.svg"
+      />
+      <img
+      onClick={incrementAcres}
+        style={{
+          position: "absolute",
+          top: "308px",
+          left: "410px",
+          width: "24px",
+          height: "24px",
+        }}
+        alt=""
+        src="/icon--plus.svg"
+      />
+      <img
+      onClick={decrementAcres}
+        style={{
+          position: "absolute",
+          top: "308px",
+          left: "120px",
+          width: "24px",
+          height: "24px",
+        }}
+        alt=""
+        src="/icon--minus.svg"
+      />
+      <div
+          style={{
+            position: "absolute",
+            top: "308px",
+            left: "238px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "64px",
+            height: "23px",
+          }}
+        >
+          <input
+            type="number"
+            value={acres}
+            onChange={e => setAcres(parseInt(e.target.value))}
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              textAlign: "center",
+              outline: "none",
+              fontSize: "inherit",
+              fontWeight: "inherit",
+            }}
+          />
+        </div>
       <div className={styles.farmingExperience}>Farming experience</div>
       <div className={styles.rectangleDiv} />
       <div className={styles.experienceInFarming}>Experience in farming ?</div>
       <div className={styles.textValues}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1}>0-10 years</div>
+        <div className={styles.div1} onClick={() => handleSoilTypeSelect("0-10 years")}>0-10 years
+        {selectedSoilType === "0-10 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
       <div className={styles.textValues1}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1}>10-20 years</div>
-        <img
-          className={styles.checkCircleIcon}
-          alt=""
-          src="/check-circle.svg"
-        />
+        <div className={styles.div1} onClick={() => handleSoilTypeSelect("10-20 years")}>10-20 years
+        {selectedSoilType === "10-20 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
       </div>
       <div className={styles.textValues2}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1}>30-40 years</div>
+        <div className={styles.div1} onClick={() => handleSoilTypeSelect("30-40 years")}>30-40 years
+        {selectedSoilType === "30-40 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
       <div className={styles.textValues3}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1}>20-30 years</div>
+        <div className={styles.div1} onClick={() => handleSoilTypeSelect("20-30 years")}>20-30 years
+        {selectedSoilType === "20-30 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
 
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
@@ -1245,25 +1478,53 @@ const onPrevStepClick = useCallback(() => {
       </div>
       <div className={styles.textValues}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn}>Alluvial soil</div>
+        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Alluvial soil")}>Alluvial soil
+        {selectedSoilType === "Alluvial soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
       <div className={styles.textValues1}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn}>Red soil</div>
-        <img
-          className={styles.checkCircleIcon}
-          alt=""
-          src="/check-circle.svg"
-        />
+        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Red soil")}>Red soil
+        {selectedSoilType === "Red soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
       </div>
       <div className={styles.textValues2}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn}>Black soil</div>
+        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Black soil")}>Black soil
+        {selectedSoilType === "Black soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
         
       </div>
       <div className={styles.textValues3}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn}>Sandy soil</div>
+        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Sandy soil")}>Sandy soil
+        {selectedSoilType === "Sandy soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
     
@@ -1376,37 +1637,116 @@ const onPrevStepClick = useCallback(() => {
       <div className="what-is-the">What is the storage capcity?</div>
       <div className="text-values20">
         <div className="text-values-child18" />
-        <div className="div24">100000-200000</div>
-        <img className="check-circle-icon5" alt="" src="/check-circle.svg" />
-      </div>
-      <div className="text-values21">
-        <div className="text-values-child18" />
-        <div className="div24">100000-200000</div>
-      </div>
-      <div className="text-values22">
-        <div className="text-values-child18" />
-        <div className="div24">100000-200000</div>
-      </div>
-      <div className="text-values23">
-        <div className="text-values-child18" />
-        <div className="div24">100000-200000</div>
+       <div
+                className={`div24 ${selectedYearlyInvestment === "100000-200000" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearlyInvestmentSelect("100000-200000")}
+              >
+                100000-200000
+                {selectedYearlyInvestment === "100000-200000" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
+            </div>
+            <div className="text-values21">
+              <div className="text-values-child18" />
+              <div
+                className={`div24 ${selectedYearlyInvestment === "200000-300000" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearlyInvestmentSelect("200000-300000")}
+              >
+                200000-300000
+                {selectedYearlyInvestment === "200000-300000" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
+            </div>
+            <div className="text-values22">
+              <div className="text-values-child18" />
+              <div
+                className={`div24 ${selectedYearlyInvestment === "300000-400000" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearlyInvestmentSelect("300000-400000")}
+              >
+                300000-400000
+                {selectedYearlyInvestment === "300000-400000" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
+            </div>
+            <div className="text-values23">
+              <div className="text-values-child18" />
+              <div
+                className={`div24 ${selectedYearlyInvestment === "400000-500000" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearlyInvestmentSelect("400000-500000")}
+              >
+                400000-500000
+                {selectedYearlyInvestment === "400000-500000" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+        </div>
       </div>
       <div className="text-values24">
         <div className="text-values-child18" />
-        <div className="div24">400-600 sqft</div>
-        <img className="check-circle-icon5" alt="" src="/check-circle.svg" />
+        <div className="div24" onClick={() => handleSoilTypeSelect("400-600 sqft")}>400-600 sqft
+        {selectedSoilType === "400-600 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
       </div>
       <div className="text-values25">
         <div className="text-values-child18" />
-        <div className="div24">0-200 sqft</div>
+        <div className="div24" onClick={() => handleSoilTypeSelect("0-200 sqft")}>0-200 sqft
+        {selectedSoilType === "0-200 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
       <div className="text-values26">
         <div className="text-values-child18" />
-        <div className="div24">200-400 sqft</div>
+        <div className="div24" onClick={() => handleSoilTypeSelect("200-400 sqft")}>200-400 sqft
+        {selectedSoilType === "200-400 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
       <div className="text-values27">
         <div className="text-values-child18" />
-        <div className="div24">600-800 sqft</div>
+        <div className="div24" onClick={() => handleSoilTypeSelect("600-800 sqft")}>600-800 sqft
+        {selectedSoilType === "600-800 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
       </div>
     
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
@@ -1458,8 +1798,7 @@ const onPrevStepClick = useCallback(() => {
             </div></div>
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
     
-    <NextStepButton nextRoute="/" />
-    <div onClick={onNextSstepClickIS} className={styles.pre} >Prev</div>
+    
   </div>
 )}
 
@@ -1568,7 +1907,7 @@ const onPrevStepClick = useCallback(() => {
       </div>
       <NextStepButton onClick={onNextSTepLocTab}/>
       {/* next step */}
-      <div onClick={onNextSstepClickCC} className={styles.pre} >Prev</div>
+      <div onClick={onNextSstepClickMID} className={styles.pre} >Prev</div>
   
       {/* prev */}
       <div
@@ -2006,6 +2345,7 @@ const onPrevStepClick = useCallback(() => {
       
       <NextStepButton onClick={onNextStepCCTab}/>
       {/* prev */}
+      <div onClick={onNextshowFIETab} className={styles.pre} >Prev</div>
       <div
         style={{
           position: "absolute",
@@ -2470,7 +2810,7 @@ const onPrevStepClick = useCallback(() => {
         Farm information
       </div>
       <NextStepButton onClick={onNextSTepInvst1}/>
-      {/* prev */}
+      {/* prev */}<div onClick={onNextSTepLocTab} className={styles.pre} >Prev</div>
       <div
         style={{
           position: "absolute",
@@ -3248,7 +3588,7 @@ const onPrevStepClick = useCallback(() => {
       </div>
       
       <NextStepButton onClick={onNextSTepInvst2}/>
-     {/* prev */}
+     {/* prev */}<div onClick={onNextStepCCTab} className={styles.pre} >Prev</div>
       <div
         style={{
           position: "absolute",
@@ -3562,7 +3902,7 @@ const onPrevStepClick = useCallback(() => {
         Farm information
       </div>
       <NextStepButton onClick={onNextSstepClickLast}/>
-     {/* prev */}
+     {/* prev */}<div onClick={onNextSTepInvst1} className={styles.pre} >Prev</div>
       <div
         style={{
           position: "absolute",
@@ -4585,15 +4925,33 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "986px",
-          left: "178px",
+          
+          left: "358px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
           fontFamily: "Inter",
         }}
+        onClick={onNextStepClick}
       >
         Prev
       </div>
+      {/* <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepLSMob2}
+      >
+        Prev
+      </div> */}
       <div
         style={{
           position: "absolute",
@@ -4762,7 +5120,8 @@ const onPrevStepClick = useCallback(() => {
       >
         Next step
       </div>
-      <div
+      
+        <div
         style={{
           position: "absolute",
           top: "347px",
@@ -4775,20 +5134,49 @@ const onPrevStepClick = useCallback(() => {
           color: "#fff",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: "calc(50% - 20px)",
-            left: "calc(50% - 68.5px)",
-            letterSpacing: "1px",
-            lineHeight: "20px",
-            fontWeight: "500",
-          }}
-        >
-          <p style={{ margin: "0" }}>Add/</p>
-          <p style={{ margin: "0" }}>upload a profile pic</p>
-        </div>
+        {/* Check if a file is selected, if so, display the image */}
+        {selectedFile ? (
+          <img
+            style={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              width: "100%",
+              height: "100%",
+              borderRadius: "9999px",
+              objectFit: "cover",
+            }}
+            src={URL.createObjectURL(selectedFile)}
+            alt="Selected Profile Pic"
+          />
+        ) : (
+          // If no file is selected, display the "Add/upload a profile pic" text
+          <div
+            style={{
+              position: "absolute",
+              top: "calc(50% - 20px)",
+              left: "calc(50% - 68.5px)",
+              letterSpacing: "1px",
+              lineHeight: "20px",
+              fontWeight: "500",
+            }}
+          >
+            <p style={{ margin: "0" }} onClick={onNextStepNFMob2}>Add/</p>
+            <p style={{ margin: "0" }} onClick={onNextStepNFMob2}>upload a profile pic</p>
+          </div>
+        )}
       </div>
+
+      {/* Input field for selecting file */}
+      <input
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        ref={fileInputRef}
+        onChange={handleFileInputChanges}
+      />
+
+      
       <div
         style={{
           position: "absolute",
@@ -4987,64 +5375,33 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/rectangle-14.svg"
           />
-          <div
-            style={{
-              position: "absolute",
-              top: "14px",
-              left: "41px",
-              letterSpacing: "-0.02em",
-              lineHeight: "20px",
-              fontWeight: "500",
-            }}
-          >
-            Select file
-          </div>
+          {/* Replace the existing code for the "Select file" div */}
+<div
+        style={{
+          position: "absolute",
+          top: "14px",
+          left: "41px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          cursor: "pointer",
+        }}
+        onClick={handleSelectFile1}
+      >
+        Select file
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          className={styles.fileInput}
+              ref={fileInputRef}
+          onChange={handleFileInputChanges}
+        />
+      </div>
+
         </div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "705px",
-          left: "178px",
-          letterSpacing: "-0.02em",
-          lineHeight: "20px",
-          fontWeight: "500",
-          fontFamily: "Inter",
-          cursor: "pointer",
-        }}
-        onClick={onNextStepNFMob1}
-      >
-        Prev
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "633px",
-          left: "35px",
-          borderRadius: "8px",
-          backgroundColor: "#02044a",
-          width: "320px",
-          height: "50px",
-          cursor: "pointer",
-        }}
-        onClick={onNextStepCLMob1}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "648px",
-          left: "165px",
-          fontSize: "14px",
-          letterSpacing: "-0.02em",
-          lineHeight: "20px",
-          fontWeight: "500",
-          fontFamily: "Inter",
-          color: "#fff",
-        }}
-        onClick={onNextStepCLMob1}
-      >
-        Next step
-      </div>
+      
       <div
         style={{
           position: "absolute",
@@ -5108,6 +5465,8 @@ const onPrevStepClick = useCallback(() => {
         fontSize: "16px",
         color: "#000",
         fontFamily: "Poppins",
+        minHeight: "100vh", // Ensure content fills the viewport height
+        fontSize: "calc(0.7vw + 8px)", // Responsive font size
       }}
     >
       <div
@@ -5593,6 +5952,7 @@ const onPrevStepClick = useCallback(() => {
           fontFamily: "Inter",
           textAlign: "left",
           cursor: "pointer",
+          fontSize:"1rem",
         }}
         onClick={onNextStepNFMob1}
       >
