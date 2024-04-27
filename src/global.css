@@ -335,12 +335,16 @@ body {
     top: 622px;
     left: 100px;
 }
+.pin{
+    border:none;
+}
 
 .pincode {
     position: relative;
     letter-spacing: -0.02em;
     line-height: 20px;
     font-weight: 500;
+    border:none;
 }
 
 .input-field3,
@@ -718,6 +722,7 @@ body {
     height: 102px;
     text-align: center;
     color: #d50000;
+    
 }
 
 .cultivation-and-crop-desktop {
@@ -825,7 +830,7 @@ body {
     left: 98px;
     border-radius: 8px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border: 2px solid #000;
+    
     box-sizing: border-box;
     width: 347px;
     height: 52px;
@@ -857,7 +862,7 @@ body {
     top: 670px;
     border-radius: 8px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border: 2px solid #000;
+    
     box-sizing: border-box;
     width: 347px;
     height: 52px;
