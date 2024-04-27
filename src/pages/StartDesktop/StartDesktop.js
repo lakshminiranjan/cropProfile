@@ -5638,7 +5638,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="email"
-        placeholder="Email"
+        placeholder=" Enter Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         style={{
@@ -5770,7 +5770,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="tel"
-        placeholder="Mobile Number"
+        placeholder="Enter Number"
         value={mobile}
         onChange={(e) => setMobile(e.target.value)}
         style={{
@@ -5903,7 +5903,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="text"
-        placeholder="Address"
+        placeholder="Enter Address"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         style={{
