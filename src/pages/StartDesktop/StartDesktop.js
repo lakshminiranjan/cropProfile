@@ -5160,9 +5160,18 @@ const onPrevStepClick = useCallback(() => {
               lineHeight: "20px",
               fontWeight: "500",
             }}
+            onClick={handleSelectFile1}
           >
-            <p style={{ margin: "0" }} onClick={onNextStepNFMob2}>Add/</p>
-            <p style={{ margin: "0" }} onClick={onNextStepNFMob2}>upload a profile pic</p>
+           <input
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        id="fileInput" // Assign an id to the input
+        ref={fileInputRef}
+        onChange={handleFileInputChanges}
+      />
+      {/* Associate the label with the file input using htmlFor */}
+      <label htmlFor="fileInput" style={{ cursor: "pointer" }}>Add/upload a profile pic</label>
           </div>
         )}
       </div>
@@ -5173,6 +5182,7 @@ const onPrevStepClick = useCallback(() => {
         accept="image/*"
         style={{ display: "none" }}
         ref={fileInputRef}
+        
         onChange={handleFileInputChanges}
       />
 
