@@ -908,7 +908,7 @@ const onPrevStepClick = useCallback(() => {
                 </div>
                 <div className={styles.groupDiv}>
                   <div className={styles.groupChild} />
-                  <div className={styles.start} onClick={onNextSstepClickFIE}>Start</div>
+                  <div className={styles.start} onClick={onNextSstepClickMID}>Start</div>
                 </div>
               </div>
             </div>
@@ -1079,12 +1079,73 @@ const onPrevStepClick = useCallback(() => {
             </button>
             <input
               type="file"
+              style={{ display: "none" }}
               accept="image/*"
               className={styles.fileInput}
               ref={fileInputRef}
               onChange={handleFileInputChange}
             />
           </div>
+<div
+  className={styles.pre}
+  onClick={onNextStepClick}
+  style={{
+    display: windowWidth >= 600 && windowWidth <= 865 ? 'none' : 'block'
+  }}
+>
+  Prev
+</div>
+
+         
+          {windowWidth >= 600 && windowWidth <= 865 ? (
+  null 
+) : (
+  <NextStepButton onClick={onNextSstepClickCL} />
+  
+)}
+ <div
+        style={{
+          position: "absolute",
+          top: "909px",
+          left: "198px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "345px",
+          height: "49px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "924px",
+          left: "320px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+        }}
+         onClick={onNextStepCLTab}
+      >
+        Next step
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "986px",
+          
+          left: "340px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+        }}
+        onClick={onNextStepClick}
+      >
+        Prev
+      </div>
+          
         </div>
       )}
 
@@ -1970,20 +2031,21 @@ const onPrevStepClick = useCallback(() => {
           position: "absolute",
           width: "calc(100% - 571px)",
           top: "calc(50% - 238.5px)",
-          right: "282px",
           left: "289px",
+          right:"282px",
+          height: "29px",
           maxWidth: "100%",
           overflow: "hidden",
-          height: "29px",
         }}
         alt=""
-        src="/vector-51.svg"
+        src="/vector-5.svg"
       />
       <img
+      onClick={incrementAcres}
         style={{
           position: "absolute",
           top: "calc(50% - 237.5px)",
-          right: "228px",
+          right:"228px",
           width: "24px",
           height: "24px",
         }}
@@ -1991,6 +2053,7 @@ const onPrevStepClick = useCallback(() => {
         src="/icon--plus.svg"
       />
       <img
+      onClick={decrementAcres}
         style={{
           position: "absolute",
           top: "calc(50% - 237.5px)",
@@ -2002,22 +2065,36 @@ const onPrevStepClick = useCallback(() => {
         src="/icon--minus.svg"
       />
       <div
-        style={{
-          position: "absolute",
-          width: "calc(100% - 680px)",
-          top: "calc(50% - 235.5px)",
-          left: "340px",
-          letterSpacing: "1px",
-          lineHeight: "24px",
-          fontWeight: "600",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "23px",
-        }}
-      >
-        100
-      </div>
+          style={{
+            position: "absolute",
+            width: "calc(100% - 680px)",
+            top: "calc(50% - 235.5px)",
+            left: "340px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            
+            height: "23px",
+          }}
+        >
+          <input
+            type="number"
+            value={acres}
+            onChange={e => setAcres(parseInt(e.target.value))}
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              textAlign: "center",
+              outline: "none",
+              fontSize: "inherit",
+              fontWeight: "inherit",
+            }}
+          />
+        </div>
       <div
         style={{
           position: "absolute",
@@ -2109,8 +2186,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("1-10 years")}
         >
           1-10 years
+          {selectedSoilType === "1-10 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -2149,8 +2234,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("15-20 years")}
         >
           15-20 years
+          {selectedSoilType === "15-20 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -2189,8 +2282,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("10-15 years")}
         >
           10-15 years
+          {selectedSoilType === "10-15 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -2200,7 +2301,7 @@ const onPrevStepClick = useCallback(() => {
           left: "202px",
           borderRadius: "8px",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "346px",
           height: "52px",
@@ -2233,21 +2334,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("20-25 years")}
         >
           20-25 years
+          {selectedSoilType === "20-25 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
     </div>
 )}
@@ -2547,7 +2645,7 @@ const onPrevStepClick = useCallback(() => {
           left: "200px",
           borderRadius: "8px",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "346px",
           height: "52px",
@@ -2580,21 +2678,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Alluvial soil")}
         >
           Alluvial soil
+          {selectedSoilType === "Alluvial soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
       <div
         style={{
@@ -2632,8 +2727,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Black soil")}
         >
           Black soil
+          {selectedSoilType === "Black soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -2672,8 +2775,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Red soil")}
         >
           Red soil
+          {selectedSoilType === "Red soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -2712,8 +2823,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Sand soil")}
         >
-          sand soil
+          Sand soil
+          {selectedSoilType === "Sand soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -3669,8 +3788,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("100000-200000")}
         >
           100000-200000
+          {selectedSoilType === "100000-200000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -3709,8 +3836,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("200000-300000")}
         >
           200000-300000
+          {selectedSoilType === "200000-300000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -3720,7 +3855,7 @@ const onPrevStepClick = useCallback(() => {
           left: "200px",
           borderRadius: "8px",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "346px",
           height: "52px",
@@ -3753,21 +3888,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("300000-400000")}
         >
           300000-400000
+          {selectedSoilType === "300000-400000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
       <div
         style={{
@@ -3805,8 +3937,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("400000-500000")}
         >
           400000-500000
+          {selectedSoilType === "400000-500000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -4004,8 +4144,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("100-200 sqft")}
         >
           100-200 sqft
+          {selectedSoilType === "100-200 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -4015,7 +4163,7 @@ const onPrevStepClick = useCallback(() => {
           left: "200px",
           borderRadius: "8px",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "346px",
           height: "52px",
@@ -4048,21 +4196,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("200-400 sqft")}
         >
           200-400 sqft
+          {selectedSoilType === "200-400 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
       <div
         style={{
@@ -4100,8 +4245,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("400-600 sqft")}
         >
           400-600 sqft
+          {selectedSoilType === "400-600 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -4140,8 +4293,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("600-800 sqft")}
         >
           600-800 sqft
+          {selectedSoilType === "600-800 sqft" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -4331,15 +4492,28 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/mail-outline.svg"
           />
-          <div
-            style={{
-              position: "relative",
-              letterSpacing: "-0.02em",
-              lineHeight: "26px",
-            }}
-          >
-            raki@gmail.com
-          </div>
+          <input
+        type="email"
+        placeholder=" Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
         </div>
         <img
           style={{
@@ -4453,15 +4627,28 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/phone.svg"
           />
-          <div
-            style={{
-              position: "relative",
-              letterSpacing: "-0.02em",
-              lineHeight: "26px",
-            }}
-          >
-            +91 99490XXXXX
-          </div>
+          <input
+        type="tel"
+        placeholder="Mobile Number"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
         </div>
         <img
           style={{
@@ -4575,15 +4762,28 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/location-on.svg"
           />
-          <div
-            style={{
-              position: "relative",
-              letterSpacing: "-0.02em",
-              lineHeight: "26px",
-            }}
-          >
-            26/328 Houston
-          </div>
+          <input
+        type="text"
+        placeholder="Address"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
         </div>
         <img
           style={{
@@ -4664,22 +4864,28 @@ const onPrevStepClick = useCallback(() => {
               gap: "8px",
             }}
           >
-            <div
-              style={{ flex: "1", position: "relative", lineHeight: "24px" }}
-            >
-              Dropdown option
-            </div>
-            <img
-              style={{
-                width: "24px",
-                position: "relative",
-                height: "24px",
-                overflow: "hidden",
-                flexShrink: "0",
-              }}
-              alt=""
-              src="/icon.svg"
-            />
+            <select
+  defaultValue="default"
+  style={{
+    width: "254px",
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
+    height: "45px",
+    padding: "12px",
+    fontSize: "16px",
+    border:"none",
+  }}
+>
+  <option value="default" disabled hidden>
+    Dropdown option
+  </option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
+            
           </div>
         </div>
       </div>
@@ -4735,22 +4941,27 @@ const onPrevStepClick = useCallback(() => {
               gap: "8px",
             }}
           >
-            <div
-              style={{ flex: "1", position: "relative", lineHeight: "24px" }}
-            >
-              Dropdown option
-            </div>
-            <img
-              style={{
-                width: "24px",
-                position: "relative",
-                height: "24px",
-                overflow: "hidden",
-                flexShrink: "0",
-              }}
-              alt=""
-              src="/icon.svg"
-            />
+             <select
+  defaultValue="default"
+  style={{
+    width: "254px",
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
+    height: "44px",
+    padding: "12px",
+    fontSize: "16px",
+    border:"none",
+  }}
+>
+  <option value="default" disabled hidden>
+    Dropdown option
+  </option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
           </div>
         </div>
       </div>
@@ -4806,23 +5017,27 @@ const onPrevStepClick = useCallback(() => {
               gap: "8px",
             }}
           >
-            <div
-              style={{ flex: "1", position: "relative", lineHeight: "24px" }}
-            >
-              {" "}
-              option
-            </div>
-            <img
-              style={{
-                width: "24px",
-                position: "relative",
-                height: "24px",
-                overflow: "hidden",
-                flexShrink: "0",
-              }}
-              alt=""
-              src="/icon.svg"
-            />
+             <select
+  defaultValue="default"
+  style={{
+    width: "254px",
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
+    height: "44px",
+    padding: "12px",
+    fontSize: "16px",
+    border:"none",
+  }}
+>
+  <option value="default" disabled hidden>
+    option
+  </option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
           </div>
         </div>
       </div>
@@ -4882,15 +5097,24 @@ const onPrevStepClick = useCallback(() => {
               fontSize: "16px",
             }}
           >
-            <div
-              style={{
-                position: "relative",
-                letterSpacing: "-0.02em",
-                lineHeight: "26px",
-              }}
-            >
-              516XXX
-            </div>
+            <input
+        type="text"
+        placeholder="Pincode"
+        value={pincode}
+        onChange={(e) => setPincode(e.target.value)}
+        style={{
+          width: "90px",
+          borderRadius: "8px",
+          backgroundColor: "#f9fafb",
+          border: "1px solid #d2d5da",
+          boxSizing: "border-box",
+          height: "50px",
+          overflow: "hidden",
+          fontSize: "16px",
+          padding: "0px 1px",
+          border:"none",
+        }}
+      />
           </div>
         </div>
       </div>
@@ -5770,7 +5994,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="tel"
-        placeholder="Enter Number"
+        placeholder="Mobile Number"
         value={mobile}
         onChange={(e) => setMobile(e.target.value)}
         style={{
@@ -5903,7 +6127,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="text"
-        placeholder="Enter Address"
+        placeholder="Address"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         style={{
@@ -7096,8 +7320,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("0-5 years")}
         >
           0-5 years
+          {selectedSoilType === "0-5 years" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -7105,9 +7337,9 @@ const onPrevStepClick = useCallback(() => {
           position: "absolute",
           top: "414px",
           left: "54px",
-          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          
           borderRadius: "8px",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "289px",
           height: "52px",
@@ -7140,21 +7372,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("5-10 years")}
         >
           5-10 years
+          {selectedSoilType === "5-10 years" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
       <div
         style={{
@@ -7192,8 +7421,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("10-15 years")}
         >
           10-15 years
+          {selectedSoilType === "10-15 years" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -7232,8 +7469,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("15-20 years")}
         >
           15-20 years
+          {selectedSoilType === "15-20 years" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -7374,7 +7619,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "633px",
-          left: "calc(50% - 160px)",
+          left: "34px",
           borderRadius: "8px",
           backgroundColor: "#02044a",
           width: "320px",
@@ -8779,8 +9024,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Alluvial soil")}
         >
           Alluvial soil
+          {selectedSoilType === "Alluvial soil" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -8819,8 +9072,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Red soil")}
         >
           Red soil
+          {selectedSoilType === "Red soil" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -8859,8 +9120,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Black soil")}
         >
           Black soil
+          {selectedSoilType === "Black soil" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -8899,8 +9168,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("Sandy soil")}
         >
           Sandy soil
+          {selectedSoilType === "Sandy soil" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -9047,6 +9324,7 @@ const onPrevStepClick = useCallback(() => {
         }}
         onClick={onNextStepISMob2}
       />
+      
       <div
         style={{
           position: "absolute",
@@ -9147,8 +9425,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("100000-200000")}
         >
           100000-200000
+          {selectedSoilType === "100000-200000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -9156,9 +9442,9 @@ const onPrevStepClick = useCallback(() => {
           position: "absolute",
           top: "404px",
           left: "51px",
-          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          
           borderRadius: "8px",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "289px",
           height: "52px",
@@ -9191,21 +9477,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("300000-400000")}
         >
           300000-400000
+          {selectedSoilType === "300000-400000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
       <div
         style={{
@@ -9242,9 +9525,18 @@ const onPrevStepClick = useCallback(() => {
             alignItems: "center",
             justifyContent: "center",
             height: "24px",
+            whiteSpace:"nowrap",
           }}
+          onClick={() => handleSoilTypeSelect("400000-500000")}
         >
           400000-500000
+          {selectedSoilType === "400000-500000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -9282,9 +9574,18 @@ const onPrevStepClick = useCallback(() => {
             alignItems: "center",
             justifyContent: "center",
             height: "24px",
+            whiteSpace:"nowrap",
           }}
+          onClick={() => handleSoilTypeSelect("500000-600000")}
         >
           500000-600000
+          {selectedSoilType === "500000-600000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -9531,8 +9832,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("100-200 sqft")}
         >
           100-200 sqft
+          {selectedSoilType === "100-200 sqft" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -9571,8 +9880,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("200-400 sqft")}
         >
           200-400 sqft
+          {selectedSoilType === "200-400 sqft" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
       <div
@@ -9580,9 +9897,9 @@ const onPrevStepClick = useCallback(() => {
           position: "absolute",
           top: "463px",
           left: "54px",
-          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          
           borderRadius: "8px",
-          border: "2px solid #000",
+          
           boxSizing: "border-box",
           width: "289px",
           height: "52px",
@@ -9597,6 +9914,7 @@ const onPrevStepClick = useCallback(() => {
             right: "0%",
             bottom: "0%",
             left: "0%",
+            
             borderRadius: "8px",
             backgroundColor: "#d9d9d9",
           }}
@@ -9615,21 +9933,18 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("400-600 sqft")}
         >
           400-600 sqft
+          {selectedSoilType === "400-600 sqft" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
-        <img
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "245px",
-            width: "24px",
-            height: "24px",
-            overflow: "hidden",
-          }}
-          alt=""
-          src="/check-circle.svg"
-        />
+        
       </div>
       <div
         style={{
@@ -9667,8 +9982,16 @@ const onPrevStepClick = useCallback(() => {
             justifyContent: "center",
             height: "24px",
           }}
+          onClick={() => handleSoilTypeSelect("600-800 sqft")}
         >
           600-800 sqft
+          {selectedSoilType === "600-800 sqft" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
         </div>
       </div>
     </div>
