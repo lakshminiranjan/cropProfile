@@ -4764,7 +4764,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="text"
-        placeholder="Address"
+        placeholder="Enter Location"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         style={{
@@ -5358,57 +5358,48 @@ const onPrevStepClick = useCallback(() => {
           color: "#fff",
         }}
       >
-        {/* Check if a file is selected, if so, display the image */}
+       
         {selectedFile ? (
-          <img
-            style={{
-              position: "absolute",
-              top: "0",
-              left: "0",
-              width: "100%",
-              height: "100%",
-              borderRadius: "9999px",
-              objectFit: "cover",
-            }}
-            src={URL.createObjectURL(selectedFile)}
-            alt="Selected Profile Pic"
-          />
-        ) : (
-          // If no file is selected, display the "Add/upload a profile pic" text
-          <div
-            style={{
-              position: "absolute",
-              top: "calc(50% - 20px)",
-              left: "calc(50% - 68.5px)",
-              letterSpacing: "1px",
-              lineHeight: "20px",
-              fontWeight: "500",
-            }}
-            onClick={handleSelectFile1}
-          >
-           <input
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        id="fileInput" // Assign an id to the input
-        ref={fileInputRef}
-        onChange={handleFileInputChanges}
-      />
-      {/* Associate the label with the file input using htmlFor */}
-      <label htmlFor="fileInput" style={{ cursor: "pointer" }}>Add/upload a profile pic</label>
-          </div>
-        )}
-      </div>
-
-      {/* Input field for selecting file */}
+    <img
+      style={{
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        borderRadius: "9999px",
+        objectFit: "cover",
+      }}
+      src={URL.createObjectURL(selectedFile)}
+      alt="Selected Profile Pic"
+    />
+  ) : (
+    // If no file is selected, display the "Add/upload a profile pic" text
+    <div
+      style={{
+        position: "absolute",
+        top: "calc(50% - 20px)",
+        left: "calc(50% - 68.5px)",
+        letterSpacing: "1px",
+        lineHeight: "20px",
+        fontWeight: "500",
+      }}
+    >
+      {/* Single input element */}
       <input
         type="file"
         accept="image/*"
         style={{ display: "none" }}
+        id="fileInput"
         ref={fileInputRef}
-        
         onChange={handleFileInputChanges}
       />
+      
+      {/* Single label associated with the input */}
+      <label htmlFor="fileInput" style={{ cursor: "pointer" }}>Add/upload a profile pic</label>
+    </div>
+  )}
+</div>
 
       
       <div
@@ -6127,7 +6118,7 @@ const onPrevStepClick = useCallback(() => {
           />
           <input
         type="text"
-        placeholder="Address"
+        placeholder="Enter Location"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         style={{
