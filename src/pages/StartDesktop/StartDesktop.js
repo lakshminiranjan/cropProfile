@@ -908,7 +908,11 @@ const onPrevStepClick = useCallback(() => {
                 </div>
                 <div className={styles.groupDiv}>
                   <div className={styles.groupChild} />
-                  <div className={styles.start} onClick={onNextSstepClickMID}>Start</div>
+                  <div className={styles.start} onClick={
+  windowWidth <= 600 ? onNextStepFIMob1 : 
+  (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
+}
+>Start</div>
                 </div>
               </div>
             </div>
@@ -1300,7 +1304,7 @@ const onPrevStepClick = useCallback(() => {
             </div>
             <div
               className={styles.rectangleGroup}
-              onClick={onPrevStepClick}
+              onClick={windowWidth <= 600 ? onNextStepNFMob1 : onNextStepClick}
             >
               <div className={styles.groupChild1} />
               <div className={styles.start1}>Edit</div>
@@ -1522,7 +1526,28 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/location-on.svg"
           />
-          <div className={styles.raki}>26/328 Houston</div>
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "8px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
         </div>
         <img
           className={styles.locationOnIcon1}
@@ -1832,7 +1857,10 @@ const onPrevStepClick = useCallback(() => {
             </div>
             <div
               className={styles.rectangleGroup}
-              onClick={onPrevStepClick}
+              onClick={
+  windowWidth <= 600 ? onNextStepNFMob1 : 
+  (windowWidth >= 600 && windowWidth <= 865 ? onNextStepClick : onNextStepClick)
+}
             >
               <div className={styles.groupChild1} />
               <div className={styles.start1}>Edit</div>
@@ -1850,8 +1878,14 @@ const onPrevStepClick = useCallback(() => {
               Agriculture information
             </div>
             <div className={styles.groupDiv}>
-              <div className={styles.groupChild1} onClick={onNextSstepClickMID} />
-              <div className={styles.start1}>Edit</div>
+              <div className={styles.groupChild1} onClick={
+  windowWidth <= 600 ? onNextStepFIMob1 : 
+  (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
+} />
+              <div className={styles.start1} onClick={
+  windowWidth <= 600 ? onNextStepFIMob1 : 
+  (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
+}>Edit</div>
             </div>
             <div className={styles.instanceItem} />
             <img className={styles.vectorIcon} alt="" src="/vector.svg" />
