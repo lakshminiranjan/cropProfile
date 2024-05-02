@@ -497,20 +497,6 @@ body {
     display: inline-block;
 }
 
-.input-fieldtype1-child13 {
-    position: absolute;
-    height: 49.02%;
-    width: 100%;
-    top: 25.49%;
-    right: 0;
-    bottom: 25.49%;
-    left: 0;
-    border-radius: 8px;
-    background-color: #fff;
-    border: 1px solid #000;
-    box-sizing: border-box;
-}
-
 .mail-outline-icon4 {
     width: 24px;
     position: relative;
@@ -540,6 +526,7 @@ body {
     font-size: 14px;
     color: #949494;
     font-family: Inter;
+    
 }
 
 .input-fieldtype1-child14 {
@@ -604,27 +591,83 @@ body {
 
 .paddy {
     position: absolute;
-    width: calc(100% - 65px);
-    top: calc(50% - 11px);
-    left: 24px;
+    width: 91px;
+    justify-content: center;
+    top: 455px;
+    bottom: 120px;
+    left: 644px;
+    border-radius: 8px;
+    background-color: #d9d9d9;
     letter-spacing: -0.02em;
     line-height: 26px;
     display: inline-block;
-    height: 26px;
+    height: 36px;
+    border: none;
 }
+
+.paddy {
+    display: flex;
+    /* Use flexbox */
+    align-items: center;
+    /* Vertically center content */
+}
+
+.paddy1 {
+    position: absolute;
+    width: 91px;
+    justify-content: center;
+    top: 455px;
+    background-color: #d9d9d9;
+    bottom: 120px;
+    left: 524px;
+    border-radius: 8px;
+    letter-spacing: -0.02em;
+    line-height: 26px;
+    display: inline-block;
+    height: 36px;
+    border: none;
+}
+
+.paddy1 {
+    display: flex;
+    /* Use flexbox */
+    align-items: center;
+    /* Vertically center content */
+}
+.plus {
+    height: 40%;
+    width: 40%;
+    cursor: pointer;
+}
+
 
 .plus-icon {
     position: absolute;
     height: 80.83%;
     width: 28.25%;
-    top: 9.72%;
+    top: 0%;
     right: 2.92%;
-    bottom: 9.44%;
+    bottom: 100.44%;
     left: 55.83%;
     max-width: 100%;
     overflow: hidden;
     max-height: 100%;
     object-fit: contain;
+}
+
+.input-fieldtype1-child13 {
+    position: relative;
+    height: 49.02%;
+    width: 100%;
+    top: 25.49%;
+    right: 0;
+    bottom: 25.49%;
+    left: 0;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .rectangle-parent23,
@@ -635,8 +678,7 @@ body {
     top: 54.57%;
     right: 30.94%;
     bottom: 41.11%;
-    left: calc(41.02% - 120px);
-   
+    left: 33.52%; 
     overflow: hidden;
     font-family: Inter;
 }
@@ -652,7 +694,9 @@ body {
     position: absolute;
     letter-spacing: -0.02em;
     font-weight: 600;
+    
 }
+
 
 .start-month-of {
     top: 269px;
@@ -685,6 +729,7 @@ body {
 .input-fieldtype110 {
     position: absolute;
     text-align: center;
+    
 }
 
 .input-fieldtype110 {
