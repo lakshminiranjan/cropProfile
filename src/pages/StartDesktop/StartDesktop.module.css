@@ -1,4 +1,3 @@
-
 .farmerProfile {
     margin: 0;
     cursor: none;
@@ -32,7 +31,7 @@
     border: 1px solid var(--color-black);
     box-sizing: border-box;
     display: flex;
-    
+
 }
 
 .loremIpsum,
@@ -72,6 +71,7 @@
     box-sizing: border-box;
     width: 129px;
     height: 46px;
+    cursor: pointer;
 }
 
 .start {
@@ -81,6 +81,7 @@
     letter-spacing: 1px;
     line-height: 24px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .rectangleGroup {
@@ -189,13 +190,14 @@
     overflow: hidden;
     max-height: 100%;
 }
+
 .vectorParent {
     position: fixed;
-   
+
     bottom: 20px;
-    
+
     right: 20px;
-    
+
     width: 144px;
     height: 48px;
     cursor: pointer;
@@ -211,12 +213,12 @@
     z-index: 9999;
     margin-right: 200px;
     text-align: center;
-    
+
 }
 
 .nextStep {
     margin-left: 8px;
-    
+
     letter-spacing: -0.02em;
     line-height: 20px;
     font-weight: 500;
@@ -224,7 +226,7 @@
 
 body {
     overflow: hidden;
-    
+
 }
 
 .rightArrowIcon {
@@ -253,11 +255,10 @@ body {
 
     .agricultureInformation,
     .personalInformation2,
-    .nextStep ,
+    .nextStep,
     .rightArrowIcon,
     .startDesktopChild,
-    .vectorParent
-    {
+    .vectorParent {
         display: none;
         /* Hide these components on mobile view */
     }
@@ -268,12 +269,13 @@ body {
 
 
 @media (max-width: 600px) {
-    .logo{
+    .logo {
         left: 28px;
-            font-size: var(--font-size-5xl);
-            color: var(--color-black);
-            text-align: center;
+        font-size: var(--font-size-5xl);
+        color: var(--color-black);
+        text-align: center;
     }
+
     .farmerProfile {
         margin: 0;
     }
@@ -410,7 +412,7 @@ body {
         border: 1px dashed #9747ff;
     }
 
-  
+
 
     .startmobile {
         width: 100%;
@@ -427,231 +429,232 @@ body {
 
 @media (max-width: 865px) and (min-width: 600px) {
     .farmerProfile {
-            margin: 0;
-            font-size: 2rem;
-        }
-    
-        .followTheSteps {
-            margin: 0;
-            font-size: var(--body-text-medium-medium-size);
-        }
-    
-        .farmerProfileFollowTheContainer {
-            position: absolute;
-            top: 226px;
-            left: 202px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            font-weight: 600;
-            color: var(--color-gray);
-            font-size: var(--font-size-13xl);
-        }
-    
-        .instanceChild {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: var(--color-gainsboro);
-            border: 1px solid var(--color-black);
-            box-sizing: border-box;
-        }
-    
-        .loremIpsum,
-        .personalInformation,
-        .step1 {
-            position: absolute;
-            top: 62px;
-            left: 35px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            font-weight: 600;
-        }
-    
-        .personalInformation,
-        .step1 {
-            top: 17px;
-            left: 25px;
-            font-size: var(--font-size-3xs);
-            color: var(--color-black);
-        }
-    
-        .personalInformation {
-            top: 41px;
-            left: 34px;
-            font-size: var(--body-text-medium-medium-size);
-            color: var(--color-dimgray);
-        }
-    
-        .groupChild {
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: var(--br-5xs);
-            background-color: var(--color-black);
-            border: 1px solid var(--color-black);
-            box-sizing: border-box;
-            width: 129px;
-            height: 46px;
-        }
-    
-        .start {
-            position: absolute;
-            top: 11px;
-            left: 32px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            font-weight: 600;
-        }
-    
-        .rectangleGroup {
-            position: absolute;
-            top: 93px;
-            left: 34px;
-            width: 129px;
-            height: 46px;
-            cursor: pointer;
-        }
-    
-        .rectangleParent {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-    
-        .groupDiv,
-        .property1default {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 320px;
-            height: 159px;
-        }
-    
-        .groupDiv {
-            top: 93px;
-            left: 34px;
-            width: 129px;
-            height: 46px;
-        }
-    
-        .property1variant2 {
-            position: absolute;
-            top: 199px;
-            left: 20px;
-            width: 320px;
-            height: 159px;
-        }
-    
-        .property1defaultParent {
-            position: absolute;
-            top: 320px;
-            left: 189px;
-            border-radius: var(--br-8xs);
-            border: 1px dashed var(--color-blueviolet);
-            box-sizing: border-box;
-            width: 360px;
-            height: 378px;
-            overflow: hidden;
-            font-size: var(--font-size-xs);
-            border: 1px dashed #9747ff;
-        }
-    
-        .startTabletChild {
-            position: absolute;
-            top: 68.5px;
-            left: -0.5px;
-            border-top: 1px solid var(--color-black);
-            box-sizing: border-box;
-            width: 745px;
-            height: 1px;
-        }
-    
-        .logo {
-            left: 28px;
-            font-size: var(--font-size-5xl);
-            color: var(--color-black);
-            text-align: center;
-        }
-    
-        .agricultureInformation,
-        .logo,
-        .personalInformation2 {
-            position: absolute;
-            top: 24px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            font-weight: 600;
-        }
-    
-        .personalInformation2 {
-            left: 146px;
-            color: #477bff;
-        }
-    
-        .agricultureInformation {
-            left: 369px;
-            color: var(--color-black);
-        }
-    
-        .rightArrowIcon {
-            position: absolute;
-            top: 31px;
-            left: 347px;
-            width: 12px;
-            height: 12px;
-            object-fit: cover;
-        }
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .followTheSteps {
+        margin: 0;
+        font-size: var(--body-text-medium-medium-size);
+    }
+
+    .farmerProfileFollowTheContainer {
+        position: absolute;
+        top: 226px;
+        left: 202px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+        color: var(--color-gray);
+        font-size: var(--font-size-13xl);
+    }
+
+    .instanceChild {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-gainsboro);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+    }
+
+    .loremIpsum,
+    .personalInformation,
+    .step1 {
+        position: absolute;
+        top: 62px;
+        left: 35px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .personalInformation,
+    .step1 {
+        top: 17px;
+        left: 25px;
+        font-size: var(--font-size-3xs);
+        color: var(--color-black);
+    }
+
+    .personalInformation {
+        top: 41px;
+        left: 34px;
+        font-size: var(--body-text-medium-medium-size);
+        color: var(--color-dimgray);
+    }
+
+    .groupChild {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: var(--br-5xs);
+        background-color: var(--color-black);
+        border: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 129px;
+        height: 46px;
+    }
+
+    .start {
+        position: absolute;
+        top: 11px;
+        left: 32px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .rectangleGroup {
+        position: absolute;
+        top: 93px;
+        left: 34px;
+        width: 129px;
+        height: 46px;
+        cursor: pointer;
+    }
+
+    .rectangleParent {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .groupDiv,
+    .property1default {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 320px;
+        height: 159px;
+    }
+
+    .groupDiv {
+        top: 93px;
+        left: 34px;
+        width: 129px;
+        height: 46px;
+    }
+
+    .property1variant2 {
+        position: absolute;
+        top: 199px;
+        left: 20px;
+        width: 320px;
+        height: 159px;
+    }
+
+    .property1defaultParent {
+        position: absolute;
+        top: 320px;
+        left: 189px;
+        border-radius: var(--br-8xs);
+        border: 1px dashed var(--color-blueviolet);
+        box-sizing: border-box;
+        width: 360px;
+        height: 378px;
+        overflow: hidden;
+        font-size: var(--font-size-xs);
+        border: 1px dashed #9747ff;
+    }
+
+    .startTabletChild {
+        position: absolute;
+        top: 68.5px;
+        left: -0.5px;
+        border-top: 1px solid var(--color-black);
+        box-sizing: border-box;
+        width: 745px;
+        height: 1px;
+    }
+
+    .logo {
+        left: 28px;
+        font-size: var(--font-size-5xl);
+        color: var(--color-black);
+        text-align: center;
+    }
+
+    .agricultureInformation,
+    .logo,
+    .personalInformation2 {
+        position: absolute;
+        top: 24px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .personalInformation2 {
+        left: 146px;
+        color: #477bff;
+    }
+
+    .agricultureInformation {
+        left: 369px;
+        color: var(--color-black);
+    }
+
+    .rightArrowIcon {
+        position: absolute;
+        top: 31px;
+        left: 347px;
+        width: 12px;
+        height: 12px;
+        object-fit: cover;
+    }
 
 
 
-        
-    
-     
 
-.vectorParent {
-    position: flex;
-    bottom: 70px;
-    margin-right: 100px;
-    width: 400px;
-    height: 60px;
-    cursor: pointer;
-    font-size: var(--body-text-medium-medium-size);
-    color: var(--color-white);
-    font-family: var(--body-text-medium-medium);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #02044a;
-    border-radius: 5px;
-    text-align: center;
-    left: calc(50% - 200px);
-}
-.nextStep {
-    margin-left: 8px;
-    letter-spacing: -0.02em;
-    line-height: 20px;
-    font-weight: 500;
-}
-    
-        .startTablet {
-            width: 100%;
-            position: relative;
-            background-color: var(--color-white);
-            height: 1133px;
-            overflow: hidden;
-            text-align: left;
-            font-size: var(--font-size-base);
-            color: var(--color-white);
-            font-family: var(--font-poppins);
-        }
+
+
+
+    .vectorParent {
+        position: flex;
+        bottom: 70px;
+        margin-right: 100px;
+        width: 400px;
+        height: 60px;
+        cursor: pointer;
+        font-size: var(--body-text-medium-medium-size);
+        color: var(--color-white);
+        font-family: var(--body-text-medium-medium);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #02044a;
+        border-radius: 5px;
+        text-align: center;
+        left: calc(50% - 200px);
+    }
+
+    .nextStep {
+        margin-left: 8px;
+        letter-spacing: -0.02em;
+        line-height: 20px;
+        font-weight: 500;
+    }
+
+    .startTablet {
+        width: 100%;
+        position: relative;
+        background-color: var(--color-white);
+        height: 1133px;
+        overflow: hidden;
+        text-align: left;
+        font-size: var(--font-size-base);
+        color: var(--color-white);
+        font-family: var(--font-poppins);
+    }
 }
 
 
@@ -668,15 +671,15 @@ body {
 
 .groupChild1 {
     position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: var(--br-5xs);
-        
-        border: 1px solid var(--color-black);
-        box-sizing: border-box;
-        width: 129px;
-        height: 46px;
-        background-color: #CCCCCC;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-5xs);
+
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 129px;
+    height: 46px;
+    background-color: #CCCCCC;
 }
 
 .adduploadAPic,
@@ -711,8 +714,7 @@ body {
     height: 302px;
 }
 
-.containerProfilePhoto
- {
+.containerProfilePhoto {
     position: absolute;
     top: 262px;
     left: 100px;
@@ -724,7 +726,7 @@ body {
 .of2 {
     position: relative;
     margin-left: 150px;
-   top:161px;
+    top: 161px;
     left: 1136px;
     letter-spacing: 1px;
     line-height: 24px;
@@ -742,8 +744,8 @@ body {
     letter-spacing: 1px;
     line-height: 24px;
     font-weight: 600;
-    top:35px;
-    left:40px;
+    top: 35px;
+    left: 40px;
 }
 
 .instanceChild1 {
@@ -803,25 +805,26 @@ body {
     width: 100%;
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
-    
+
 }
+
 .enterInputWrapper {
     align-self: stretch;
-        border-radius: var(--br-5xs);
-        border: 1px solid var(--color-lightgray);
-        box-sizing: border-box;
-        height: 45px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        padding: var(--padding-3xs);
-        text-align: center;
-        color: var(--color-lightgray);
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        font-family: 'Inter', sans-serif;
-        border: 2px solid #CCCCCC;
-        
+    border-radius: var(--br-5xs);
+    border: 1px solid var(--color-lightgray);
+    box-sizing: border-box;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--padding-3xs);
+    text-align: center;
+    color: var(--color-lightgray);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    border: 2px solid #CCCCCC;
+
 }
 
 
@@ -842,16 +845,17 @@ body {
     color: var(--color-dimgray-100);
     font-family: var(--paragraph-body);
 }
-.instanceInner{
+
+.instanceInner {
     position: absolute;
-        
-        left: calc(50% - 173px);
-        border-radius: var(--br-5xs);
-        background-color: var(--color-midnightblue);
-        width: 345px;
-        height: 49px;
-        cursor: pointer;
-        
+
+    left: calc(50% - 173px);
+    border-radius: var(--br-5xs);
+    background-color: var(--color-midnightblue);
+    width: 345px;
+    height: 49px;
+    cursor: pointer;
+
 }
 
 .textInputTypephone1 {
@@ -911,7 +915,8 @@ body {
     line-height: 24px;
     font-weight: 600;
     text-align: center;
-    font-size: 1.5rem;;
+    font-size: 1.5rem;
+    ;
 }
 
 .clouduploadIcon {
@@ -928,13 +933,14 @@ body {
     top: 392px;
     left: 512px;
     font-size: var(--font-size-5xl);
-    font-size:1.5rem;
+    font-size: 1.5rem;
     margin-left: 10px;
     letter-spacing: 1px;
     line-height: 24px;
     font-weight: 600;
     text-align: center;
 }
+
 .avatarIcon {
     position: absolute;
     margin-top: 115px;
@@ -959,7 +965,7 @@ body {
     max-height: 100%;
     background-color: #02044a;
     color: white;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .vectorGroup {
@@ -1032,16 +1038,16 @@ body {
 
 .rakigmailcom {
     position: absolute;
-        height: 49.02%;
-        width: 100%;
-        top: 25.49%;
-        right: 0;
-        bottom: 25.49%;
-        left: 0;
-        border-radius: var(--br-5xs);
-        background-color: var(--w-background);
-        border: 1px solid var(--color-black);
-        box-sizing: border-box;
+    height: 49.02%;
+    width: 100%;
+    top: 25.49%;
+    right: 0;
+    bottom: 25.49%;
+    left: 0;
+    border-radius: var(--br-5xs);
+    background-color: var(--w-background);
+    border: 1px solid var(--color-black);
+    box-sizing: border-box;
 }
 
 .mailOutlineParent {
@@ -1234,6 +1240,7 @@ body {
     color: var(--primary-gray-500);
     font-family: var(--paragraph-body);
 }
+
 .groupChild12 {
     position: absolute;
     top: 60px;
@@ -1250,7 +1257,7 @@ body {
     letter-spacing: 1px;
     line-height: 24px;
     font-weight: 600;
-    color:black;
+    color: black;
 }
 
 .instanceItem {
@@ -1409,6 +1416,7 @@ body {
     justify-content: center;
     height: 24px;
 }
+
 .checkCircleIcon,
 .textValues,
 .textValues1 {
@@ -1436,9 +1444,9 @@ body {
     position: absolute;
     top: 530px;
     left: 503px;
-    
+
     border-radius: 8px;
-    
+
     box-sizing: border-box;
     width: 346px;
     height: 52px;
@@ -1451,6 +1459,7 @@ body {
     width: 342px;
     height: 48px;
 }
+
 .farmInfoAndExperincedeskto {
     width: 100%;
     position: relative;
@@ -1611,12 +1620,13 @@ body {
     border-radius: var(--dimensions-corner-radius-pill);
     width: 150px;
     height: 150px;
-    border-radius: 50%;;
+    border-radius: 50%;
+    ;
 }
 
 
-@media (max-width: 865px) and (min-width: 600px){
-.containerProfilePhotoChild {
+@media (max-width: 865px) and (min-width: 600px) {
+    .containerProfilePhotoChild {
         position: absolute;
         top: 0;
         left: calc(50% - 160px);
@@ -1627,312 +1637,318 @@ body {
         background-color: #7b7b7b;
         color: white;
     }
-    
-        .groupChild12 {
-            position: absolute;
-            top: 60px;
-            left: 0;
-            background-color: var(--color-gainsboro);
-            width: 252px;
-            height: 242px;
-        }
-    
-        .adduploadAPic,
-        .profilePhoto {
-            position: absolute;
-            letter-spacing: 1px;
-            line-height: 24px;
-            font-weight: 600;
-        }
-    
-        .adduploadAPic {
-            top: 139.3px;
-            left: 31px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 189px;
-            height: 84.9px;
-        }
-    
-        .profilePhoto {
-            top: 0;
-            left: 9px;
-        }
-    
-        .rectangleParent12 {
-            position: absolute;
-            top: 35px;
-            left: 34px;
-            width: 252px;
-            height: 302px;
-        }
-    
-        .containerProfilePhoto {
-            position: absolute;
-            top: 127px;
-            left: calc(50% - 160px);
-            width: 320px;
-            height: 400px;
-            text-align: center;
-        }
-    
-        .inputLabel {
-            align-self: stretch;
-            font-size: var(--font-size-xs);
-            font-weight: 600;
-            font-family: var(--font-noto-sans);
-            justify-content: flex-start;
-           
-        }
-                .buttonContainer {
-                    position: absolute;
-                    bottom: 10%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
 
-    
-    
-        .inputLabel {
-            position: sticky;
-        }
-                .enterInput {
-                    /* Keep other existing styles */
-                    position: absolute;
-                    /* Add or keep this line */
-                   
-                }
-    
-        .enterInputWrapper {
-            align-self: stretch;
-            border-radius: var(--br-5xs);
-            border: 1px solid var(--color-lightgray-100);
-            box-sizing: border-box;
-            height: 45px;
-            display: flex;
-            flex-direction: row;
-            
-            justify-content: flex-start;
-            padding: var(--padding-3xs);
-            text-align: center;
-            color: var(--color-lightgray-100);
-             border: 2px solid #CCCCCC;
-        }
-    
-        .textInputTypephone,
-        .textInputTypephone1,
-        .textInputTypephone2 {
-           
-            top: 604px;
-            left: 199px;
-            width: 345px;
-            height: 75px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: var(--gap-7xs);
-            color: var(--color-dimgray-100);
-            font-family: var(--body-text-large-regular);
-        }
-    
-                .startDesktop {
-                    
-                    min-height: 100vh;
-                    
-                    overflow-y: auto;
-                    
-                }
-        .textInputTypephone1,
-        .textInputTypephone2 {
-            top: 703px;
-        }
-    
-        .textInputTypephone2 {
-            top: 802px;
-        }
-    
-        .addingAProfilePicTabletItem {
-            position: absolute;
-            top: 909px;
-            left: calc(50% - 173px);
-            border-radius: var(--br-5xs);
-            background-color: var(--color-midnightblue);
-            width: 345px;
-            height: 49px;
-            cursor: pointer;
-        }
-    
-        
-    
-        
-        .of2,
-        .prev {
-            position: absolute;
-            
-            
-        }
-    
-       
-        .instanceInner{
-            top: 924px;
-                left: 340px;
-                font-size: var(--body-text-medium-medium-size);
-                letter-spacing: -0.02em;
-                line-height: 20px;
-                font-weight: 500;
-                font-family: var(--body-text-large-regular);
-                color: var(--w-background);
-                margin-top: 100px;
-                
-        }
-        .vectorParent{
+    .groupChild12 {
         position: absolute;
-                top: 909px;
-                left: 198px;
-                border-radius: 8px;
-                background-color: "#02044a";
-                width: 345px;
-                height: 49px;
-          
-        }
+        top: 60px;
+        left: 0;
+        background-color: var(--color-gainsboro);
+        width: 252px;
+        height: 242px;
+    }
 
-                .pre {
-                    position: absolute;
-                        top: 999px;
-                    
-                        left: 360px;
-                        letter-spacing: -0.02em;
-                        line-height: 20px;
-                        font-weight: 500;
-                        font-family: "Inter";
-                }
-    
-        .of2 {
-            top: 95px;
-            left: 640px;
-            letter-spacing: 1px;
-            line-height: 24px;
-            font-weight: 600;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 16px;
-            cursor: none;
-        }
-                .nameInformation {
-                    position: absolute;
-                    top: 562px;
-                    left: 199px;
-                    font-weight: 600;
-                    font-family: var(--font-noto-sans);
-                }
+    .adduploadAPic,
+    .profilePhoto {
+        position: absolute;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+    }
 
+    .adduploadAPic {
+        top: 139.3px;
+        left: 31px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 189px;
+        height: 84.9px;
+    }
 
+    .profilePhoto {
+        top: 0;
+        left: 9px;
+    }
 
+    .rectangleParent12 {
+        position: absolute;
+        top: 35px;
+        left: 34px;
+        width: 252px;
+        height: 302px;
+    }
 
+    .containerProfilePhoto {
+        position: absolute;
+        top: 127px;
+        left: calc(50% - 160px);
+        width: 320px;
+        height: 400px;
+        text-align: center;
+    }
 
+    .inputLabel {
+        align-self: stretch;
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        font-family: var(--font-noto-sans);
+        justify-content: flex-start;
 
-                /* new one */
+    }
 
-                                .uploadingAPicDesktopItem {
-                                    position: absolute;
-                                    top: 118px;
-                                    left: 147px;
-                                    border-radius: var(--br-5xs);
-                                    background-color: var(--color-gainsboro);
-                                    width: 438px;
-                                    height: 707px;
-                                }
-                
-                                .clouduploadIcon {
-                                    position: absolute;
-                                    top: 345px;
-                                    left: 335px;
-                                    width: 67px;
-                                    height: 67px;
-                                    overflow: hidden;
-                                }
-                
-                                .dragAndDrop,
-                                .or {
-                                    position: absolute;
-                                    letter-spacing: 1px;
-                                    line-height: 24px;
-                                    font-weight: 600;
-                                    text-align: center;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                }
-                
-                                .dragAndDrop {
-                                    top: 434px;
-                                    left: 215px;
-                                    font-size: 20px;
-                                    white-space: pre-wrap;
-                                    width: 308px;
-                                    height: 33px;
-                                }
-                
-                                .or {
-                                    top: 475px;
-                                    left: 357px;
-                                    font-size: var(--body-text-medium-medium-size);
-                                    width: 23px;
-                                    height: 34px;
-                                }
-                                                                .selectFile {
-                                                                position: absolute;
-                                                                    top: 14px;
-                                                                    left: 41px;
-                                                                    letter-spacing: -0.02em;
-                                                                    line-height: 20px;
-                                                                    font-weight: 500;
-                                                                }
-
-                                                                .vectorGroup{
-                                                                    position: absolute;
-                                                                        top: 551px;
-                                                                        left: 257px;
-                                                                        width: 144px;
-                                                                        height: 48px;
-                                                                        cursor: pointer;
-                                                                        font-size: var(--body-text-medium-medium-size);
-                                                                        color: var(--w-background);
-                                                                        font-family: var(--body-text-large-regular);
-                                                                }
-
-                                                                .rightArrowIcon {
-  position: absolute;
-  top: 31px;
-  left: 347px;
-  width: 12px;
-  height: 12px;
-  object-fit: cover;
-}
+    .buttonContainer {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
 
 
+    .inputLabel {
+        position: sticky;
+    }
+
+    .enterInput {
+        /* Keep other existing styles */
+        position: absolute;
+        /* Add or keep this line */
+
+    }
+
+    .enterInputWrapper {
+        align-self: stretch;
+        border-radius: var(--br-5xs);
+        border: 1px solid var(--color-lightgray-100);
+        box-sizing: border-box;
+        height: 45px;
+        display: flex;
+        flex-direction: row;
+
+        justify-content: flex-start;
+        padding: var(--padding-3xs);
+        text-align: center;
+        color: var(--color-lightgray-100);
+        border: 2px solid #CCCCCC;
+    }
+
+    .textInputTypephone,
+    .textInputTypephone1,
+    .textInputTypephone2 {
+
+        top: 604px;
+        left: 199px;
+        width: 345px;
+        height: 75px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: var(--gap-7xs);
+        color: var(--color-dimgray-100);
+        font-family: var(--body-text-large-regular);
+    }
+
+    .startDesktop {
+
+        min-height: 100vh;
+
+        overflow-y: auto;
+
+    }
+
+    .textInputTypephone1,
+    .textInputTypephone2 {
+        top: 703px;
+    }
+
+    .textInputTypephone2 {
+        top: 802px;
+    }
+
+    .addingAProfilePicTabletItem {
+        position: absolute;
+        top: 909px;
+        left: calc(50% - 173px);
+        border-radius: var(--br-5xs);
+        background-color: var(--color-midnightblue);
+        width: 345px;
+        height: 49px;
+        cursor: pointer;
+    }
 
 
 
-                                                                
+
+    .of2,
+    .prev {
+        position: absolute;
+
+
+    }
+
+
+    .instanceInner {
+        top: 924px;
+        left: 340px;
+        font-size: var(--body-text-medium-medium-size);
+        letter-spacing: -0.02em;
+        line-height: 20px;
+        font-weight: 500;
+        font-family: var(--body-text-large-regular);
+        color: var(--w-background);
+        margin-top: 100px;
+
+    }
+
+    .vectorParent {
+        position: absolute;
+        top: 909px;
+        left: 198px;
+        border-radius: 8px;
+        background-color: "#02044a";
+        width: 345px;
+        height: 49px;
+
+    }
+
+    .pre {
+        position: absolute;
+        top: 999px;
+
+        left: 360px;
+        letter-spacing: -0.02em;
+        line-height: 20px;
+        font-weight: 500;
+        font-family: "Inter";
+    }
+
+    .of2 {
+        top: 95px;
+        left: 640px;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 16px;
+        cursor: none;
+    }
+
+    .nameInformation {
+        position: absolute;
+        top: 562px;
+        left: 199px;
+        font-weight: 600;
+        font-family: var(--font-noto-sans);
+    }
+
+
+
+
+
+
+    /* new one */
+
+    .uploadingAPicDesktopItem {
+        position: absolute;
+        top: 118px;
+        left: 147px;
+        border-radius: var(--br-5xs);
+        background-color: var(--color-gainsboro);
+        width: 438px;
+        height: 707px;
+    }
+
+    .clouduploadIcon {
+        position: absolute;
+        top: 345px;
+        left: 335px;
+        width: 67px;
+        height: 67px;
+        overflow: hidden;
+    }
+
+    .dragAndDrop,
+    .or {
+        position: absolute;
+        letter-spacing: 1px;
+        line-height: 24px;
+        font-weight: 600;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dragAndDrop {
+        top: 434px;
+        left: 215px;
+        font-size: 20px;
+        white-space: pre-wrap;
+        width: 308px;
+        height: 33px;
+    }
+
+    .or {
+        top: 475px;
+        left: 357px;
+        font-size: var(--body-text-medium-medium-size);
+        width: 23px;
+        height: 34px;
+    }
+
+    .selectFile {
+        position: absolute;
+        top: 14px;
+        left: 41px;
+        letter-spacing: -0.02em;
+        line-height: 20px;
+        font-weight: 500;
+    }
+
+    .vectorGroup {
+        position: absolute;
+        top: 551px;
+        left: 257px;
+        width: 144px;
+        height: 48px;
+        cursor: pointer;
+        font-size: var(--body-text-medium-medium-size);
+        color: var(--w-background);
+        font-family: var(--body-text-large-regular);
+    }
+
+    .rightArrowIcon {
+        position: absolute;
+        top: 31px;
+        left: 347px;
+        width: 12px;
+        height: 12px;
+        object-fit: cover;
+    }
+
+
+
+
+
+
+
 }
 
 .pre {
     position: fixed;
     bottom: 35px;
-   
+
     right: 450px;
-    
+
     z-index: 1000;
     cursor: pointer;
-    
+
 }
