@@ -907,7 +907,10 @@ const onPrevStepClick = useCallback(() => {
                   Agriculture information
                 </div>
                 <div className={styles.groupDiv}>
-                  <div className={styles.groupChild} />
+                  <div className={styles.groupChild} onClick={
+  windowWidth <= 600 ? onNextStepFIMob1 : 
+  (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
+}/>
                   <div className={styles.start} onClick={
   windowWidth <= 600 ? onNextStepFIMob1 : 
   (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
@@ -1362,7 +1365,7 @@ const onPrevStepClick = useCallback(() => {
       {windowWidth >= 600 && windowWidth <= 865 && (
   <div className={styles.farmInformation}>Farm information</div>
 )}
-      <div className={styles.farmInfoAndExperincedesktoItem} />
+      
       {/* <img
         className={styles.farmInfoAndExperincedesktoInner}
         alt=""
@@ -1371,11 +1374,24 @@ const onPrevStepClick = useCallback(() => {
       <img className={styles.iconPlus} alt="" src="/icon--plus.svg" />
       <img className={styles.iconMinus} alt="" src="/icon--minus.svg" />
       <div className={styles.div}>100</div> */}
+      <div
+        style={{
+          position: "absolute",
+          top: "294px",
+          left: "111px",
+          borderRadius: "8px",
+          backgroundColor: "#d9d9d9",
+          border: "1px solid #000",
+          boxSizing: "border-box",
+          width: "280px",
+          height: "50px",
+        }}
+      />
       <img
         style={{
           position: "absolute",
-          top: "308px",
-          left: "187px",
+          top: "306px",
+          left: "167px",
           width: "173px",
           height: "29px",
         }}
@@ -1386,8 +1402,8 @@ const onPrevStepClick = useCallback(() => {
       onClick={incrementAcres}
         style={{
           position: "absolute",
-          top: "308px",
-          left: "410px",
+          top: "309px",
+          left: "352px",
           width: "24px",
           height: "24px",
         }}
@@ -1398,8 +1414,8 @@ const onPrevStepClick = useCallback(() => {
       onClick={decrementAcres}
         style={{
           position: "absolute",
-          top: "308px",
-          left: "120px",
+          top: "309px",
+          left: "130px",
           width: "24px",
           height: "24px",
         }}
@@ -1409,8 +1425,8 @@ const onPrevStepClick = useCallback(() => {
       <div
           style={{
             position: "absolute",
-            top: "308px",
-            left: "238px",
+            top: "309px",
+            left: "212px",
             letterSpacing: "1px",
             lineHeight: "24px",
             fontWeight: "600",
@@ -1435,6 +1451,7 @@ const onPrevStepClick = useCallback(() => {
               fontWeight: "inherit",
             }}
           />
+        
         </div>
       <div className={styles.farmingExperience}>Farming experience</div>
       <div className={styles.rectangleDiv} />
@@ -1659,41 +1676,56 @@ const onPrevStepClick = useCallback(() => {
         <img className="date-range-icon" alt="" src="/add.svg" />
         <div className="input-fieldtype1-child14" />
       </div>
-      <div className="rectangle-parent23">
-        <div className="frame-child" />
-        <div className="paddy">Paddy</div>
-        <img className="plus-icon" alt="" src="/plus@2x.png" />
-      </div>
-      <div className="rectangle-parent24">
-        <div className="frame-child" />
-        <div className="paddy">Paddy</div>
-        <img className="plus-icon" alt="" src="/plus@2x.png" />
-      </div>
+      <div className="button-container">
+  <button className="paddy">Paddy <img className="plus" alt="" src="/xmark-svgrepo-com.svg" /></button>
+  <button className="paddy1">Paddy <img className="plus" alt="" src="/xmark-svgrepo-com.svg" /></button>
+</div>
       <div className="start-month-of">Start month of cultivation</div>
-      <div className="input-fieldtype110">
-        <div className="error16">*error</div>
-        <div className="label10">Label</div>
+<div className="input-fieldtype110">
+      <div className="label10">Label</div>
         <div className="input-fieldtype1-child13" />
         <div className="mail-outline-parent2">
           <img className="mail-outline-icon4" alt="" src="/mail-outline.svg" />
-          <div className="rakigmailcom8">DD/MM/YY</div>
+          <div className="rakigmailcom8" id="dateOutput" >
+            {selectedDate1 ? selectedDate1.toLocaleDateString() : "DD/MM/YY"}
+          </div>
         </div>
-        <img className="date-range-icon" alt="" src="/date-range.svg" />
-        <div className="input-fieldtype1-child14" />
-      </div>
-      <div className="cultivation">Cultivation</div>
-      <div className="pre-production-month">Pre production month</div>
-      <div className="input-fieldtype111">
-        <div className="error16">*error</div>
-        <div className="label10">Label</div>
-        <div className="input-fieldtype1-child13" />
-        <div className="mail-outline-parent2">
-          <img className="mail-outline-icon4" alt="" src="/mail-outline.svg" />
-          <div className="rakigmailcom8">January</div>
-        </div>
-        <img className="date-range-icon" alt="" src="/calender-today.svg" />
-        <div className="input-fieldtype1-child14" />
-      </div>
+        <img className="date-range-icon" alt="" src="/date-range.svg" onClick={handleDateRangeClick} />
+        {showDatePicker1 && (
+          <DatePicker
+            selected={selectedDate1}
+            onChange={handleDateChange}
+            dateFormat="dd/MM/yyyy"
+          />
+        )}
+  <div className="input-fieldtype1-child14" />
+</div>
+<div className="cultivation">Cultivation</div>
+<div className="pre-production-month">Pre production month</div>
+<div className="input-fieldtype111">
+  <div className="error16">*error</div>
+  <div className="label10">Label</div>
+  <div className="input-fieldtype1-child13" />
+  <div className="mail-outline-parent2">
+    <img className="mail-outline-icon4" alt="" src="/mail-outline.svg" />
+    <div className="rakigmailcom8" id="monthOutput">
+      {selectedDate2 ? selectedDate2.toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "Month Year"}
+    </div>
+  </div>
+  <img className="date-range-icon" alt="" src="/calender-today.svg" onClick={handleCalendarTodayClick} />
+  {showDatePicker2 && (
+    <DatePicker
+      className="datepicker"
+      selected={selectedDate2}
+      onChange={handleMonthChange}
+      dateFormat="MMMM yyyy"
+      showMonthYearPicker
+    />
+  )}
+  {/* */}
+  <div className="input-fieldtype1-child14" />
+</div>
+
     
     
 
