@@ -281,6 +281,9 @@ body {
     flex: 1;
     position: relative;
     line-height: 24px;
+    border:none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
 }
 
 .input-field,
@@ -668,6 +671,48 @@ body {
     border: 1px solid #000;
     box-sizing: border-box;
     overflow: hidden;
+}
+.custom-datepicker{
+    top:70px;
+    left:30px;
+    position: absolute;
+}
+
+.custom-datepicker {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.custom-datepicker .react-datepicker__month-container {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-datepicker .react-datepicker__header {
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-datepicker .react-datepicker__current-month,
+.custom-datepicker .react-datepicker__day-name {
+    color: #333;
+    font-weight: bold;
+}
+
+.custom-datepicker .react-datepicker__day--selected {
+    background-color: #216ba5;
+    color: #fff;
+}
+
+.custom-datepicker .react-datepicker__day--keyboard-selected {
+    background-color: #2a9d8f;
+    color: #fff;
+}
+
+.custom-datepicker .react-datepicker__day--outside-month {
+    color: #ccc;
 }
 
 .rectangle-parent23,
