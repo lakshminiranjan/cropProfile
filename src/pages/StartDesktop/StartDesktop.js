@@ -14,11 +14,92 @@ import "../../global.css";
 
 const StartDesktop = () => {
 
+
+  useEffect(() => {
+  var myForm = document.getElementById('myForm');
+
+  if(myForm) {
+    myForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Assuming 'firstName', 'middleName', 'lastName', 'email', 'phone', 'location', 'state', 'mandal', 'district', 'pincode' are the ids of your input fields
+      var firstName = document.getElementById('firstName').value;
+      var middleName = document.getElementById('middleName').value;
+      var lastName = document.getElementById('lastName').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var location = document.getElementById('location').value;
+      var state = document.getElementById('state').value;
+      var mandal = document.getElementById('mandal').value;
+      var district = document.getElementById('district').value;
+      var pincode = document.getElementById('pincode').value;
+
+      // Check if all fields are filled
+      if(firstName && middleName && lastName && email && phone && location && state && mandal && district && pincode) {
+        // All fields are filled, you can proceed with form submission or enable the start button of agriculture information
+      } else {
+        // Not all fields are filled, show an alert
+        alert('Please fill all the personal information');
+      }
+    });
+  }
+}, []);
+
+
+
+
+  
+  const selectedOptionKey = 'selectedOption';
+const [selectedValue, setSelectedValue] = useState('');
+const [selectedValue1, setSelectedValue1] = useState('');
+const [selectedValue2, setSelectedValue2] = useState('');
    const navigate = useNavigate();
   const [selectedSoilType, setSelectedSoilType] = useState(null);
+  const [selectEarthType, setSelectedEarthType] = useState(null);
+  const [selectYear,setSelectedYear] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedYearlyInvestment, setSelectedYearlyInvestment] = useState(null);
   const [selectedStorageCapacity, setSelectedStorageCapacity] = useState(null);
+
+  useEffect(() => {
+    const savedValue = localStorage.getItem('selectedValue');
+    if (savedValue) {
+      setSelectedValue(savedValue);
+    }
+  }, []);
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setSelectedValue(value);
+    localStorage.setItem('selectedValue', value);
+  };
+
+  useEffect(() => {
+    const savedValue1 = localStorage.getItem('selectedValue1');
+    if (savedValue1) {
+      setSelectedValue1(savedValue1);
+    }
+  }, []);
+
+  const handleChange1 = (event) => {
+    const value1 = event.target.value;
+    setSelectedValue1(value1);
+    localStorage.setItem('selectedValue1', value1);
+  };
+
+    useEffect(() => {
+    const savedValue2 = localStorage.getItem('selectedValue2');
+    if (savedValue2) {
+      setSelectedValue2(savedValue2);
+    }
+  }, []);
+
+  const handleChange2 = (event) => {
+    const value2 = event.target.value;
+    setSelectedValue2(value2);
+    localStorage.setItem('selectedValue2', value2);
+  };
+
 
 
 const handleYearlyInvestmentSelect = (option) => {
@@ -36,9 +117,25 @@ const handleYearlyInvestmentSelect = (option) => {
     }
   };
 
+  const handleYearSelect = (year) => {
+    setSelectedYear(year);
+  };
+
   const handleSoilTypeSelect = (soilType) => {
     setSelectedSoilType(soilType);
+     localStorage.setItem(selectedOptionKey, soilType);
   };
+
+  const handleselectedEarthType = (earthType) => {
+    setSelectedEarthType(earthType);
+  };
+
+  useEffect(() => {
+    const storedOption = localStorage.getItem(selectedOptionKey);
+    if (storedOption) {
+      setSelectedOption(storedOption);
+    }
+  }, []);
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
@@ -67,15 +164,17 @@ const handleYearlyInvestmentSelect = (option) => {
 
   const [showDatePicker1, setShowDatePicker1] = useState(false);
   const [showDatePicker2, setShowDatePicker2] = useState(false);
-  const [selectedDate1, setSelectedDate1] = useState(null);
-  const [selectedDate2, setSelectedDate2] = useState(null);
+  const [selectedDate1, setSelectedDate1] = useState(() => new Date());
+  const [selectedDate2, setSelectedDate2] = useState(() => new Date());
 
   const handleDateRangeClick = () => {
     setShowDatePicker1(!showDatePicker1);
+    
   };
 
   const handleCalendarTodayClick = () => {
     setShowDatePicker2(!showDatePicker2);
+    setSelectedDate2(new Date());
   };
   
 
@@ -1231,7 +1330,7 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">State</div>
             <div className="input-field">
               <div className="text">
-                <select className="dropdown-option">
+                <select className="dropdown-option" value={selectedValue} onChange={handleChange}>
   <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
   <option value="A">A</option>
   <option value="B">B</option>
@@ -1247,7 +1346,7 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">Mandal</div>
             <div className="input-field">
               <div className="text">
-                <select className="dropdown-option">
+                <select className="dropdown-option" value={selectedValue1} onChange={handleChange1}>
   <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
   <option value="A">A</option>
   <option value="B">B</option>
@@ -1260,7 +1359,7 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">District</div>
             <div className="input-field">
               <div className="text">
-                <select className="dropdown-option">
+                <select className="dropdown-option" value={selectedValue2}  onChange={handleChange2}>
   <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
   <option value="A">A</option>
   <option value="B">B</option>
@@ -1426,7 +1525,7 @@ const onPrevStepClick = useCallback(() => {
           style={{
             position: "absolute",
             top: "309px",
-            left: "212px",
+            left: "222px",
             letterSpacing: "1px",
             lineHeight: "24px",
             fontWeight: "600",
@@ -1458,52 +1557,68 @@ const onPrevStepClick = useCallback(() => {
       <div className={styles.experienceInFarming}>Experience in farming ?</div>
       <div className={styles.textValues}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1} onClick={() => handleSoilTypeSelect("0-10 years")}>0-10 years
-        {selectedSoilType === "0-10 years" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        
+        <div
+                className={`div24 ${selectYear === "0-10 years" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearSelect("0-10 years")}
+              >
+                0-10 years
+                {selectYear === "0-10 years" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
       </div>
       <div className={styles.textValues1}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1} onClick={() => handleSoilTypeSelect("10-20 years")}>10-20 years
-        {selectedSoilType === "10-20 years" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+<div
+                className={`div24 ${selectYear === "10-20 years" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearSelect("10-20 years")}
+              >
+                10-20 years
+                {selectYear === "10-20 years" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
         
       </div>
       <div className={styles.textValues2}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1} onClick={() => handleSoilTypeSelect("30-40 years")}>30-40 years
-        {selectedSoilType === "30-40 years" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        <div className={`div24 ${selectYear === "20-30 years" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearSelect("20-30 years")}
+              >
+                20-30 years
+                {selectYear === "20-30 years" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
       </div>
       <div className={styles.textValues3}>
         <div className={styles.textValuesChild} />
-        <div className={styles.div1} onClick={() => handleSoilTypeSelect("20-30 years")}>20-30 years
-        {selectedSoilType === "20-30 years" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        <div
+                className={`div24 ${selectedSoilType === "30-40 years" ? styles.selectedOption : ""}`}
+                onClick={() => handleYearSelect("30-40 years")}
+              >
+                30-40 years
+                {selectedSoilType === "30-40 years" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
       </div>
 
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
@@ -1581,53 +1696,65 @@ const onPrevStepClick = useCallback(() => {
       </div>
       <div className={styles.textValues}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Alluvial soil")}>Alluvial soil
-        {selectedSoilType === "Alluvial soil" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        <div className={`div24 ${selectEarthType === "Alluvial soil" ? styles.selectedOption : ""}`}
+                onClick={() => handleselectedEarthType("Alluvial soil")}
+              >
+                Alluvial soil
+                {selectEarthType === "Alluvial soil" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
       </div>
       <div className={styles.textValues1}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Red soil")}>Red soil
-        {selectedSoilType === "Red soil" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        <div className={`div24 ${selectEarthType === "Red soil" ? styles.selectedOption : ""}`}
+                onClick={() => handleselectedEarthType("Red soil")}
+              >
+                Red soil
+                {selectEarthType === "Red soil" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
         
       </div>
       <div className={styles.textValues2}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Black soil")}>Black soil
-        {selectedSoilType === "Black soil" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        <div className={`div24 ${selectEarthType === "Black soil" ? styles.selectedOption : ""}`}
+                onClick={() => handleselectedEarthType("Black soil")}
+              >
+                Black soil
+                {selectEarthType === "Black soil" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
         
       </div>
       <div className={styles.textValues3}>
         <div className={styles.textValuesChild} />
-        <div className={styles.divn} onClick={() => handleSoilTypeSelect("Sandy soil")}>Sandy soil
-        {selectedSoilType === "Sandy soil" && (
-            <img
-              className={styles.checkCircleIcon}
-              alt=""
-              src="/check-circle.svg"
-            />
-          )}
-        </div>
+        <div className={`div24 ${selectEarthType === "Sandy soil" ? styles.selectedOption : ""}`}
+                onClick={() => handleselectedEarthType("Sandy soil")}
+              >
+                Sandy soil
+                {selectEarthType === "Sandy soil" && (
+                  <img
+                    className={styles.checkCircleIcon}
+                    alt=""
+                    src="/check-circle.svg"
+                  />
+                )}
+              </div>
       </div>
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
     
@@ -1683,7 +1810,7 @@ const onPrevStepClick = useCallback(() => {
       <div className="start-month-of">Start month of cultivation</div>
 <div className="input-fieldtype110">
       <div className="label10">Label</div>
-        <div className="input-fieldtype1-child13" />
+       <div className="input-fieldtype1-child13" />
         <div className="mail-outline-parent2">
           <img className="mail-outline-icon4" alt="" src="/mail-outline.svg" />
           <div className="rakigmailcom8" id="dateOutput" >
@@ -1696,6 +1823,8 @@ const onPrevStepClick = useCallback(() => {
             selected={selectedDate1}
             onChange={handleDateChange}
             dateFormat="dd/MM/yyyy"
+            className="custom-datepicker"
+           
           />
         )}
   <div className="input-fieldtype1-child14" />
@@ -1715,7 +1844,7 @@ const onPrevStepClick = useCallback(() => {
   <img className="date-range-icon" alt="" src="/calender-today.svg" onClick={handleCalendarTodayClick} />
   {showDatePicker2 && (
     <DatePicker
-      className="datepicker"
+      className=" custom-datepicker"
       selected={selectedDate2}
       onChange={handleMonthChange}
       dateFormat="MMMM yyyy"
@@ -2632,15 +2761,28 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/location-on.svg"
           />
-          <div
-            style={{
-              position: "relative",
-              letterSpacing: "-0.02em",
-              lineHeight: "26px",
-            }}
-          >
-            26/328 Houston
-          </div>
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
         </div>
         <img
           style={{
@@ -3132,6 +3274,7 @@ const onPrevStepClick = useCallback(() => {
               letterSpacing: "-0.02em",
               lineHeight: "26px",
             }}
+              id="dateOutput" 
           >
             DD/MM/YYYY
           </div>
@@ -3147,7 +3290,15 @@ const onPrevStepClick = useCallback(() => {
           }}
           alt=""
           src="/calender-today.svg"
+          onClick={handleDateRangeClick}
         />
+        {showDatePicker1 && (
+        <DatePicker
+          selected={selectedDate1}
+          onChange={handleDateChange} 
+          dateFormat="dd/MM/yyyy" 
+        />
+      )}
         <div
           style={{
             position: "absolute",
@@ -3252,6 +3403,7 @@ const onPrevStepClick = useCallback(() => {
               letterSpacing: "-0.02em",
               lineHeight: "26px",
             }}
+            id="monthOutput"
           >
             January
           </div>
@@ -3267,7 +3419,16 @@ const onPrevStepClick = useCallback(() => {
           }}
           alt=""
           src="/date-range.svg"
+          onClick={handleCalendarTodayClick}
         />
+        {showDatePicker2 && (
+        <DatePicker
+          selected={selectedDate2}
+          onChange={handleMonthChange} // Call handleMonthChange on date change
+          dateFormat="MMMM yyyy"
+          showMonthYearPicker
+        />
+      )}
         <div
           style={{
             position: "absolute",
@@ -8696,15 +8857,28 @@ const onPrevStepClick = useCallback(() => {
             alt=""
             src="/location-on.svg"
           />
-          <div
-            style={{
-              position: "relative",
-              letterSpacing: "-0.02em",
-              lineHeight: "26px",
-            }}
-          >
-            26/328 Houston
-          </div>
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "15px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
         </div>
         <img
           style={{
