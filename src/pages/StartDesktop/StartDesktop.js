@@ -15,35 +15,41 @@ import "../../global.css";
 const StartDesktop = () => {
 
 
-  useEffect(() => {
-  var myForm = document.getElementById('myForm');
+// Add a new state variable
+const [isFormFilled, setIsFormFilled] = useState(false);
 
-  if(myForm) {
-    myForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+// Remove the useEffect where you're checking if all fields are filled
 
-      // Assuming 'firstName', 'middleName', 'lastName', 'email', 'phone', 'location', 'state', 'mandal', 'district', 'pincode' are the ids of your input fields
-      var firstName = document.getElementById('firstName').value;
-      var middleName = document.getElementById('middleName').value;
-      var lastName = document.getElementById('lastName').value;
-      var email = document.getElementById('email').value;
-      var phone = document.getElementById('phone').value;
-      var location = document.getElementById('location').value;
-      var state = document.getElementById('state').value;
-      var mandal = document.getElementById('mandal').value;
-      var district = document.getElementById('district').value;
-      var pincode = document.getElementById('pincode').value;
+// Move the form submission logic into the handleSubmit function
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-      // Check if all fields are filled
-      if(firstName && middleName && lastName && email && phone && location && state && mandal && district && pincode) {
-        // All fields are filled, you can proceed with form submission or enable the start button of agriculture information
-      } else {
-        // Not all fields are filled, show an alert
-        alert('Please fill all the personal information');
-      }
-    });
+  // Assuming 'firstName', 'middleName', 'lastName', 'email', 'phone', 'location', 'state', 'mandal', 'district', 'pincode' are the ids of your input fields
+   const firstName = document.getElementById('firstName').value;
+  const middleName = document.getElementById('middleName').value;
+  const lastName = document.getElementById('lastName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const location = document.getElementById('location').value;
+  const state = document.getElementById('state').value;
+  const mandal = document.getElementById('mandal').value;
+  const district = document.getElementById('district').value;
+  const pincode = document.getElementById('pincode').value;
+
+  // Check if all fields are filled
+  if(firstName.trim() !== ''  && middleName.trim() !== ''  && lastName.trim() !== ''  && email.trim() !== ''  && phone.trim() !== ''  && location.trim() !== ''  && state.trim() !== ''  && mandal.trim() !== ''  && district.trim() !== ''  && pincode.trim() !== '' ) {
+    // All fields are filled, you can proceed with form submission or enable the Start button of agriculture information
+    setIsFormFilled(true);
+    // Proceed with form submission
+    // For example: submitForm();
+  } else {
+    // Not all fields are filled, show an alert
+    alert('Please fill all the personal information');
+    setIsFormFilled(false);
   }
-}, []);
+};
+
+// Start button click handler
 
 
 
@@ -65,6 +71,10 @@ const [selectedValue2, setSelectedValue2] = useState('');
     const savedValue = localStorage.getItem('selectedValue');
     if (savedValue) {
       setSelectedValue(savedValue);
+    }else {
+      // If no value is saved, set the default option
+      setSelectedValue("Dropdown option");
+      localStorage.setItem('selectedValue', "Dropdown option");
     }
   }, []);
 
@@ -78,6 +88,10 @@ const [selectedValue2, setSelectedValue2] = useState('');
     const savedValue1 = localStorage.getItem('selectedValue1');
     if (savedValue1) {
       setSelectedValue1(savedValue1);
+    }else {
+      // If no value is saved, set the default option
+      setSelectedValue1("Dropdown option");
+      localStorage.setItem('selectedValue1', "Dropdown option");
     }
   }, []);
 
@@ -91,6 +105,10 @@ const [selectedValue2, setSelectedValue2] = useState('');
     const savedValue2 = localStorage.getItem('selectedValue2');
     if (savedValue2) {
       setSelectedValue2(savedValue2);
+    }else {
+      // If no value is saved, set the default option
+      setSelectedValue2("Dropdown option");
+      localStorage.setItem('selectedValue2', "Dropdown option");
     }
   }, []);
 
@@ -177,7 +195,7 @@ const handleYearlyInvestmentSelect = (option) => {
     setSelectedDate2(new Date());
   };
   
-
+// onNextStepNFMob1
   const [showNameInfo, setShowNameInfo] = useState(false);
   const [showDragDropContent, setShowDragDropContent] = useState(false);
   const [showContactLocation, setShowContactLocation] = useState(false);
@@ -233,6 +251,7 @@ const handleYearlyInvestmentSelect = (option) => {
 
   const onNextStepClick = useCallback(() => {
     setShowNameInfo(true);
+    
     setShowDragDropContent(false);
     setShowContactLocation(false);
     setShowMid(false);
@@ -248,6 +267,7 @@ const handleYearlyInvestmentSelect = (option) => {
      setshowInvst2Tab(false);
      setshowCLTab(false);
      setshowNFMob1Tab(false);
+     setshowNFMob2Tab(false);
       setshowCLMob1(false);
     setShowCLMob2(false);
      setShowISMob2(false);
@@ -901,10 +921,7 @@ const onPrevStepClick = useCallback(() => {
         setShowISMob1(false);
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-  };
+  
 
   const handleFileInputChange = useCallback((event) => {
     const files = event.target.files;
@@ -1006,15 +1023,41 @@ const onPrevStepClick = useCallback(() => {
                   Agriculture information
                 </div>
                 <div className={styles.groupDiv}>
-                  <div className={styles.groupChild} onClick={
-  windowWidth <= 600 ? onNextStepFIMob1 : 
-  (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
-}/>
-                  <div className={styles.start} onClick={
-  windowWidth <= 600 ? onNextStepFIMob1 : 
-  (windowWidth >= 600 && windowWidth <= 865 ? onNextshowFIETab : onNextSstepClickFIE)
-}
->Start</div>
+                  <div 
+  className={styles.groupChild} 
+  onClick={() => {
+    if (firstName.trim() !== ''  && middleName.trim() !== ''  && lastName.trim() !== ''  && email.trim() !== ''  && phone.trim() !== ''  && location.trim() !== ''  &&  pincode.trim() !== '') {
+      if (windowWidth <= 600) {
+        onNextStepFIMob1();
+      } else if (windowWidth >= 600 && windowWidth <= 865) {
+        onNextshowFIETab();
+      } else {
+        onNextSstepClickFIE();
+      }
+    } else {
+      alert('Please fill all the personal information');
+    }
+  }}
+/>
+<div 
+  className={styles.start} 
+  onClick={() => {
+    if (firstName.trim() !== ''  && middleName.trim() !== ''  && lastName.trim() !== ''  && email.trim() !== ''  && phone.trim() !== ''  && location.trim() !== ''  &&  pincode.trim() !== '') {
+      if (windowWidth <= 600) {
+        onNextStepFIMob1();
+      } else if (windowWidth >= 600 && windowWidth <= 865) {
+        onNextshowFIETab();
+      } else {
+        onNextSstepClickFIE();
+      }
+    } else {
+      alert('Please fill all the personal information');
+    }
+  }}
+>
+  Start
+</div>
+
                 </div>
               </div>
             </div>
@@ -1032,188 +1075,2121 @@ const onPrevStepClick = useCallback(() => {
         </>
       )}
       {showNameInfo && (
-        <form className={styles.startDesktop} onSubmit={handleSubmit}>
-          <div className={styles.of2}>1 of 2</div>
-
-           {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
-          <AdditionalInformation />
-          <div className={styles.containerProfilePhoto}>
-            <div className={styles.containerProfilePhotoChild} />
-            {uploadedImageUrl && (
-              <img
-                src={uploadedImageUrl}
-                alt="Uploaded"
-                className={styles.uploadedImage}
-              />
-            )}
-            <div className={styles.rectangleParent12}>
-              {imageUploaded ? null : (
-                <div className={styles.groupChild12} />
-              )}
-              <div
-                className={styles.adduploadAPic}
-                onClick={onAdduploadAPicClick}
-              >
-                {imageUploaded ? "" : "Add/upload a pic"}
-              </div>
-              <div className={styles.profilePhoto}>Profile photo</div>
-            </div>
-          </div>
-
-          <div className={styles.textInputTypephone}>
-            <div className={styles.inputLabel}>First name</div>
-            <div className={styles.enterInputWrapper}>
-              <input
-                type="text"
-                className={styles.enterInput}
-                placeholder="Enter Input"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                
-              />
-             
-            </div>
-          </div>
-          <div className={styles.textInputTypephone1}>
-            <div className={styles.inputLabel}>Middle name</div>
-            <div className={styles.enterInputWrapper}>
-              <input
-                type="text"
-                className={styles.enterInput}
-                placeholder="Enter Input"
-                value={middleName}
-                onChange={(e) => setMiddleName(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className={styles.textInputTypephone2}>
-            <div className={styles.inputLabel}>Last name</div>
-            <div className={styles.enterInputWrapper}>
-              <input
-                type="text"
-                className={styles.enterInput}
-                placeholder="Enter Input"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className={styles.nameInformation}>Name information</div>
-          <div
-  className={styles.pre}
-  onClick={onPrevStepClick}
-  style={{
-    display: windowWidth >= 600 && windowWidth <= 865 ? 'none' : 'block'
-  }}
->
-  Prev
-</div>
-
-         
-          {windowWidth >= 600 && windowWidth <= 865 ? (
-  null 
-) : (
-  <NextStepButton onClick={onNextSstepClickCL} />
-  
-)}
-
-          
-          
-        <div
-        style={{
-          position: "absolute",
-          top: "909px",
-          left: "198px",
-          borderRadius: "8px",
-          backgroundColor: "#02044a",
-          width: "345px",
-          height: "49px",
-        }}
-      />
+  <>
+    {windowWidth <= 600 ? (
+      
+      <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
       <div
         style={{
           position: "absolute",
-          top: "924px",
-          left: "320px",
-          fontSize: "14px",
-          letterSpacing: "-0.02em",
-          lineHeight: "20px",
-          fontWeight: "500",
-          fontFamily: "Inter",
-          color: "#fff",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
         }}
-         onClick={onNextStepCLTab}
       >
-        Next step
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#7b7b7b",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "35px",
+            left: "calc(50% - 125px)",
+            width: "252px",
+            height: "302px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "60px",
+              left: "calc(50% - 126px)",
+              borderRadius: "16px",
+              backgroundColor: "#d9d9d9",
+              width: "252px",
+              height: "242px",
+              cursor: "pointer",
+            }}
+            onClick={onRectangleContainer1Click}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "5px",
+              letterSpacing: "1px",
+              lineHeight: "24px",
+              fontWeight: "600",
+            }}
+          >
+            Profile photo
+          </div>
+        </div>
       </div>
       <div
         style={{
           position: "absolute",
-          top: "986px",
-          
-          left: "340px",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "146px",
+          left: "266px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        1 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          left: "178px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
           fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
         }}
         onClick={onPrevStepClick}
       >
         Prev
       </div>
-
-        </form>
-      )}
-     {showDragDropContent && (
-        <div className={styles.dragDropContent}>
-          {windowWidth >= 600 && windowWidth <= 865 ? null : (
-            <FarmerProfileFollow />
-          )}
-          <AdditionalInformation />
-          <div className={styles.of2}>1 of 2</div>
-          <div className={styles.uploadingAPicDesktopItem} />
-          <div className={styles.or}>or</div>
-          <img
-            className={styles.clouduploadIcon}
-            alt=""
-            src="/cloudupload.svg"
-          />
-          <div className={styles.dragAndDrop}>Drag and drop here</div>
-          <div className={styles.vectorGroup}>
-            <button className={styles.selectFile} onClick={handleSelectFile}>
-              Select file
-            </button>
-            <input
-              type="file"
-              style={{ display: "none" }}
-              accept="image/*"
-              className={styles.fileInput}
-              ref={fileInputRef}
-              onChange={handleFileInputChange}
-            />
-          </div>
-<div
-  className={styles.pre}
-  onClick={onNextStepClick}
-  style={{
-    display: windowWidth >= 600 && windowWidth <= 865 ? 'none' : 'block'
-  }}
->
-  Prev
+      <div
+        style={{
+          position: "absolute",
+          top: "633px",
+          left: "35px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "320px",
+          height: "50px",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepCLMob1}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "648px",
+          left: "165px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+          textAlign: "left",
+        }}
+        onClick={onNextStepCLMob1}
+      >
+        Next step
+      </div>
+      
+        <div
+        style={{
+          position: "absolute",
+          top: "347px",
+          left: "125px",
+          borderRadius: "9999px",
+          backgroundColor: "#477bff",
+          width: "150px",
+          height: "150px",
+          fontSize: "12px",
+          color: "#fff",
+        }}
+      >
+       
+        {selectedFile ? (
+    <img
+      style={{
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        borderRadius: "9999px",
+        objectFit: "cover",
+      }}
+      src={URL.createObjectURL(selectedFile)}
+      alt="Selected Profile Pic"
+    />
+  ) : (
+    // If no file is selected, display the "Add/upload a profile pic" text
+    <div
+      style={{
+        position: "absolute",
+        top: "calc(50% - 20px)",
+        left: "calc(50% - 68.5px)",
+        letterSpacing: "1px",
+        lineHeight: "20px",
+        fontWeight: "500",
+      }}
+    >
+      {/* Single input element */}
+      <input
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        id="fileInput"
+        ref={fileInputRef}
+        onChange={handleFileInputChanges}
+      />
+      
+      {/* Single label associated with the input */}
+      <label htmlFor="fileInput" style={{ cursor: "pointer" }}>Add/upload a profile pic</label>
+    </div>
+  )}
 </div>
 
-         
-          {windowWidth >= 600 && windowWidth <= 865 ? (
-  null 
-) : (
-  <NextStepButton onClick={onNextSstepClickCL} />
-  
+      
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "34px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "25%",
+            top: "0%",
+            right: "75%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+    </div>
+
+      
+    ) : (
+      <form className={styles.startDesktop} onSubmit={handleSubmit}>
+        <div className={styles.of2}>1 of 2</div>
+
+        {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow />}
+        <AdditionalInformation />
+        <div className={styles.containerProfilePhoto}>
+          <div className={styles.containerProfilePhotoChild} />
+          {uploadedImageUrl && (
+            <img
+              src={uploadedImageUrl}
+              alt="Uploaded"
+              className={styles.uploadedImage}
+            />
+          )}
+          <div className={styles.rectangleParent12}>
+            {imageUploaded ? null : (
+              <div className={styles.groupChild12} />
+            )}
+            <div
+              className={styles.adduploadAPic}
+              onClick={onAdduploadAPicClick}
+            >
+              {imageUploaded ? "" : "Add/upload a pic"}
+            </div>
+            <div className={styles.profilePhoto}>Profile photo</div>
+          </div>
+        </div>
+
+        <div className={styles.textInputTypephone}>
+          <div className={styles.inputLabel}>First name</div>
+          <div className={styles.enterInputWrapper}>
+            <input
+              id="firstName"
+              type="text"
+              className={styles.enterInput}
+              placeholder="Enter Input"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className={styles.textInputTypephone1}>
+          <div className={styles.inputLabel}>Middle name</div>
+          <div className={styles.enterInputWrapper}>
+            <input
+              id="middleName"
+              type="text"
+              className={styles.enterInput}
+              placeholder="Enter Input"
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className={styles.textInputTypephone2}>
+          <div className={styles.inputLabel}>Last name</div>
+          <div className={styles.enterInputWrapper}>
+            <input
+              id="lastName"
+              type="text"
+              className={styles.enterInput}
+              placeholder="Enter Input"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className={styles.nameInformation}>Name information</div>
+        <div
+          className={styles.pre}
+          onClick={onPrevStepClick}
+          style={{
+            display: windowWidth >= 600 && windowWidth <= 865 ? 'none' : 'block'
+          }}
+        >
+          Prev
+        </div>
+
+        {windowWidth >= 600 && windowWidth <= 865 ? (
+          null
+        ) : (
+          <NextStepButton onClick={onNextSstepClickCL} />
+        )}
+
+        <div
+          style={{
+            position: "absolute",
+            top: "909px",
+            left: "198px",
+            borderRadius: "8px",
+            backgroundColor: "#02044a",
+            width: "345px",
+            height: "49px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "924px",
+            left: "320px",
+            fontSize: "14px",
+            letterSpacing: "-0.02em",
+            lineHeight: "20px",
+            fontWeight: "500",
+            fontFamily: "Inter",
+            color: "#fff",
+          }}
+          onClick={onNextStepCLTab}
+        >
+          Next step
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "986px",
+            left: "340px",
+            letterSpacing: "-0.02em",
+            lineHeight: "20px",
+            fontWeight: "500",
+            fontFamily: "Inter",
+          }}
+          onClick={onPrevStepClick}
+        >
+          Prev
+        </div>
+
+      </form>
+    )}
+  </>
 )}
- <div
+
+{/*  <>
+    {windowWidth <= 600 ? ( 
+      ) : (
+        </>
+      */}
+
+     {showDragDropContent && (
+  <div className={styles.dragDropContent}>
+    {windowWidth <= 600 ? (
+      <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "left",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "145px",
+          left: "266px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        1 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
+          textAlign: "center",
+          fontSize: "14px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#d9d9d9",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <img
+          style={{
+            position: "absolute",
+            top: "80px",
+            left: "128px",
+            borderRadius: "16px",
+            width: "51.2px",
+            height: "48px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/cloudupload.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "147px",
+            left: "48px",
+            fontSize: "20px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+            whiteSpace: "pre-wrap",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "235.7px",
+            cursor: "pointer",
+          }}
+          onClick={onRectangleContainer1Click}
+        >
+          Drag and drop here
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "194px",
+            left: "141.9px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "17.1px",
+          }}
+        >
+          or
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "241px",
+            left: "77.9px",
+            borderRadius: "16px",
+            width: "153.6px",
+            height: "48px",
+            cursor: "pointer",
+            textAlign: "left",
+            color: "#fff",
+            fontFamily: "Inter",
+          }}
+          onClick={onRectangleContainer1Click}
+        >
+          <img
+            style={{
+              position: "absolute",
+              height: "100%",
+              width: "100%",
+              top: "0%",
+              right: "0%",
+              bottom: "0%",
+              left: "0%",
+              borderRadius: "8px",
+              maxWidth: "100%",
+              overflow: "hidden",
+              maxHeight: "100%",
+            }}
+            alt=""
+            src="/rectangle-14.svg"
+          />
+          {/* Replace the existing code for the "Select file" div */}
+<div
+        style={{
+          position: "absolute",
+          top: "14px",
+          left: "41px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          cursor: "pointer",
+        }}
+        onClick={handleSelectFile1}
+      >
+        Select file
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          className={styles.fileInput}
+              ref={fileInputRef}
+          onChange={handleFileInputChanges}
+        />
+      </div>
+
+        </div>
+      </div>
+      
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "34px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "25%",
+            top: "0%",
+            right: "75%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "center",
+        }}
+      >
+        Logo
+      </div>
+    </div>
+    ) : (
+      <>
+        {windowWidth >= 600 && windowWidth <= 865 ? null : (
+          <FarmerProfileFollow />
+        )}
+        <AdditionalInformation />
+        <div className={styles.of2}>1 of 2</div>
+        <div className={styles.uploadingAPicDesktopItem} />
+        <div className={styles.or}>or</div>
+        <img
+          className={styles.clouduploadIcon}
+          alt=""
+          src="/cloudupload.svg"
+        />
+        <div className={styles.dragAndDrop}>Drag and drop here</div>
+        <div className={styles.vectorGroup}>
+          <button className={styles.selectFile} onClick={handleSelectFile}>
+            Select file
+          </button>
+          <input
+            type="file"
+            style={{ display: "none" }}
+            accept="image/*"
+            className={styles.fileInput}
+            ref={fileInputRef}
+            onChange={handleFileInputChange}
+          />
+        </div>
+        <div
+          className={styles.pre}
+          onClick={onNextStepClick}
+          style={{
+            display: windowWidth >= 600 && windowWidth <= 865 ? 'none' : 'block'
+          }}
+        >
+          Prev
+        </div>
+
+        {windowWidth >= 600 && windowWidth <= 865 ? (
+          null 
+        ) : (
+          <NextStepButton onClick={onNextSstepClickCL} />
+        )}
+
+        <div
+          style={{
+            position: "absolute",
+            top: "909px",
+            left: "198px",
+            borderRadius: "8px",
+            backgroundColor: "#02044a",
+            width: "345px",
+            height: "49px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "924px",
+            left: "320px",
+            fontSize: "14px",
+            letterSpacing: "-0.02em",
+            lineHeight: "20px",
+            fontWeight: "500",
+            fontFamily: "Inter",
+            color: "#fff",
+          }}
+           onClick={onNextStepCLTab}
+        >
+          Next step
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "986px",
+            left: "340px",
+            letterSpacing: "-0.02em",
+            lineHeight: "20px",
+            fontWeight: "500",
+            fontFamily: "Inter",
+          }}
+          onClick={onNextStepClick}
+        >
+          Prev
+        </div>
+      </>
+    )}
+  </div>
+)}
+
+
+{showContactLocation && (
+  <div className={styles.startDesktop} style={{ overflowY: "auto" }}>
+    {windowWidth <= 600 ? (
+       <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+        minHeight: "100vh", // Ensure content fills the viewport height
+        fontSize: "calc(0.7vw + 8px)", // Responsive font size
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#dfdfdf",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "35px",
+            left: "43px",
+            width: "185px",
+            height: "24px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "0px",
+              letterSpacing: "1px",
+              lineHeight: "24px",
+              fontWeight: "600",
+              whiteSpace:"nowrap",
+            }}
+          >
+            Contact information
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "136px",
+          left: "263px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        3 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "278px",
+          left: "79px",
+          width: "232px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "1.29%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "inline-block",
+          }}
+        >
+          Email
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <input
+        type="email"
+        placeholder=" Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "22px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+            display: "none",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "382px",
+          left: "79px",
+          width: "232px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "1.29%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "inline-block",
+          }}
+        >
+          Mobile Number
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+            }}
+            alt=""
+            src="/phone.svg"
+          />
+          <input
+        type="tel"
+        placeholder="Mobile Number"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "22px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+            display: "none",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "486px",
+          left: "78px",
+          width: "232px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "1.29%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "inline-block",
+          }}
+        >
+          Location
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+            }}
+            alt=""
+            src="/location-on.svg"
+          />
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "22px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+            display: "none",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          left: "178px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
+          fontSize:"1rem",
+        }}
+        onClick={onNextStepNFMob1}
+      >
+        Prev
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "633px",
+          left: "35px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "320px",
+          height: "50px",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepCLMob2}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "648px",
+          left: "165px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+          textAlign: "left",
+        }}
+      >
+        Next step
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "35px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "75%",
+            top: "0%",
+            right: "25%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+    </div>
+    ) : (
+      windowWidth >= 600 && windowWidth <= 865 ? (
+        <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "1133px",
+        overflow: "hidden",
+        textAlign: "left",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "68.5px",
+          left: "-0.5px",
+          borderTop: "1px solid #000",
+          boxSizing: "border-box",
+          width: "745px",
+          height: "1px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "28px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "center",
+        }}
+      >
+        Logo
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "146px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          color: "#1b5bff",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "369px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Agriculture information
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "31px",
+          left: "347px",
+          width: "12px",
+          height: "12px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/right-arrow@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "138px",
+          left: "199px",
+          fontWeight: "600",
+          fontFamily: "'Noto Sans'",
+          
+        }}
+      >
+        Contact information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "512px",
+          left: "199px",
+          fontWeight: "600",
+          fontFamily: "'Noto Sans'",
+        }}
+      >
+        Location information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "184px",
+          left: "199px",
+          width: "345px",
+          height: "102px",
+          textAlign: "center",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.91%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.13%",
+            top: "0%",
+            left: "0.87%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "inline-block",
+          }}
+        >
+          Email
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <input
+        type="email"
+        placeholder=" Enter Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+            display: "none",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "286px",
+          left: "199px",
+          width: "345px",
+          height: "102px",
+          textAlign: "center",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.91%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.13%",
+            top: "0%",
+            left: "0.87%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "inline-block",
+          }}
+        >
+          Mobile number
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+            }}
+            alt=""
+            src="/phone.svg"
+          />
+          <input
+        type="tel"
+        placeholder="Mobile Number"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+            display: "none",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "388px",
+          left: "199px",
+          width: "345px",
+          height: "102px",
+          textAlign: "center",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.91%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.13%",
+            top: "0%",
+            left: "0.87%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "inline-block",
+          }}
+        >
+          Location
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+            }}
+            alt=""
+            src="/location-on.svg"
+          />
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+            display: "none",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "558px",
+          left: "199px",
+          width: "345px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          gap: "8px",
+          fontSize: "12px",
+          color: "#666",
+          fontFamily: "'Noto Sans'",
+        }}
+      >
+        <div
+          style={{
+            alignSelf: "stretch",
+            position: "relative",
+            lineHeight: "18px",
+            fontWeight: "600",
+          }}
+        >
+          State
+        </div>
+        <div
+          style={{
+            alignSelf: "stretch",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #ccc",
+            boxSizing: "border-box",
+            height: "46px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "16px",
+            fontSize: "16px",
+          }}
+        >
+          <div
+            style={{
+              alignSelf: "stretch",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
+              gap: "8px",
+            }}
+          >
+            <select
+  defaultValue="default"
+  style={{
+    width: "254px",
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
+    height: "45px",
+    padding: "12px",
+    fontSize: "16px",
+    border:"none",
+  }}
+>
+  <option value="default" disabled hidden>
+    Dropdown option
+  </option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
+            
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "653px",
+          left: "199px",
+          width: "345px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          gap: "8px",
+          fontSize: "12px",
+          color: "#666",
+          fontFamily: "'Noto Sans'",
+        }}
+      >
+        <div
+          style={{
+            alignSelf: "stretch",
+            position: "relative",
+            lineHeight: "18px",
+            fontWeight: "600",
+          }}
+        >
+          Mandal
+        </div>
+        <div
+          style={{
+            alignSelf: "stretch",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #ccc",
+            boxSizing: "border-box",
+            height: "46px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "16px",
+            fontSize: "16px",
+          }}
+        >
+          <div
+            style={{
+              alignSelf: "stretch",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
+              gap: "8px",
+            }}
+          >
+             <select
+  defaultValue="default"
+  style={{
+    width: "254px",
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
+    height: "44px",
+    padding: "12px",
+    fontSize: "16px",
+    border:"none",
+  }}
+>
+  <option value="default" disabled hidden>
+    Dropdown option
+  </option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "748px",
+          left: "199px",
+          width: "199px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "flex-start",
+          gap: "8px",
+          fontSize: "12px",
+          color: "#666",
+          fontFamily: "'Noto Sans'",
+        }}
+      >
+        <div
+          style={{
+            alignSelf: "stretch",
+            position: "relative",
+            lineHeight: "18px",
+            fontWeight: "600",
+          }}
+        >
+          District
+        </div>
+        <div
+          style={{
+            alignSelf: "stretch",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #ccc",
+            boxSizing: "border-box",
+            height: "46px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "16px",
+            fontSize: "16px",
+          }}
+        >
+          <div
+            style={{
+              alignSelf: "stretch",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
+              gap: "8px",
+            }}
+          >
+             <select
+  defaultValue="default"
+  style={{
+    width: "254px",
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
+    height: "44px",
+    padding: "12px",
+    fontSize: "16px",
+    border:"none",
+  }}
+>
+  <option value="default" disabled hidden>
+    option
+  </option>
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+</select>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "739px",
+          left: "450px",
+          width: "90px",
+          height: "80px",
+          fontSize: "14px",
+          color: "#6d7280",
+          fontFamily: "Inter",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "95%",
+            width: "100%",
+            top: "2.5%",
+            right: "0%",
+            bottom: "2.5%",
+            left: "0%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            gap: "6px",
+          }}
+        >
+          <div
+            style={{
+              position: "relative",
+              letterSpacing: "-0.02em",
+              lineHeight: "20px",
+              fontWeight: "500",
+            }}
+          >
+            Pincode
+          </div>
+          <div
+            style={{
+              width: "90px",
+              borderRadius: "8px",
+              backgroundColor: "#f9fafb",
+              border: "1px solid #d2d5da",
+              boxSizing: "border-box",
+              height: "50px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              padding: "0px 12px",
+              fontSize: "16px",
+            }}
+          >
+            <input
+        type="text"
+        placeholder="Pincode"
+        value={pincode}
+        onChange={(e) => setPincode(e.target.value)}
+        style={{
+          width: "90px",
+          borderRadius: "8px",
+          backgroundColor: "#f9fafb",
+          border: "1px solid #d2d5da",
+          boxSizing: "border-box",
+          height: "50px",
+          overflow: "hidden",
+          fontSize: "16px",
+          padding: "0px 1px",
+          border:"none",
+        }}
+      />
+          </div>
+        </div>
+      </div>
+      <div
         style={{
           position: "absolute",
           top: "909px",
-          left: "198px",
+          left: "calc(50% - 173px)",
           borderRadius: "8px",
           backgroundColor: "#02044a",
           width: "345px",
@@ -1224,7 +3200,7 @@ const onPrevStepClick = useCallback(() => {
         style={{
           position: "absolute",
           top: "924px",
-          left: "320px",
+          left: "340px",
           fontSize: "14px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
@@ -1232,7 +3208,7 @@ const onPrevStepClick = useCallback(() => {
           fontFamily: "Inter",
           color: "#fff",
         }}
-         onClick={onNextStepCLTab}
+         onClick={onNextSstepClickMID}
       >
         Next step
       </div>
@@ -1241,7 +3217,7 @@ const onPrevStepClick = useCallback(() => {
           position: "absolute",
           top: "986px",
           
-          left: "340px",
+          left: "358px",
           letterSpacing: "-0.02em",
           lineHeight: "20px",
           fontWeight: "500",
@@ -1251,20 +3227,44 @@ const onPrevStepClick = useCallback(() => {
       >
         Prev
       </div>
+      {/* <div
+        style={{
+          position: "absolute",
+          top: "705px",
           
-        </div>
-      )}
-
-
-      {showContactLocation && (
-        <div
-      className={styles.startDesktop}
-      style={{
-       
-        overflowY: "auto"
-      }}
-    >
-          {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepLSMob2}
+      >
+        Prev
+      </div> */}
+      <div
+        style={{
+          position: "absolute",
+          top: "95px",
+          left: "640px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "60px",
+          height: "16px",
+        }}
+      >
+        1 of 2
+      </div>
+    </div>
+      ) : (
+        <>
+          {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow />}
           <div className="input-fieldtype1">
             <div className="error">*error</div>
             <div className="label" placeholder="Enter Email">Email</div>
@@ -1276,6 +3276,7 @@ const onPrevStepClick = useCallback(() => {
                 src="/mail-outline.svg"
               />
               <input
+                id="email"
                 className="rakigmailcom"
                 type="text"
                 placeholder="Enter Email"
@@ -1293,6 +3294,7 @@ const onPrevStepClick = useCallback(() => {
             <div className="mail-outline-parent">
               <img className="mail-outline-icon" alt="" src="/phone.svg" />
               <input
+              id="phone"
                 className="rakigmailcom"
                 type="text"
                 placeholder="Enter Number"
@@ -1314,6 +3316,7 @@ const onPrevStepClick = useCallback(() => {
                 src="/location-on.svg"
               />
               <input
+              id="location"
                 className="rakigmailcom"
                 type="text"
                 placeholder="Enter Location"
@@ -1330,15 +3333,12 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">State</div>
             <div className="input-field">
               <div className="text">
-                <select className="dropdown-option" value={selectedValue} onChange={handleChange}>
-  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
-  <option value="A">A</option>
-  <option value="B">B</option>
-  <option value="C">C</option>
-</select>
-
-
-
+                <select className="dropdown-option" id="state" defaultValue={selectedValue} onChange={handleChange}>
+                  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
               </div>
             </div>
           </div>
@@ -1346,12 +3346,12 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">Mandal</div>
             <div className="input-field">
               <div className="text">
-                <select className="dropdown-option" value={selectedValue1} onChange={handleChange1}>
-  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
-  <option value="A">A</option>
-  <option value="B">B</option>
-  <option value="C">C</option>
-</select>
+                <select className="dropdown-option" id="mandal" defaultValue={selectedValue1} onChange={handleChange1}>
+                  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
               </div>
             </div>
           </div>
@@ -1359,12 +3359,12 @@ const onPrevStepClick = useCallback(() => {
             <div className="dropdown-title">District</div>
             <div className="input-field">
               <div className="text">
-                <select className="dropdown-option" value={selectedValue2}  onChange={handleChange2}>
-  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
-  <option value="A">A</option>
-  <option value="B">B</option>
-  <option value="C">C</option>
-</select>
+                <select className="dropdown-option" id="district" defaultValue={selectedValue2}  onChange={handleChange2}>
+                  <option value="Dropdown option" disabled selected hidden>Dropdown option</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                </select>
               </div>
             </div>
           </div>
@@ -1372,24 +3372,33 @@ const onPrevStepClick = useCallback(() => {
             <div className="inputs-dropdowns">
               <div className="pincode">Pincode</div>
               <div className="input-field3">
-                {/* <input type="text" className="rakigmailcom" defaultValue="516XXX" /> */}
                 <input
-        type="text"
-        placeholder="Pincode"
-        className="pin"
-        value={pincode}
-        onChange={(e) => setPincode(e.target.value)}/>
-
+                  id="pincode"
+                  type="text"
+                  placeholder="Pincode"
+                  className="pin"
+                  value={pincode}
+                  onChange={(e) => setPincode(e.target.value)}
+                />
               </div>
             </div>
           </div>
           <AdditionalInformation
             onRectangleContainer1Click={onRectangleContainer1Click}
           />
-          <NextStepButton onClick={onNextSstepClickMID} />
+         {firstName.trim() !== '' && middleName.trim() !== '' && lastName.trim() !== '' && email.trim() !== '' && phone.trim() !== '' && location.trim() !== '' && pincode.trim() !== '' ? (
+  <NextStepButton onClick={onNextSstepClickMID} />
+) : (
+  <NextStepButton onClick={() => alert("Please fill the personal info")} />
+)}
+          
           <div onClick={onNextStepClick} className={styles.pre} >Prev</div>
-        </div>
-      )}
+        </>
+      )
+    )}
+  </div>
+)}
+
 
 {showMid && (
   <div className={styles.startDesktop}>
@@ -1606,12 +3615,11 @@ const onPrevStepClick = useCallback(() => {
       </div>
       <div className={styles.textValues3}>
         <div className={styles.textValuesChild} />
-        <div
-                className={`div24 ${selectedSoilType === "30-40 years" ? styles.selectedOption : ""}`}
+        <div className={`div24 ${selectYear === "30-40 years" ? styles.selectedOption : ""}`}
                 onClick={() => handleYearSelect("30-40 years")}
               >
                 30-40 years
-                {selectedSoilType === "30-40 years" && (
+                {selectYear === "30-40 years" && (
                   <img
                     className={styles.checkCircleIcon}
                     alt=""
