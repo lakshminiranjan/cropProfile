@@ -5,6 +5,7 @@ import FarmerProfileFollow from "../FarmerProfileFollow";
 import AdditionalInformation from "../AdditionalInformation";
 import NextStepButton from "../NextStepButton";
 import DatePicker from 'react-datepicker';
+import Calendar from 'react-calendar';
 
 
 
@@ -44,7 +45,7 @@ const handleSubmit = (e) => {
     // For example: submitForm();
   } else {
     // Not all fields are filled, show an alert
-    alert('Please fill all the personal information');
+    alert('PLEASE FILL ALL THE PERSONAL INFORMATION');
     setIsFormFilled(false);
   }
 };
@@ -163,13 +164,16 @@ const handleYearlyInvestmentSelect = (option) => {
 
   
   const handleMonthChange = (date) => {
-    
+    // Get the month name from the selected date
     const monthName = date.toLocaleString('default', { month: 'long' });
    
-    document.getElementById('monthOutput').innerText = monthName;
-    
+    // Update the state with the selected date
     setSelectedDate2(date);
-  };
+    
+    // Update the input field with the selected month value
+    document.getElementById('monthOutput').innerText = monthName;
+};
+
 
   const handleDateChange = (date) => {
    
@@ -192,7 +196,7 @@ const handleYearlyInvestmentSelect = (option) => {
 
   const handleCalendarTodayClick = () => {
     setShowDatePicker2(!showDatePicker2);
-    setSelectedDate2(new Date());
+    
   };
   
 // onNextStepNFMob1
@@ -1035,7 +1039,7 @@ const onPrevStepClick = useCallback(() => {
         onNextSstepClickFIE();
       }
     } else {
-      alert('Please fill all the personal information');
+      alert('PLEASE FILL ALL THE PERSONAL INFORMATION');
     }
   }}
 />
@@ -1051,7 +1055,7 @@ const onPrevStepClick = useCallback(() => {
         onNextSstepClickFIE();
       }
     } else {
-      alert('Please fill all the personal information');
+      alert('PLEASE FILL ALL THE PERSONAL INFORMATION');
     }
   }}
 >
@@ -3389,7 +3393,7 @@ const onPrevStepClick = useCallback(() => {
          {firstName.trim() !== '' && middleName.trim() !== '' && lastName.trim() !== '' && email.trim() !== '' && phone.trim() !== '' && location.trim() !== '' && pincode.trim() !== '' ? (
   <NextStepButton onClick={onNextSstepClickMID} />
 ) : (
-  <NextStepButton onClick={() => alert("Please fill the personal info")} />
+  <NextStepButton onClick={() => alert("PLEASE FILL ALL THE PERSONAL INFORMATION")} />
 )}
           
           <div onClick={onNextStepClick} className={styles.pre} >Prev</div>
@@ -3466,7 +3470,795 @@ const onPrevStepClick = useCallback(() => {
 )}
 
 {showFarmInfoExp && (
-  <div className={styles.startDesktop}>
+  <div className={styles.startDesktop} style={{ overflowY: "auto" }}>
+    {windowWidth <= 600 ? (
+       <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#dfdfdf",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "35px",
+            left: "43px",
+            width: "158px",
+            height: "24px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "0px",
+              letterSpacing: "1px",
+              lineHeight: "24px",
+              fontWeight: "600",
+              whiteSpace:"nowrap",
+            }}
+          >
+            Farm information
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "145px",
+          left: "266px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        1 of 8
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          height: "5.69%",
+          width: "73.08%",
+          top: "33.65%",
+          right: "12.31%",
+          bottom: "60.66%",
+          left: "14.62%",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "25%",
+            left: "8.07%",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "600",
+          }}
+        >
+          How many acres do you have ?
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "378px",
+          left: "62px",
+          borderRadius: "8px",
+          backgroundColor: "#d9d9d9",
+          border: "1px solid #000",
+          boxSizing: "border-box",
+          width: "280px",
+          height: "50px",
+        }}
+      />
+      <img
+        style={{
+          position: "absolute",
+          top: "389px",
+          left: "117px",
+          width: "173px",
+          height: "29px",
+        }}
+        alt=""
+        src="/vector-5.svg"
+      />
+      <img
+      onClick={incrementAcres}
+        style={{
+          position: "absolute",
+          top: "390px",
+          left: "300px",
+          width: "24px",
+          height: "24px",
+        }}
+        alt=""
+        src="/icon--plus.svg"
+      />
+      <img
+      onClick={decrementAcres}
+        style={{
+          position: "absolute",
+          top: "390px",
+          left: "80px",
+          width: "24px",
+          height: "24px",
+        }}
+        alt=""
+        src="/icon--minus.svg"
+      />
+      <div
+          style={{
+            position: "absolute",
+            top: "393px",
+            left: "168px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "64px",
+            height: "23px",
+          }}
+        >
+          <input
+            type="number"
+            value={acres}
+            onChange={e => setAcres(parseInt(e.target.value))}
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              textAlign: "center",
+              outline: "none",
+              fontSize: "inherit",
+              fontWeight: "inherit",
+            }}
+          />
+        </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          left: "178px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+        }}
+        onClick={onNextSstepClickMID}
+      >
+        Prev
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "633px",
+          left: "35px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "320px",
+          height: "50px",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepFIMob2}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "648px",
+          left: "165px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+          textAlign: "left",
+        }}
+      >
+        Next step
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "35px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "12.5%",
+            top: "0%",
+            right: "87.5%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+    </div>
+    ) : (
+      windowWidth >= 600 && windowWidth <= 865 ? (
+        <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "1133px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+       {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
+      <div
+        style={{
+          position: "absolute",
+          top: "68.5px",
+          left: "-0.5px",
+          borderTop: "1px solid #000",
+          boxSizing: "border-box",
+          width: "745px",
+          height: "1px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "28px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "146px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "369px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          color: "#1b5bff",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "31px",
+          left: "347px",
+          width: "12px",
+          height: "12px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/right-arrow@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "125px",
+          left: "calc(50% - 99px)",
+          fontSize: "24px",
+          fontWeight: "600",
+          fontFamily: "'Noto Sans'",
+          textAlign: "left",
+        }}
+      >
+        Farm information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "193px",
+          left: "199px",
+          letterSpacing: "-0.02em",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Land in acres
+      </div>
+      <NextStepButton onClick={onNextSTepLocTab}/>
+      {/* next step */}
+      <div onClick={onNextSstepClickMID} className={styles.pre} >Prev</div>
+  
+      {/* prev */}
+      <div
+        style={{
+          position: "absolute",
+          height: "3.97%",
+          width: "46.37%",
+          top: "21.54%",
+          right: "26.88%",
+          bottom: "74.49%",
+          left: "26.75%",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "50%",
+            width: "85.62%",
+            top: "25.11%",
+            left: "8.06%",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "inline-block",
+          }}
+        >
+          How many acres do you have ?
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "calc(50% - 249.5px)",
+          left: "calc(50% - 170px)",
+          borderRadius: "8px",
+          backgroundColor: "#d9d9d9",
+          border: "1px solid #000",
+          boxSizing: "border-box",
+          width: "342px",
+          height: "50px",
+        }}
+      />
+      <img
+        style={{
+          position: "absolute",
+          width: "calc(100% - 571px)",
+          top: "calc(50% - 238.5px)",
+          left: "289px",
+          right:"282px",
+          height: "29px",
+          maxWidth: "100%",
+          overflow: "hidden",
+        }}
+        alt=""
+        src="/vector-5.svg"
+      />
+      <img
+      onClick={incrementAcres}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 237.5px)",
+          right:"228px",
+          width: "24px",
+          height: "24px",
+        }}
+        alt=""
+        src="/icon--plus.svg"
+      />
+      <img
+      onClick={decrementAcres}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 237.5px)",
+          left: "239px",
+          width: "24px",
+          height: "24px",
+        }}
+        alt=""
+        src="/icon--minus.svg"
+      />
+      <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 680px)",
+            top: "calc(50% - 235.5px)",
+            left: "340px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            
+            height: "23px",
+          }}
+        >
+          <input
+            type="number"
+            value={acres}
+            onChange={e => setAcres(parseInt(e.target.value))}
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              textAlign: "center",
+              outline: "none",
+              fontSize: "inherit",
+              fontWeight: "inherit",
+            }}
+          />
+        </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "95px",
+          left: "640px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "60px",
+          height: "16px",
+        }}
+      >
+        1 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "442px",
+          left: "197px",
+          width: "345px",
+          height: "45px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+            width: "345px",
+            height: "45px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "11.3px",
+            left: "65.4px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "600",
+            display: "inline-block",
+            width: "221.5px",
+            height: "22.5px",
+          }}
+        >
+          Experience in farming ?
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "522px",
+          left: "calc(50% - 171px)",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("1-10 years")}
+        >
+          1-10 years
+          {selectedSoilType === "1-10 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "650px",
+          left: "204px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("15-20 years")}
+        >
+          15-20 years
+          {selectedSoilType === "15-20 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "586px",
+          left: "204px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("10-15 years")}
+        >
+          10-15 years
+          {selectedSoilType === "10-15 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "712px",
+          left: "202px",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          
+          boxSizing: "border-box",
+          width: "346px",
+          height: "52px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("20-25 years")}
+        >
+          20-25 years
+          {selectedSoilType === "20-25 years" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
+      </div>
+    </div>
+      ) : (
+        <>
+          <div className={styles.startDesktop}>
    
     {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow />}
       <div className={styles.landInformation}>Land information</div>
@@ -3641,10 +4433,848 @@ const onPrevStepClick = useCallback(() => {
     <div onClick={onNextSstepClickMID} className={styles.pre} >Prev</div>
     
   </div>
+        </>
+      )
+    )}
+  </div>
 )}
 
+
+
+
+
+
 {showLocationSoilType && (
-  <div className={styles.startDesktop}>
+  <div className={styles.startDesktop} style={{ overflowY: "auto" }}>
+    {windowWidth <= 600 ? (
+      <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#dfdfdf",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "35px",
+            left: "35px",
+            width: "166px",
+            height: "24px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "0px",
+              letterSpacing: "1px",
+              lineHeight: "24px",
+              fontWeight: "600",
+            }}
+          >{`Location of a farm `}</div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+          whiteSpace:"nowrap",
+        }}
+      >
+        Agriculture information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "145px",
+          left: "266px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        2 of 8
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "265px",
+          left: "70px",
+          width: "232px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "1.29%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Farm Location
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/location-on.svg"
+          />
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "15px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/location-on.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          left: "178px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepFIMob2}
+      >
+        Prev
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "633px",
+          left: "35px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "320px",
+          height: "50px",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepLSMob2}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "648px",
+          left: "165px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+          textAlign: "left",
+        }}
+      >
+        Next step
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "367px",
+          left: "71px",
+          width: "232px",
+          height: "215px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/rectangle-55@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "35px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "25%",
+            top: "0%",
+            right: "75%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+    </div>
+    ) : (
+      windowWidth >= 600 && windowWidth <= 865 ? (
+        <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "1133px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "68.5px",
+          left: "-0.5px",
+          borderTop: "1px solid #000",
+          boxSizing: "border-box",
+          width: "745px",
+          height: "1px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "28px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "146px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "369px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          color: "#1b5bff",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "31px",
+          left: "347px",
+          width: "12px",
+          height: "12px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/right-arrow@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "125px",
+          left: "calc(50% - 99px)",
+          fontSize: "24px",
+          fontWeight: "600",
+          fontFamily: "'Noto Sans'",
+          textAlign: "left",
+        }}
+      >
+        Farm information
+      </div>
+      
+      <NextStepButton onClick={onNextStepCCTab}/>
+      {/* prev */}
+      <div onClick={onNextshowFIETab} className={styles.pre} >Prev</div>
+      <div
+        style={{
+          position: "absolute",
+          top: "95px",
+          left: "640px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "60px",
+          height: "16px",
+        }}
+      >
+        1 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "193px",
+          left: "199px",
+          width: "166px",
+          height: "24px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            letterSpacing: "1px",
+            lineHeight: "24px",
+            fontWeight: "600",
+          }}
+        >{`Location of a farm `}</div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "204px",
+          left: "calc(50% - 173px)",
+          width: "342px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.63%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.15%",
+            top: "0%",
+            left: "0.85%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Farm Location
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/location-on.svg"
+          />
+          <input
+        type="text"
+        placeholder="Enter Location"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        style={{
+          position: "absolute",
+          top: "calc(50% - 14px)",
+          left: "34px",
+          width: "166px",
+          height: "26px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          justifyContent: "flex-start",
+          gap: "12px",
+          fontSize: "14px",
+          color: "#949494",
+          fontFamily: "Inter",
+          border:"none",
+        }}
+      />
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/location-on.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+          }}
+        />
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "311px",
+          left: "calc(50% - 173px)",
+          width: "342px",
+          height: "244px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/rectangle-55@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "592px",
+          left: "199px",
+          borderRadius: "8px",
+          backgroundColor: "#d9d9d9",
+          border: "1px solid #000",
+          boxSizing: "border-box",
+          width: "345px",
+          height: "48px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "604px",
+          left: "322px",
+          letterSpacing: "-0.02em",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Type of soil ?
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "653px",
+          left: "200px",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          
+          boxSizing: "border-box",
+          width: "346px",
+          height: "52px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("Alluvial soil")}
+        >
+          Alluvial soil
+          {selectedSoilType === "Alluvial soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "718px",
+          left: "202px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("Black soil")}
+        >
+          Black soil
+          {selectedSoilType === "Black soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "778px",
+          left: "202px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("Red soil")}
+        >
+          Red soil
+          {selectedSoilType === "Red soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "838px",
+          left: "202px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("Sand soil")}
+        >
+          Sand soil
+          {selectedSoilType === "Sand soil" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+      ) : (
+        <>
+          <div className={styles.startDesktop}>
     
      {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
       <img
@@ -3775,10 +5405,1270 @@ const onPrevStepClick = useCallback(() => {
       />}
      <div onClick={onNextSstepClickFIE} className={styles.pre} >Prev</div>
   </div>
+        </>
+      )
+    )}
+  </div>
 )}
 
+
+
+
 {showCultivationCrop && (
-  <div className={styles.startDesktop}>
+  <div className={styles.startDesktop} style={{ overflowY: "auto" }}>
+    {windowWidth <= 600 ? (
+       <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#dfdfdf",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "35px",
+            left: "35px",
+            width: "101px",
+            height: "24px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "0px",
+              letterSpacing: "1px",
+              lineHeight: "24px",
+              fontWeight: "600",
+            }}
+          >{`Cultivation `}</div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "145px",
+          left: "266px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        4 of 8
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "300px",
+          left: "70px",
+          fontSize: "12px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "600",
+          fontFamily: "Inter",
+          textAlign: "left",
+        }}
+      >
+        Start month of cultivation
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "418px",
+          left: "70px",
+          fontSize: "12px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "600",
+          fontFamily: "Inter",
+          textAlign: "left",
+        }}
+      >
+        Pre production month
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          left: "178px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepLSMob2}
+      >
+        Prev
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "633px",
+          left: "34px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "320px",
+          height: "50px",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepCCMob2}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "648px",
+          left: "165px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+          textAlign: "left",
+        }}
+      >
+        Next step
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "314px",
+          left: "70px",
+          width: "232px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "1.29%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Label
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <div
+          style={{
+            position: "relative",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+          }}
+          id="dateOutput" 
+        >
+          DD/MM/YY
+        </div>
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "calc(50% - 12px)",
+          right: "13px",
+          width: "24px",
+          height: "24px",
+          overflow: "hidden",
+          cursor: "pointer",
+        }}
+        alt=""
+        src="/date-range.svg"
+        onClick={handleDateRangeClick}
+      />
+      {showDatePicker1 && (
+        <Calendar
+          selected={selectedDate1}
+          onChange={handleDateChange} 
+          dateFormat="dd/MM/yyyy" 
+        />
+      )}
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "440px",
+          left: "70px",
+          width: "232px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "1.29%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Label
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <div
+          style={{
+            position: "relative",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+          }}
+          id="monthOutput" 
+        >
+          January
+        </div>
+        </div>
+        <img
+        style={{
+          position: "absolute",
+          top: "calc(50% - 12px)",
+          right: "13px",
+          width: "24px",
+          height: "24px",
+          overflow: "hidden",
+          cursor: "pointer",
+        }}
+        alt=""
+        src="/calender-today.svg"
+        onClick={handleCalendarTodayClick}
+      />
+      {showDatePicker2 && (
+        <Calendar
+          selected={selectedDate2}
+          onChange={handleMonthChange} // Call handleMonthChange on date change
+          dateFormat="MMMM yyyy"
+          showMonthYearPicker
+        />
+      )}
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "35px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "50%",
+            top: "0%",
+            right: "50%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+    </div>
+    ) : (
+      windowWidth >= 600 && windowWidth <= 865 ? (
+         <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "1133px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "68.5px",
+          left: "-0.5px",
+          borderTop: "1px solid #000",
+          boxSizing: "border-box",
+          width: "745px",
+          height: "1px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "28px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "146px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "369px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          color: "#1b5bff",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "31px",
+          left: "347px",
+          width: "12px",
+          height: "12px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/right-arrow@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "125px",
+          left: "calc(50% - 99px)",
+          fontSize: "24px",
+          fontWeight: "600",
+          fontFamily: "'Noto Sans'",
+          textAlign: "left",
+        }}
+      >
+        Farm information
+      </div>
+      <NextStepButton onClick={onNextSTepInvst1}/>
+      {/* prev */}<div onClick={onNextSTepLocTab} className={styles.pre} >Prev</div>
+      <div
+        style={{
+          position: "absolute",
+          top: "95px",
+          left: "640px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "60px",
+          height: "16px",
+        }}
+      >
+        1 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "189px",
+          left: "201px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "185px",
+        }}
+      >
+        Pre production date
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "323px",
+          left: "202px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Pre production month
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "207px",
+          left: "calc(50% - 170px)",
+          width: "336px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.66%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Label
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <div
+            style={{
+              position: "relative",
+              letterSpacing: "-0.02em",
+              lineHeight: "26px",
+            }}
+              id="dateOutput" 
+          >
+            DD/MM/YYYY
+          </div>
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/calender-today.svg"
+          onClick={handleDateRangeClick}
+        />
+        {showDatePicker1 && (
+        <Calendar
+          selected={selectedDate1}
+          onChange={handleDateChange} 
+          dateFormat="dd/MM/yyyy" 
+        />
+      )}
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "341px",
+          left: "calc(50% - 170px)",
+          width: "331px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.41%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.12%",
+            top: "0%",
+            left: "0.88%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Label
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <div
+            style={{
+              position: "relative",
+              letterSpacing: "-0.02em",
+              lineHeight: "26px",
+            }}
+            id="monthOutput"
+          >
+            January
+          </div>
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/date-range.svg"
+          onClick={handleCalendarTodayClick}
+        />
+        {showDatePicker2 && (
+        <Calendar
+          selected={selectedDate2}
+          onChange={handleMonthChange} // Call handleMonthChange on date change
+          dateFormat="MMMM yyyy"
+          showMonthYearPicker
+        />
+      )}
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "472px",
+          left: "202px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Primary crop
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "490px",
+          left: "calc(50% - 170px)",
+          width: "345px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.91%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.13%",
+            top: "0%",
+            left: "0.87%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Label
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <div
+            style={{
+              position: "relative",
+              letterSpacing: "-0.02em",
+              lineHeight: "26px",
+            }}
+          >
+            Paddy
+          </div>
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "598px",
+          left: "202px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Secondary crop
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "616px",
+          left: "calc(50% - 170px)",
+          borderRadius: "8px",
+          width: "336px",
+          height: "102px",
+          fontSize: "12px",
+          color: "#d50000",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "74.51%",
+            left: "3.66%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            display: "none",
+          }}
+        >
+          *error
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "25.49%",
+            width: "49.14%",
+            top: "0%",
+            left: "0.86%",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            fontWeight: "600",
+            color: "#a2a2a2",
+            textAlign: "left",
+            display: "none",
+          }}
+        >
+          Label
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            height: "49.02%",
+            width: "100%",
+            top: "25.49%",
+            right: "0%",
+            bottom: "25.49%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#fff",
+            border: "1px solid #000",
+            boxSizing: "border-box",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(50% - 14px)",
+            left: "20px",
+            width: "166px",
+            height: "26px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            gap: "12px",
+            fontSize: "14px",
+            color: "#949494",
+            fontFamily: "Inter",
+          }}
+        >
+          <img
+            style={{
+              width: "24px",
+              position: "relative",
+              height: "24px",
+              overflow: "hidden",
+              flexShrink: "0",
+              display: "none",
+            }}
+            alt=""
+            src="/mail-outline.svg"
+          />
+          <div
+            style={{
+              width: "101px",
+              position: "relative",
+              letterSpacing: "-0.02em",
+              lineHeight: "26px",
+              display: "none",
+            }}
+          >
+            raki@gmail.com
+          </div>
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            top: "calc(50% - 12px)",
+            right: "13px",
+            width: "24px",
+            height: "24px",
+            overflow: "hidden",
+          }}
+          alt=""
+          src="/add.svg"
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "calc(100% - 51px)",
+            top: "25.5px",
+            right: "45.5px",
+            bottom: "25.5px",
+            borderRight: "1px solid #000",
+            boxSizing: "border-box",
+            width: "1px",
+            display: "none",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          height: "3.18%",
+          width: "13.84%",
+          top: "57.28%",
+          right: "56.32%",
+          bottom: "39.54%",
+          left: "29.84%",
+          overflow: "hidden",
+          textAlign: "left",
+          fontSize: "12px",
+          fontFamily: "Inter",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+            width: "103px",
+            height: "36px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 65px)",
+            top: "calc(50% - 11px)",
+            left: "24px",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            display: "inline-block",
+            height: "26px",
+          }}
+        >
+          Paddy
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            height: "80.83%",
+            width: "28.25%",
+            top: "9.72%",
+            right: "5.92%",
+            bottom: "9.44%",
+            left: "65.83%",
+            maxWidth: "100%",
+            overflow: "hidden",
+            maxHeight: "100%",
+            objectFit: "contain",
+          }}
+          alt=""
+          src="/plus@2x.png"
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          height: "3.18%",
+          width: "13.84%",
+          top: "57.28%",
+          right: "41.26%",
+          bottom: "39.54%",
+          left: "44.89%",
+          overflow: "hidden",
+          textAlign: "left",
+          fontSize: "12px",
+          fontFamily: "Inter",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+            width: "103px",
+            height: "36px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 65px)",
+            top: "calc(50% - 11px)",
+            left: "24px",
+            letterSpacing: "-0.02em",
+            lineHeight: "26px",
+            display: "inline-block",
+            height: "26px",
+          }}
+        >
+          Wheat
+        </div>
+        <img
+          style={{
+            position: "absolute",
+            height: "80.83%",
+            width: "28.25%",
+            top: "9.72%",
+            right: "5.92%",
+            bottom: "9.44%",
+            left: "65.83%",
+            maxWidth: "100%",
+            overflow: "hidden",
+            maxHeight: "100%",
+            objectFit: "contain",
+          }}
+          alt=""
+          src="/plus@2x.png"
+        />
+      </div>
+    </div>
+      ) : (
+        <>
+          <div className={styles.startDesktop}>
    
      {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
     <img className="right-arrow-icon16" alt="" src="/right-arrow@2x.png" />
@@ -3827,7 +6717,7 @@ const onPrevStepClick = useCallback(() => {
         </div>
         <img className="date-range-icon" alt="" src="/date-range.svg" onClick={handleDateRangeClick} />
         {showDatePicker1 && (
-          <DatePicker
+          <Calendar
             selected={selectedDate1}
             onChange={handleDateChange}
             dateFormat="dd/MM/yyyy"
@@ -3851,7 +6741,7 @@ const onPrevStepClick = useCallback(() => {
   </div>
   <img className="date-range-icon" alt="" src="/calender-today.svg" onClick={handleCalendarTodayClick} />
   {showDatePicker2 && (
-    <DatePicker
+    <Calendar
       className=" custom-datepicker"
       selected={selectedDate2}
       onChange={handleMonthChange}
@@ -3878,10 +6768,779 @@ const onPrevStepClick = useCallback(() => {
       />}
    <div onClick={onNextSstepClickLS} className={styles.pre} >Prev</div>
   </div>
+        </>
+      )
+    )}
+  </div>
 )}
 
+
+{/* {showInvestmentStrorage && (
+  
+)} */}
+
+
 {showInvestmentStrorage && (
-  <div className={styles.startDesktop}>
+  <div className={styles.startDesktop} style={{ overflowY: "auto" }}>
+    {windowWidth <= 600 ? (
+      <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "844px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "206px",
+          left: "35px",
+          width: "320px",
+          height: "400px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            borderRadius: "16px",
+            backgroundColor: "#dfdfdf",
+            width: "320px",
+            height: "400px",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: "33px",
+            left: "35px",
+            width: "102px",
+            height: "24px",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "0px",
+              letterSpacing: "1px",
+              lineHeight: "24px",
+              fontWeight: "600",
+            }}
+          >
+            Investment
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "98px",
+          left: "49px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "145px",
+          left: "266px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "59px",
+          height: "16px",
+        }}
+      >
+        7 of 8
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "288px",
+          left: "53px",
+          borderRadius: "8px",
+          backgroundColor: "#d9d9d9",
+          border: "1px solid #000",
+          boxSizing: "border-box",
+          width: "285px",
+          height: "48px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "300px",
+          left: "114px",
+          letterSpacing: "-0.02em",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Yearly investment
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "705px",
+          left: "178px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          textAlign: "left",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepCCMob2}
+      >
+        Prev
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "633px",
+          left: "35px",
+          borderRadius: "8px",
+          backgroundColor: "#02044a",
+          width: "320px",
+          height: "50px",
+          cursor: "pointer",
+        }}
+        onClick={onNextStepISMob2}
+      />
+      
+      <div
+        style={{
+          position: "absolute",
+          top: "648px",
+          left: "165px",
+          fontSize: "14px",
+          letterSpacing: "-0.02em",
+          lineHeight: "20px",
+          fontWeight: "500",
+          fontFamily: "Inter",
+          color: "#fff",
+          textAlign: "left",
+        }}
+      >
+        Next step
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "780px",
+          left: "35px",
+          width: "320px",
+          height: "6px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "87.5%",
+            top: "0%",
+            right: "12.5%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "2px",
+            backgroundColor: "#1b5bff",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "35px",
+          left: "35px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "350px",
+          left: "53px",
+          width: "285px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("100000-200000")}
+        >
+          100000-200000
+          {selectedSoilType === "100000-200000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "404px",
+          left: "51px",
+          
+          borderRadius: "8px",
+          
+          boxSizing: "border-box",
+          width: "289px",
+          height: "52px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("300000-400000")}
+        >
+          300000-400000
+          {selectedSoilType === "300000-400000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "462px",
+          left: "56px",
+          width: "285px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+            whiteSpace:"nowrap",
+          }}
+          onClick={() => handleSoilTypeSelect("400000-500000")}
+        >
+          400000-500000
+          {selectedSoilType === "400000-500000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "518px",
+          left: "56px",
+          width: "285px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+            whiteSpace:"nowrap",
+          }}
+          onClick={() => handleSoilTypeSelect("500000-600000")}
+        >
+          500000-600000
+          {selectedSoilType === "500000-600000" && (
+            <img
+              className={styles.checkCircleIcon1}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+    ) : (
+      windowWidth >= 600 && windowWidth <= 865 ? (
+        <div
+      style={{
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#fff",
+        height: "1133px",
+        overflow: "hidden",
+        textAlign: "center",
+        fontSize: "16px",
+        color: "#000",
+        fontFamily: "Poppins",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "68.5px",
+          left: "-0.5px",
+          borderTop: "1px solid #000",
+          boxSizing: "border-box",
+          width: "745px",
+          height: "1px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "193px",
+          left: "199px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        {" "}
+        Investment
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "28px",
+          fontSize: "24px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+        }}
+      >
+        Logo
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "146px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          textAlign: "left",
+        }}
+      >
+        Personal information
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "24px",
+          left: "369px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          color: "#1b5bff",
+          textAlign: "left",
+        }}
+      >
+        Agriculture information
+      </div>
+      <img
+        style={{
+          position: "absolute",
+          top: "31px",
+          left: "347px",
+          width: "12px",
+          height: "12px",
+          objectFit: "cover",
+        }}
+        alt=""
+        src="/right-arrow@2x.png"
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "125px",
+          left: "calc(50% - 99px)",
+          fontSize: "24px",
+          fontWeight: "600",
+          fontFamily: "'Noto Sans'",
+          textAlign: "left",
+        }}
+      >
+        Farm information
+      </div>
+      
+      <NextStepButton onClick={onNextSTepInvst2}/>
+     {/* prev */}<div onClick={onNextStepCCTab} className={styles.pre} >Prev</div>
+      <div
+        style={{
+          position: "absolute",
+          top: "232px",
+          left: "199px",
+          borderRadius: "8px",
+          backgroundColor: "#d9d9d9",
+          border: "1px solid #000",
+          boxSizing: "border-box",
+          width: "345px",
+          height: "48px",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          top: "244px",
+          left: "267px",
+          letterSpacing: "-0.02em",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "inline-block",
+          width: "167px",
+        }}
+      >
+        Yearly investment
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "95px",
+          left: "640px",
+          letterSpacing: "1px",
+          lineHeight: "24px",
+          fontWeight: "600",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "60px",
+          height: "16px",
+        }}
+      >
+        1 of 4
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "301px",
+          left: "201px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("100000-200000")}
+        >
+          100000-200000
+          {selectedSoilType === "100000-200000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "364px",
+          left: "201px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("200000-300000")}
+        >
+          200000-300000
+          {selectedSoilType === "200000-300000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "425px",
+          left: "200px",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+          
+          boxSizing: "border-box",
+          width: "346px",
+          height: "52px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("300000-400000")}
+        >
+          300000-400000
+          {selectedSoilType === "300000-400000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+        
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "501px",
+          left: "202px",
+          width: "342px",
+          height: "48px",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            top: "0%",
+            right: "0%",
+            bottom: "0%",
+            left: "0%",
+            borderRadius: "8px",
+            backgroundColor: "#d9d9d9",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            width: "calc(100% - 134px)",
+            top: "calc(50% - 12px)",
+            left: "48px",
+            letterSpacing: "-0.02em",
+            lineHeight: "24px",
+            fontWeight: "500",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "24px",
+          }}
+          onClick={() => handleSoilTypeSelect("400000-500000")}
+        >
+          400000-500000
+          {selectedSoilType === "400000-500000" && (
+            <img
+              className={styles.checkCircleIcon}
+              alt=""
+              src="/check-circle.svg"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+      ) : (
+        <>
+          <div className={styles.startDesktop}>
    
            {windowWidth >= 600 && windowWidth <= 865 ? null : <FarmerProfileFollow  />}
       <div className="investment1">Investment</div>
@@ -4006,8 +7665,24 @@ const onPrevStepClick = useCallback(() => {
     
       <AdditionalInformation onRectangleContainer1Click={onRectangleContainer1Click} />
 
-    <NextStepButton onClick={onNextSstepClickLast} />
+    <NextStepButton
+  onClick={() => {
+    // Check if all required options are selected
+    if (!selectedYearlyInvestment || !selectedSoilType) {
+      // If any option is missing, display an alert
+      alert("PLEASE FILL THE AGRICULTURE INFORMATION");
+    } else {
+      // Proceed to the next step
+      onNextSstepClickLast();
+    }
+  }}
+/>
+
    <div onClick={onNextSstepClickCC} className={styles.pre} >Prev</div>
+  </div>
+        </>
+      )
+    )}
   </div>
 )}
 
@@ -4065,6 +7740,9 @@ const onPrevStepClick = useCallback(() => {
     
   </div>
 )}
+
+
+
 
 {showFIETab  && (
    <div
@@ -5301,7 +8979,7 @@ const onPrevStepClick = useCallback(() => {
           onClick={handleDateRangeClick}
         />
         {showDatePicker1 && (
-        <DatePicker
+        <Calendar
           selected={selectedDate1}
           onChange={handleDateChange} 
           dateFormat="dd/MM/yyyy" 
@@ -5430,7 +9108,7 @@ const onPrevStepClick = useCallback(() => {
           onClick={handleCalendarTodayClick}
         />
         {showDatePicker2 && (
-        <DatePicker
+        <Calendar
           selected={selectedDate2}
           onChange={handleMonthChange} // Call handleMonthChange on date change
           dateFormat="MMMM yyyy"
@@ -9979,7 +13657,7 @@ const onPrevStepClick = useCallback(() => {
         onClick={handleDateRangeClick}
       />
       {showDatePicker1 && (
-        <DatePicker
+        <Calendar
           selected={selectedDate1}
           onChange={handleDateChange} 
           dateFormat="dd/MM/yyyy" 
@@ -10107,7 +13785,7 @@ const onPrevStepClick = useCallback(() => {
         onClick={handleCalendarTodayClick}
       />
       {showDatePicker2 && (
-        <DatePicker
+        <Calendar
           selected={selectedDate2}
           onChange={handleMonthChange} // Call handleMonthChange on date change
           dateFormat="MMMM yyyy"
@@ -12233,6 +15911,7 @@ const onPrevStepClick = useCallback(() => {
           )}
         </div>
       </div>
+      
     </div>
 )}
     </div>
