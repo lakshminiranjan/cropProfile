@@ -5,7 +5,7 @@ import FarmerProfileFollow from "../FarmerProfileFollow";
 import AdditionalInformation from "../AdditionalInformation";
 import NextStepButton from "../NextStepButton";
 import DatePicker from 'react-datepicker';
-import Calendar from 'react-calendar';
+// import Calendar from 'react-calendar';
 
 
 
@@ -5686,11 +5686,11 @@ const onPrevStepClick = useCallback(() => {
         onClick={handleDateRangeClick}
       />
       {showDatePicker1 && (
-        <Calendar
-          selected={selectedDate1}
-          onChange={handleDateChange} 
-          dateFormat="dd/MM/yyyy" 
-        />
+        // <Calendar
+        //   selected={selectedDate1}
+        //   onChange={handleDateChange} 
+        //   dateFormat="dd/MM/yyyy" 
+        // />
       )}
         <div
           style={{
@@ -5814,12 +5814,12 @@ const onPrevStepClick = useCallback(() => {
         onClick={handleCalendarTodayClick}
       />
       {showDatePicker2 && (
-        <Calendar
-          selected={selectedDate2}
-          onChange={handleMonthChange} // Call handleMonthChange on date change
-          dateFormat="MMMM yyyy"
-          showMonthYearPicker
-        />
+        // <Calendar
+        //   selected={selectedDate2}
+        //   onChange={handleMonthChange} // Call handleMonthChange on date change
+        //   dateFormat="MMMM yyyy"
+        //   showMonthYearPicker
+        // />
       )}
         <div
           style={{
@@ -6131,11 +6131,11 @@ const onPrevStepClick = useCallback(() => {
           onClick={handleDateRangeClick}
         />
         {showDatePicker1 && (
-        <Calendar
-          selected={selectedDate1}
-          onChange={handleDateChange} 
-          dateFormat="dd/MM/yyyy" 
-        />
+        // <Calendar
+        //   selected={selectedDate1}
+        //   onChange={handleDateChange} 
+        //   dateFormat="dd/MM/yyyy" 
+        // />
       )}
         <div
           style={{
@@ -6260,12 +6260,12 @@ const onPrevStepClick = useCallback(() => {
           onClick={handleCalendarTodayClick}
         />
         {showDatePicker2 && (
-        <Calendar
-          selected={selectedDate2}
-          onChange={handleMonthChange} // Call handleMonthChange on date change
-          dateFormat="MMMM yyyy"
-          showMonthYearPicker
-        />
+        // <Calendar
+        //   selected={selectedDate2}
+        //   onChange={handleMonthChange} // Call handleMonthChange on date change
+        //   dateFormat="MMMM yyyy"
+        //   showMonthYearPicker
+        // />
       )}
         <div
           style={{
@@ -6717,13 +6717,13 @@ const onPrevStepClick = useCallback(() => {
         </div>
         <img className="date-range-icon" alt="" src="/date-range.svg" onClick={handleDateRangeClick} />
         {showDatePicker1 && (
-          <Calendar
-            selected={selectedDate1}
-            onChange={handleDateChange}
-            dateFormat="dd/MM/yyyy"
-            className="custom-datepicker"
+          // <Calendar
+          //   selected={selectedDate1}
+          //   onChange={handleDateChange}
+          //   dateFormat="dd/MM/yyyy"
+          //   className="custom-datepicker"
            
-          />
+          // />
         )}
   <div className="input-fieldtype1-child14" />
 </div>
@@ -6741,13 +6741,13 @@ const onPrevStepClick = useCallback(() => {
   </div>
   <img className="date-range-icon" alt="" src="/calender-today.svg" onClick={handleCalendarTodayClick} />
   {showDatePicker2 && (
-    <Calendar
-      className=" custom-datepicker"
-      selected={selectedDate2}
-      onChange={handleMonthChange}
-      dateFormat="MMMM yyyy"
-      showMonthYearPicker
-    />
+    // <Calendar
+    //   className=" custom-datepicker"
+    //   selected={selectedDate2}
+    //   onChange={handleMonthChange}
+    //   dateFormat="MMMM yyyy"
+    //   showMonthYearPicker
+    // />
   )}
   {/* */}
   <div className="input-fieldtype1-child14" />
@@ -8979,11 +8979,11 @@ const onPrevStepClick = useCallback(() => {
           onClick={handleDateRangeClick}
         />
         {showDatePicker1 && (
-        <Calendar
-          selected={selectedDate1}
-          onChange={handleDateChange} 
-          dateFormat="dd/MM/yyyy" 
-        />
+        // <Calendar
+        //   selected={selectedDate1}
+        //   onChange={handleDateChange} 
+        //   dateFormat="dd/MM/yyyy" 
+        // />
       )}
         <div
           style={{
@@ -9108,12 +9108,12 @@ const onPrevStepClick = useCallback(() => {
           onClick={handleCalendarTodayClick}
         />
         {showDatePicker2 && (
-        <Calendar
-          selected={selectedDate2}
-          onChange={handleMonthChange} // Call handleMonthChange on date change
-          dateFormat="MMMM yyyy"
-          showMonthYearPicker
-        />
+        // <Calendar
+        //   selected={selectedDate2}
+        //   onChange={handleMonthChange} // Call handleMonthChange on date change
+        //   dateFormat="MMMM yyyy"
+        //   showMonthYearPicker
+        // />
       )}
         <div
           style={{
@@ -13657,11 +13657,11 @@ const onPrevStepClick = useCallback(() => {
         onClick={handleDateRangeClick}
       />
       {showDatePicker1 && (
-        <Calendar
-          selected={selectedDate1}
-          onChange={handleDateChange} 
-          dateFormat="dd/MM/yyyy" 
-        />
+        // <Calendar
+        //   selected={selectedDate1}
+        //   onChange={handleDateChange} 
+        //   dateFormat="dd/MM/yyyy" 
+        // />
       )}
         <div
           style={{
@@ -13785,12 +13785,12 @@ const onPrevStepClick = useCallback(() => {
         onClick={handleCalendarTodayClick}
       />
       {showDatePicker2 && (
-        <Calendar
-          selected={selectedDate2}
-          onChange={handleMonthChange} // Call handleMonthChange on date change
-          dateFormat="MMMM yyyy"
-          showMonthYearPicker
-        />
+        // <Calendar
+        //   selected={selectedDate2}
+        //   onChange={handleMonthChange} // Call handleMonthChange on date change
+        //   dateFormat="MMMM yyyy"
+        //   showMonthYearPicker
+        // />
       )}
         <div
           style={{
